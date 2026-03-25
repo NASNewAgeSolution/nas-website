@@ -54,7 +54,7 @@
         .nav-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 10, 15, 0.96); backdrop-filter: blur(20px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
         nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 40px; max-width: 1300px; margin: 0 auto; width: 100%; }
         .nav-logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-        .nav-logo img { height: 120px; width: auto; filter: drop-shadow(0 0 6px rgba(0,163,255,0.25)); }
+        .nav-logo img { height: 100px; width: auto; filter: drop-shadow(0 0 6px rgba(0,163,255,0.25)); }
         .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
         .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.95rem; font-weight: 500; padding: 8px 16px; border-radius: 6px; transition: var(--transition); }
         .nav-links a:hover, .nav-links a.active { color: var(--white); background: rgba(255,255,255,0.1); }
@@ -70,11 +70,11 @@
         .mobile-menu a:hover { background: rgba(255,255,255,0.1); color: var(--accent); }
         .page { display: none; }
         .page.active { display: block; }
-        .hero { min-height: 100vh; background: linear-gradient(135deg, #0A0A0F 0%, #0d1929 40%, #0A1628 70%, #000814 100%); position: relative; display: flex; align-items: center; overflow: hidden; margin-top: 80px; }
+        .hero { min-height: 100vh; background: linear-gradient(135deg, #0A0A0F 0%, #0d1929 40%, #0A1628 70%, #000814 100%); position: relative; display: flex; align-items: center; overflow: hidden; padding-top: 80px; }
         .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 180%; background: radial-gradient(ellipse, rgba(0, 87, 184, 0.2) 0%, transparent 70%); pointer-events: none; }
         .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 60%; height: 100%; background: radial-gradient(ellipse, rgba(0, 163, 255, 0.08) 0%, transparent 70%); pointer-events: none; }
         .hero-grid { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(0, 87, 184, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 87, 184, 0.05) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
-        .hero-content { position: relative; z-index: 2; padding: 130px 40px 80px; max-width: 1300px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-content { position: relative; z-index: 2; padding: 80px 40px 80px; max-width: 1300px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .hero-text .badge { background: rgba(0, 163, 255, 0.15); color: var(--accent); border: 1px solid rgba(0, 163, 255, 0.3); }
         .hero-text h1 { color: var(--white); margin-bottom: 24px; line-height: 1.15; }
         .hero-text h1 span { background: linear-gradient(135deg, var(--accent), #60A5FA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -275,7 +275,7 @@
         .footer-logo-img { height: 90px; width: auto; filter: drop-shadow(0 0 6px rgba(0,163,255,0.25)); }
         @media (max-width: 1024px) {
             nav { padding: 18px 24px; }
-            .hero-content { grid-template-columns: 1fr; padding: 130px 24px 70px; gap: 50px; }
+            .hero-content { grid-template-columns: 1fr; padding: 60px 24px 70px; gap: 50px; }
             .hero-visual { max-width: 500px; margin: 0 auto; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .why-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -291,7 +291,7 @@
             nav { padding: 15px 20px; }
             .nav-links, .nav-cta { display: none; }
             .hamburger { display: flex; }
-            .hero-content { padding: 110px 20px 60px; }
+            .hero-content { padding: 60px 20px 60px; }
             .hero-stats { gap: 24px; }
             .services-grid { grid-template-columns: 1fr; }
             .testimonials-grid { grid-template-columns: 1fr; }
@@ -324,10 +324,7 @@
     <div class="nav-wrapper" id="navbar">
         <nav>
             <div class="nav-logo" onclick="showPage('home')">
-                <svg width="60" height="60" viewBox="0 0 100 100" style="filter: drop-shadow(0 0 6px rgba(0,163,255,0.25));">
-                    <circle cx="50" cy="50" r="45" fill="#0057B8"/>
-                    <text x="50" y="65" font-size="60" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">N</text>
-                </svg>
+                <img src="nas-Logo.jpg" alt="N.A.S Logo">
                 <div style="display: flex; flex-direction: column;">
                     <span style="font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: 1px;">N.A.S</span>
                     <span style="font-size: 0.8rem; color: #00A3FF; letter-spacing: 2px; text-transform: uppercase;">IT Support</span>
@@ -698,7 +695,7 @@
                     <div class="contact-info">
                         <div class="contact-info-header"><h3>Get in Touch</h3><p>We'd love to hear from you. Send us a message and we'll respond as soon as possible — usually within a few hours.</p></div>
                         <a href="https://wa.me/27763631820?text=Hi%20N.A.S!%20I%20need%20IT%20support." target="_blank" class="contact-detail" style="text-decoration:none;"><div class="contact-detail-icon whatsapp-icon"><i class="fab fa-whatsapp"></i></div><div class="contact-detail-text"><strong>+27 (0) 76 363 1820</strong><span>WhatsApp us anytime</span></div></a>
-                        <div class="contact-detail"><div class="contact-detail-icon"><i class="fas fa-envelope"></i></div><div class="contact-detail-text"><strong>info@nasnewagesolution.co.za</strong><span>Email us anytime</span></div></div>
+                        <div class="contact-detail"><div class="contact-detail-icon"><i class="fas fa-envelope"></i></div><div class="contact-detail-text"><strong>info@newagesolution.co.za</strong><span>Email us anytime</span></div></div>
                         <div class="contact-detail"><div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div><div class="contact-detail-text"><strong>+27 (0) 76 363 1820</strong><span>Monday - Friday, 8am - 6pm</span></div></div>
                         <div class="contact-detail"><div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-detail-text"><strong>Gauteng, South Africa</strong><span>We serve all of Gauteng</span></div></div>
                         <div class="contact-detail" style="background:rgba(0,87,184,0.05); border-color:rgba(0,87,184,0.2);"><div class="contact-detail-icon" style="background:linear-gradient(135deg,#0057B8,#00A3FF);"><i class="fas fa-headset"></i></div><div class="contact-detail-text"><strong>24/7 Support Available</strong><span>Emergency support for plan members</span></div></div>
@@ -736,10 +733,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer; gap: 16px;">
-                    <svg width="80" height="80" viewBox="0 0 100 100" class="footer-logo-img">
-                        <circle cx="50" cy="50" r="45" fill="#0057B8"/>
-                        <text x="50" y="65" font-size="60" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">N</text>
-                    </svg>
+                    <img src="nas-Logo.jpg" alt="N.A.S Logo" class="footer-logo-img">
                     <div>
                         <div style="font-size: 1.2rem; font-weight: 800; color: white; letter-spacing: 1px;">N.A.S</div>
                         <div style="font-size: 0.7rem; color: #00A3FF; letter-spacing: 2px; text-transform: uppercase;">IT Support</div>
@@ -755,7 +749,7 @@
             </div>
             <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a onclick="showPage('services')">IT Support</a></li><li><a onclick="showPage('services')">Email & Domain Setup</a></li><li><a onclick="showPage('services')">Network & WiFi</a></li><li><a onclick="showPage('services')">CCTV & Security</a></li><li><a onclick="showPage('services')">Computer Repairs</a></li></ul></div>
             <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('about')">About Us</a></li><li><a onclick="showPage('pricing')">Pricing</a></li><li><a onclick="showPage('contact')">Contact</a></li></ul></div>
-            <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="mailto:info@nasnewagesolution.co.za"><i class="fas fa-envelope" style="margin-right:6px;"></i>info@nasnewagesolution.co.za</a></li><li><a href="tel:+27763631820"><i class="fas fa-phone" style="margin-right:6px;"></i>+27 76 363 1820</a></li><li><a href="https://wa.me/27763631820" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a></li></ul></div>
+            <div class="footer-col"><h5>Contact</h5><ul class="footer-links"><li><a href="mailto:info@newagesolution.co.za"><i class="fas fa-envelope" style="margin-right:6px;"></i>info@newagesolution.co.za</a></li><li><a href="tel:+27763631820"><i class="fas fa-phone" style="margin-right:6px;"></i>+27 76 363 1820</a></li><li><a href="https://wa.me/27763631820" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;"></i>WhatsApp</a></li></ul></div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 <span>N.A.S (New Age Solution)</span>. All rights reserved. Gauteng, South Africa.</p>
@@ -831,7 +825,7 @@
                 message: document.getElementById('message').value
             };
             
-            fetch('https://formsubmit.co/ajax/info@nasnewagesolution.co.za', {
+            fetch('https://formsubmit.co/ajax/info@newagesolution.co.za', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
