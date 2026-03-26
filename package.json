@@ -1,0 +1,368 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Target, Users, Lightbulb, Award, ArrowRight, Clock, BadgeCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { CONTACT_CONFIG } from '../App';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const About = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const storyRef = useRef<HTMLDivElement>(null);
+  const valuesRef = useRef<HTMLDivElement>(null);
+  const whyUsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Hero animation
+      gsap.from('.about-hero-content', {
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: 1,
+        },
+        y: 60,
+        opacity: 0,
+      });
+
+      // Story section
+      gsap.from('.story-content', {
+        scrollTrigger: {
+          trigger: storyRef.current,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: 1,
+        },
+        x: -60,
+        opacity: 0,
+      });
+
+      gsap.from('.story-image', {
+        scrollTrigger: {
+          trigger: storyRef.current,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: 1,
+        },
+        x: 60,
+        opacity: 0,
+      });
+
+      // Values animation
+      gsap.from('.value-card', {
+        scrollTrigger: {
+          trigger: valuesRef.current,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: 1,
+        },
+        y: 80,
+        opacity: 0,
+        stagger: 0.1,
+      });
+
+      // Why Us animation
+      gsap.from('.why-us-card', {
+        scrollTrigger: {
+          trigger: whyUsRef.current,
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: 1,
+        },
+        y: 60,
+        opacity: 0,
+        stagger: 0.1,
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  const values = [
+    {
+      icon: Target,
+      title: 'Own the Outcome',
+      description: 'We take full responsibility for every project, ensuring results that exceed expectations.',
+    },
+    {
+      icon: Lightbulb,
+      title: 'Design for Clarity',
+      description: 'Complex problems deserve elegant solutions. We make the complicated simple.',
+    },
+    {
+      icon: Users,
+      title: 'Move with Intent',
+      description: 'Every action is purposeful. We prioritize what matters most to your business.',
+    },
+    {
+      icon: Award,
+      title: 'Excellence Always',
+      description: 'Good enough is never enough. We strive for excellence in everything we do.',
+    },
+  ];
+
+  return (
+    <main className="bg-[#070B14] pt-20">
+      {/* Hero Section */}
+      <section
+        ref={heroRef}
+        className="relative min-h-[60vh] flex items-center overflow-hidden grain-overlay"
+      >
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/team_engineers.jpg"
+            alt="Our Team"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070B14] via-[#070B14]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070B14] via-transparent to-[#070B14]/50" />
+        </div>
+
+        {/* Geometric Panels */}
+        <div className="absolute top-0 left-0 w-[20vw] h-[25vh] bg-[#0F172A]/80 border-r border-b border-[rgba(244,247,255,0.08)] z-10" />
+        <div className="absolute top-0 right-0 w-[20vw] h-[25vh] bg-[#0F172A]/80 border-l border-b border-[rgba(244,247,255,0.08)] z-10" />
+
+        {/* Content */}
+        <div className="relative z-20 w-full px-6 lg:px-12 py-32">
+          <div className="max-w-4xl about-hero-content">
+            <span className="micro-label block mb-6 text-[#2D6BFF]">ABOUT US</span>
+            <h1 className="headline-xl text-[#F4F7FF] mb-8">
+              We Handle The Tech.
+              <br />
+              <span className="text-gradient">You Run Your Business.</span>
+            </h1>
+            <p className="body-text max-w-2xl text-lg">
+              When your technology works, your business works. We&apos;re here to make sure 
+              IT never becomes a problem — because when you work with N.A.S, it just works.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section
+        ref={storyRef}
+        className="relative py-32 bg-[#0B1222] grain-overlay"
+      >
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="story-content">
+                <span className="micro-label block mb-4 text-[#2D6BFF]">OUR STORY</span>
+                <h2 className="headline-lg text-[#F4F7FF] mb-6">
+                  Your Trusted IT Partner
+                </h2>
+                <div className="space-y-6 text-[#A7B3D1]">
+                  <p>
+                    N.A.S (New Age Solution) was founded with a simple mission: to provide 
+                    reliable, affordable IT support to businesses of all sizes. We understand 
+                    that technology should empower your business, not hold it back.
+                  </p>
+                  <p>
+                    Over the years, we&apos;ve helped hundreds of businesses streamline their 
+                    technology, secure their networks, and resolve their IT issues quickly 
+                    and efficiently. From small startups to established enterprises, we treat 
+                    every client with the same dedication and professionalism.
+                  </p>
+                  <p>
+                    Our team of certified technicians brings years of experience in remote 
+                    support, network installation, email setup, CCTV systems, and computer repairs. 
+                    We&apos;re not just IT providers — we&apos;re your technology partners.
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Link to="/services" className="btn-primary inline-flex group">
+                    Explore Our Services
+                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="story-image relative">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/services_office.jpg"
+                    alt="Our Office"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1222]/60 to-transparent" />
+                </div>
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 border border-[#2D6BFF]/30" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[#2D6BFF]/10" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section
+        ref={whyUsRef}
+        className="relative py-32 bg-[#070B14] grain-overlay"
+      >
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-20">
+              <span className="micro-label block mb-4 text-[#2D6BFF]">WHY N.A.S</span>
+              <h2 className="headline-lg text-[#F4F7FF] mb-6">
+                Why Choose Us?
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="why-us-card p-8 bg-[#0B1222] border border-[rgba(244,247,255,0.08)]">
+                <div className="w-14 h-14 bg-[#2D6BFF]/10 rounded-sm flex items-center justify-center mb-6">
+                  <Clock className="w-7 h-7 text-[#2D6BFF]" />
+                </div>
+                <h3 className="text-xl font-semibold text-[#F4F7FF] mb-4">
+                  Fast Response Time
+                </h3>
+                <p className="text-[#A7B3D1] leading-relaxed">
+                  We don&apos;t leave you waiting. Most issues are resolved remotely within hours — not days. 
+                  Our average response time is under 2 hours.
+                </p>
+              </div>
+              <div className="why-us-card p-8 bg-[#0B1222] border border-[rgba(244,247,255,0.08)]">
+                <div className="w-14 h-14 bg-[#2D6BFF]/10 rounded-sm flex items-center justify-center mb-6">
+                  <BadgeCheck className="w-7 h-7 text-[#2D6BFF]" />
+                </div>
+                <h3 className="text-xl font-semibold text-[#F4F7FF] mb-4">
+                  Affordable & Transparent Pricing
+                </h3>
+                <p className="text-[#A7B3D1] leading-relaxed">
+                  No hidden costs. You always know what you&apos;re paying for before we do any work. 
+                  Our pricing is straightforward and competitive.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section
+        ref={valuesRef}
+        className="relative py-32 bg-[#0B1222] grain-overlay"
+      >
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-20">
+              <span className="micro-label block mb-4 text-[#2D6BFF]">OUR VALUES</span>
+              <h2 className="headline-lg text-[#F4F7FF] mb-6">
+                What We Stand For
+              </h2>
+              <p className="body-text max-w-2xl mx-auto">
+                Our values guide every decision we make and every interaction we have.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {values.map((value, index) => (
+                <div
+                  key={index}
+                  className="value-card group p-8 bg-[#070B14] border border-[rgba(244,247,255,0.08)] hover:border-[#2D6BFF]/50 transition-all duration-300"
+                >
+                  <div className="w-14 h-14 bg-[#2D6BFF]/10 rounded-sm flex items-center justify-center mb-6 group-hover:bg-[#2D6BFF]/20 transition-colors">
+                    <value.icon className="w-7 h-7 text-[#2D6BFF]" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-[#F4F7FF] mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-[#A7B3D1] text-sm leading-relaxed">
+                    {value.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-24 bg-[#070B14] grain-overlay">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="micro-label block mb-4 text-[#2D6BFF]">READY TO GET STARTED?</span>
+            <h2 className="headline-lg text-[#F4F7FF] mb-6">
+              Let&apos;s Work Together
+            </h2>
+            <p className="body-text max-w-2xl mx-auto mb-10">
+              Contact us today to discuss your IT needs. We&apos;re here to help your business 
+              succeed with reliable technology solutions.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact" className="btn-primary group">
+                Contact Us
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a href={`mailto:${CONTACT_CONFIG.email}`} className="btn-secondary">
+                Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#070B14] border-t border-[rgba(244,247,255,0.08)] py-16">
+        <div className="w-full px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+              <div className="lg:col-span-1">
+                <img
+                  src="/logo.png"
+                  alt="N.A.S"
+                  className="w-32 h-auto mb-4"
+                />
+                <p className="text-[#A7B3D1] text-sm leading-relaxed">
+                  Complete IT solutions for your business. From daily tech support to full network installations.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-[#F4F7FF] font-semibold mb-4">Services</h4>
+                <ul className="space-y-3">
+                  <li><Link to="/services" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">Remote IT Support</Link></li>
+                  <li><Link to="/services" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">Email & Domain Setup</Link></li>
+                  <li><Link to="/services" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">Network & WiFi</Link></li>
+                  <li><Link to="/services" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">CCTV & Security</Link></li>
+                  <li><Link to="/services" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">Computer Repairs</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-[#F4F7FF] font-semibold mb-4">Company</h4>
+                <ul className="space-y-3">
+                  <li><Link to="/about" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">About Us</Link></li>
+                  <li><Link to="/pricing" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">Pricing</Link></li>
+                  <li><Link to="/contact" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">Contact</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-[#F4F7FF] font-semibold mb-4">Contact</h4>
+                <ul className="space-y-3">
+                  <li><a href={`tel:${CONTACT_CONFIG.phoneNumber}`} className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">{CONTACT_CONFIG.phoneNumber}</a></li>
+                  <li><a href={`mailto:${CONTACT_CONFIG.email}`} className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">{CONTACT_CONFIG.email}</a></li>
+                  <li><span className="text-[#A7B3D1] text-sm">{CONTACT_CONFIG.address}</span></li>
+                </ul>
+              </div>
+            </div>
+            <div className="pt-8 border-t border-[rgba(244,247,255,0.08)] flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-[#A7B3D1] text-sm">
+                © 2026 N.A.S. All rights reserved.
+              </p>
+              <div className="flex gap-6">
+                <a href={CONTACT_CONFIG.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">LinkedIn</a>
+                <a href={CONTACT_CONFIG.facebookUrl} target="_blank" rel="noopener noreferrer" className="text-[#A7B3D1] hover:text-[#2D6BFF] text-sm transition-colors">Facebook</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
+};
+
+export default About;
