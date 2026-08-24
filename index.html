@@ -3,2450 +3,562 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="N.A.S New Age Solution — Premium Managed IT Services in Gauteng. Full IT Ecosystem Takeover, Networking, CCTV, Cloud, AI Agents, Website Design. Remote and Onsite.">
-  <meta name="keywords" content="IT support Gauteng, managed IT services South Africa, CCTV installation, Microsoft 365, cloud backup, AI automation, website design">
+  <meta name="description" content="N.A.S New Age Solution is undergoing a digital transformation. We are currently rebuilding our website to bring you a premium IT ecosystem experience.">
+  <meta name="keywords" content="IT support Gauteng, managed IT services, under construction, digital transformation, New Age Solution">
   <meta name="author" content="N.A.S New Age Solution">
-  <meta property="og:title" content="N.A.S New Age Solution — IT Ecosystem Partner">
-  <meta property="og:description" content="We take over your entire IT ecosystem. Remote support nationally. Onsite across Gauteng.">
+  <meta property="og:title" content="N.A.S New Age Solution — Under Construction">
+  <meta property="og:description" content="We are rebuilding our digital presence. We will be back online soon with an enhanced IT experience.">
   <meta property="og:type" content="website">
-  <title>N.A.S New Age Solution — IT Ecosystem Partner</title>
+  <title>N.A.S New Age Solution — Under Construction</title>
+  
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <style>
     /* ═══════════════════════════════════════════════════
-       ROOT & BASE
+       CSS VARIABLES & SYSTEM
     ═══════════════════════════════════════════════════ */
     :root {
-      --dark:   #080c14;
-      --dark2:  #0d1220;
-      --dark3:  #111827;
+      --dark:   #060913;
+      --dark2:  #0a0e1c;
+      --dark3:  #0f1426;
       --cyan:   #00a3ff;
-      --cyan2:  #0066cc;
+      --cyan-glow: rgba(0, 163, 255, 0.4);
       --gold:   #c8a450;
-      --gold2:  #e8c878;
-      --gold3:  #f5e0a0;
-      --muted:  rgba(255,255,255,0.52);
-      --border: rgba(255,255,255,0.07);
-      --border2:rgba(0,163,255,0.15);
-      --r:  14px;
-      --r2: 20px;
-      --shadow:  0 20px 60px rgba(0,0,0,0.4);
-      --shadow2: 0 8px 32px rgba(0,163,255,0.12);
-      --grad-gold: linear-gradient(135deg,#c8a450 0%,#f5e0a0 50%,#c8a450 100%);
-      --grad-blue: linear-gradient(135deg,#0055ff 0%,#00a3ff 100%);
-      --grad-dark: linear-gradient(135deg,#0d1220 0%,#111827 100%);
+      --gold-glow: rgba(200, 164, 80, 0.3);
+      --gold-grad: linear-gradient(135deg, #c8a450 0%, #f5e0a0 50%, #c8a450 100%);
+      --blue-grad: linear-gradient(135deg, #0055ff 0%, #00a3ff 100%);
+      --text-main: #e8edf5;
+      --text-muted: rgba(232, 237, 245, 0.6);
+      --glass: rgba(10, 14, 28, 0.6);
+      --border: rgba(255, 255, 255, 0.08);
+      --r-card: 24px;
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      background: var(--dark);
-      color: #e8edf5;
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      letter-spacing: -0.01em;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      background-color: var(--dark);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    h1,h2,h3,h4 { font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; color: #fff; }
-    h1 { font-size: clamp(2.4rem,5vw,4.2rem); }
-    h2 { font-size: clamp(1.8rem,3.5vw,2.8rem); }
-    h3 { font-size: clamp(1.2rem,2vw,1.5rem); font-weight: 600; }
-    h4 { font-size: 1rem; font-weight: 600; }
-    p  { color: rgba(200,210,230,0.75); line-height: 1.8; font-size: 0.975rem; letter-spacing: 0; }
-    a  { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
-    select { appearance: none; -webkit-appearance: none; }
 
     /* ═══════════════════════════════════════════════════
-       ANIMATED GRADIENT TEXT
+       BACKGROUND EFFECTS
     ═══════════════════════════════════════════════════ */
-    .grad {
-      background: var(--grad-gold);
-      background-size: 200% auto;
+    .bg-container {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bg-gradient-mesh {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(0, 85, 255, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(200, 164, 80, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(10, 14, 28, 0.9) 0%, var(--dark) 100%);
+      animation: meshAnim 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes meshAnim {
+      0% { transform: scale(1) translate(0, 0); }
+      100% { transform: scale(1.05) translate(2%, 2%); }
+    }
+
+    /* Network Nodes Simulation Grid */
+    .grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      background-position: center center;
+      mask-image: radial-gradient(circle 500px at center, black, transparent);
+      -webkit-mask-image: radial-gradient(circle 500px at center, black, transparent);
+    }
+
+    /* Glowing Orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.4;
+      mix-blend-mode: screen;
+      animation: orbFloat 15s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      top: 20%;
+      left: 15%;
+      width: 300px;
+      height: 300px;
+      background: var(--cyan);
+      animation-duration: 20s;
+    }
+
+    .orb-2 {
+      bottom: 15%;
+      right: 15%;
+      width: 400px;
+      height: 400px;
+      background: var(--gold);
+      animation-duration: 25s;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(50px, -30px) scale(1.2); }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CARD CONTAINER & CONTENT
+    ═══════════════════════════════════════════════════ */
+    .glass-card {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      max-width: 680px;
+      padding: 56px 48px;
+      background: var(--glass);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 
+                  0 0 100px rgba(0, 163, 255, 0.05);
+      text-align: center;
+      overflow: hidden;
+      animation: cardFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-glow-border {
+      position: absolute;
+      top: 0; left: 15%; right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--gold), transparent);
+    }
+
+    /* Logo Styling */
+    .logo-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+
+    .logo-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 163, 255, 0.1), rgba(200, 164, 80, 0.1));
+      border: 1px solid rgba(0, 163, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .logo-badge::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--cyan), var(--gold));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
+    }
+
+    .logo-badge i {
+      background: var(--gold-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulseIcon 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseIcon {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px var(--cyan)); }
+      50% { transform: scale(1.08); filter: drop-shadow(0 0 8px var(--cyan)); }
+    }
+
+    .brand-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .brand-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Live status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(200, 164, 80, 0.08);
+      border: 1px solid rgba(200, 164, 80, 0.2);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 16px var(--cyan), 0 0 25px rgba(0, 163, 255, 0.6); }
+    }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: var(--gold-grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: shimmerText 4s linear infinite;
-    }
-    @keyframes shimmerText {
-      0%   { background-position: 0% center; }
-      100% { background-position: 200% center; }
     }
 
-    /* ═══════════════════════════════════════════════════
-       LAYOUT
-    ═══════════════════════════════════════════════════ */
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
-    .sec       { padding: 96px 0; }
-    .sec-sm    { padding: 64px 0; }
-
-    /* ═══════════════════════════════════════════════════
-       LOADER
-    ═══════════════════════════════════════════════════ */
-    #loader {
-      position: fixed; inset: 0;
-      background: var(--dark);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-    #loader.hide { opacity: 0; visibility: hidden; }
-    .loader-logo {
-      display: flex; align-items: center; gap: 14px;
-      margin-bottom: 40px;
-    }
-    .loader-logo img { height: 44px; width: auto; }
-    .loader-logo-text { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
-    .loader-logo-sub  { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
-    .loader-bar-wrap  { width: 200px; height: 3px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
-    .loader-bar       { height: 100%; width: 0; background: linear-gradient(90deg,var(--cyan),var(--gold)); border-radius: 10px; animation: loaderFill 2.2s ease forwards; }
-    @keyframes loaderFill { 0%{width:0} 60%{width:75%} 100%{width:100%} }
-
-    /* ═══════════════════════════════════════════════════
-       LEAD POPUP
-    ═══════════════════════════════════════════════════ */
-    #leadPopup {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(6px);
-      z-index: 5000;
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
-    }
-    #leadPopup.show { opacity: 1; visibility: visible; }
-    .popup-box {
-      background: linear-gradient(145deg,rgba(13,18,34,0.99),rgba(8,12,24,1));
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 24px;
-      padding: 44px 40px;
-      max-width: 500px; width: 100%;
-      position: relative;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-    }
-    .popup-box::before {
-      content: ''; position: absolute; top: 0; left: 10%; right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg,transparent,rgba(200,164,80,0.5),transparent);
-    }
-    .popup-close {
-      position: absolute; top: 18px; right: 18px;
-      width: 32px; height: 32px; border-radius: 8px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: rgba(255,255,255,0.5);
-      font-size: 0.85rem;
-      transition: all 0.2s ease;
-    }
-    .popup-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
-    .popup-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 5px 14px; border-radius: 100px;
-      background: rgba(200,164,80,0.1); border: 1px solid rgba(200,164,80,0.25);
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
-    }
-    .popup-badge::before {
-      content: ''; width: 5px; height: 5px; border-radius: 50%;
-      background: var(--gold); box-shadow: 0 0 8px rgba(200,164,80,0.8);
-      animation: tagPulse 2s ease infinite;
-    }
-    .popup-box h3 { font-size: 1.6rem; margin-bottom: 10px; }
-    .popup-box p  { font-size: 0.88rem; margin-bottom: 28px; }
-    .popup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
-    .pg-item {
-      display: flex; align-items: center; gap: 10px;
-      padding: 12px 14px; border-radius: 10px;
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.78rem; color: rgba(200,215,235,0.65); font-weight: 500;
-    }
-    .pg-item i { color: var(--cyan); font-size: 0.85rem; flex-shrink: 0; }
-    .popup-fr { margin-bottom: 12px; }
-    .popup-fr input {
-      width: 100%; background: rgba(255,255,255,0.04);
-      border: 1.5px solid rgba(255,255,255,0.08); border-radius: 10px;
-      padding: 13px 16px; font-size: 0.9rem; color: #e8edf5;
-      font-family: inherit; outline: none; transition: all 0.25s ease;
-    }
-    .popup-fr input:focus {
-      border-color: rgba(0,163,255,0.4);
-      background: rgba(0,163,255,0.04);
-      box-shadow: 0 0 0 4px rgba(0,163,255,0.08);
-    }
-    .popup-fr input::placeholder { color: rgba(200,215,235,0.25); }
-    .pop-ok { display: none; text-align: center; padding: 20px 0; }
-    .pop-ok i { font-size: 2.5rem; color: #10b981; margin-bottom: 14px; display: block; }
-    .pop-ok h4 { font-size: 1.2rem; margin-bottom: 8px; }
-    .pop-ok p  { font-size: 0.85rem; }
-
-    /* ═══════════════════════════════════════════════════
-       NAVBAR
-    ═══════════════════════════════════════════════════ */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      transition: all 0.4s ease;
-    }
-    .navbar.scrolled {
-      background: rgba(8,12,20,0.92);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 72px; padding: 0 32px;
-      max-width: 1280px; margin: 0 auto;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 12px; cursor: pointer;
-    }
-    .nl-bg {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg,rgba(0,163,255,0.15),rgba(0,163,255,0.05));
-      border: 1px solid rgba(0,163,255,0.2);
-      display: flex; align-items: center; justify-content: center; overflow: hidden;
-    }
-    .nl-bg img { height: 28px; width: auto; }
-    .nl-name { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
-    .nl-tag  { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-links a {
-      padding: 8px 16px; border-radius: 8px;
-      font-size: 0.875rem; font-weight: 500;
-      color: rgba(200,215,235,0.7);
-      transition: all 0.2s ease; letter-spacing: -0.01em; cursor: pointer;
-    }
-    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
-    .nav-links a.active {
-      color: #fff;
-      background: rgba(0,163,255,0.1);
-      border: 1px solid rgba(0,163,255,0.15);
-    }
-    .nav-cta { display: flex; align-items: center; gap: 10px; }
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 8px;
-    }
-    .hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: rgba(255,255,255,0.7); border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-    .mob-menu {
-      display: none; position: fixed; top: 72px; left: 0; right: 0;
-      background: rgba(8,12,22,0.98);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      padding: 20px 28px; z-index: 999;
-      flex-direction: column; gap: 6px;
-    }
-    .mob-menu.open { display: flex; }
-    .mob-menu a {
-      display: flex; align-items: center; gap: 12px;
-      padding: 13px 16px; border-radius: 10px;
-      font-size: 0.95rem; font-weight: 500;
-      color: rgba(200,215,235,0.75);
-      transition: all 0.2s ease; cursor: pointer;
-    }
-    .mob-menu a:hover  { background: rgba(255,255,255,0.05); color: #fff; }
-    .mob-menu a.active { background: rgba(0,163,255,0.1); color: #fff; border: 1px solid rgba(0,163,255,0.15); }
-    .mob-wa {
-      margin-top: 12px; padding: 14px 18px;
-      background: linear-gradient(135deg,rgba(37,211,102,0.1),rgba(37,211,102,0.05));
-      border: 1px solid rgba(37,211,102,0.2); border-radius: 12px;
-      display: flex; align-items: center; gap: 12px;
-      font-size: 0.9rem; font-weight: 600; color: #25d366;
+    .message {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* ═══════════════════════════════════════════════════
-       BUTTONS
-    ═══════════════════════════════════════════════════ */
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 40px auto;
+      text-align: left;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%; /* Initial state for animation */
+      background: linear-gradient(90deg, var(--cyan), var(--gold));
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
+      transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Contact Details and Social Links */
+    .contact-info {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 9px; padding: 0 28px; height: 50px;
-      border-radius: 10px; font-size: 0.875rem; font-weight: 600;
-      letter-spacing: 0.02em; text-decoration: none; border: none;
-      cursor: pointer; position: relative; overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-      white-space: nowrap; flex-shrink: 0; font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
     }
-    .btn::before {
-      content: ''; position: absolute; top: 0; left: -100%;
-      width: 60%; height: 100%;
-      background: linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);
-      transition: left 0.55s ease; pointer-events: none;
-    }
-    .btn:hover::before { left: 160%; }
-    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
-
-    .btn-gold {
-      background: linear-gradient(135deg,#b8942a 0%,#e8c878 40%,#c8a450 70%,#f0d080 100%);
-      background-size: 200% auto; color: #1a1200;
-      box-shadow: 0 4px 20px rgba(200,164,80,0.35),0 1px 0 rgba(255,255,255,0.2) inset,0 -1px 0 rgba(0,0,0,0.15) inset;
-      animation: btnGoldShimmer 3s linear infinite;
-    }
-    @keyframes btnGoldShimmer {
-      0%   { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
-    .btn-gold:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 35px rgba(200,164,80,0.5),0 1px 0 rgba(255,255,255,0.25) inset;
-      color: #0d0800;
-    }
-    .btn-gold:active { transform: translateY(0) scale(0.99); }
 
     .btn-primary {
-      background: linear-gradient(135deg,#0040cc 0%,#0066ff 50%,#0099ff 100%);
-      background-size: 200% auto; color: #fff;
-      box-shadow: 0 4px 20px rgba(0,100,255,0.3),0 1px 0 rgba(255,255,255,0.15) inset;
-    }
-    .btn-primary:hover {
-      background-position: 100% center;
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 35px rgba(0,100,255,0.45),0 1px 0 rgba(255,255,255,0.2) inset;
+      background: linear-gradient(135deg, #004fb2 0%, #0077ff 100%);
       color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 119, 255, 0.2);
     }
 
-    .btn-wa {
-      background: linear-gradient(135deg,#075e45 0%,#128c6a 50%,#25d366 100%);
-      background-size: 200% auto; color: #fff;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.25),0 1px 0 rgba(255,255,255,0.1) inset;
-    }
-    .btn-wa:hover {
-      background-position: 100% center;
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 30px rgba(37,211,102,0.4); color: #fff;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 119, 255, 0.4);
     }
 
     .btn-outline {
-      background: transparent; color: rgba(255,255,255,0.85);
-      border: 1.5px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
     }
+
     .btn-outline:hover {
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(255,255,255,0.4);
-      transform: translateY(-2px); color: #fff;
-    }
-
-    .btn-ghost {
-      background: rgba(0,163,255,0.08); color: var(--cyan);
-      border: 1.5px solid rgba(0,163,255,0.25);
-    }
-    .btn-ghost:hover {
-      background: rgba(0,163,255,0.15);
-      border-color: rgba(0,163,255,0.5);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
-      box-shadow: 0 0 20px rgba(0,163,255,0.2);
     }
 
-    .btn-lg  { height: 56px; padding: 0 36px; font-size: 0.925rem; border-radius: 12px; }
-    .btn-sm  { height: 42px; padding: 0 20px; font-size: 0.8rem;   border-radius: 8px; }
-    .btn-xl  { height: 64px; padding: 0 48px; font-size: 1rem; border-radius: 14px; letter-spacing: 0.03em; }
-    .btn-full{ width: 100%; }
-    .btn i   { font-size: 0.85em; flex-shrink: 0; }
-    .btn-lg i{ font-size: 0.9em; }
-
-    /* ═══════════════════════════════════════════════════
-       SECTION TAGS
-    ═══════════════════════════════════════════════════ */
-    .sec-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 16px;
-      background: linear-gradient(135deg,rgba(200,164,80,0.12),rgba(200,164,80,0.06));
-      border: 1px solid rgba(200,164,80,0.25); border-radius: 100px;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #d4a840; margin-bottom: 20px;
-    }
-    .sec-tag::before {
-      content: ''; width: 5px; height: 5px; border-radius: 50%;
-      background: #d4a840; flex-shrink: 0;
-      box-shadow: 0 0 8px rgba(200,164,80,0.8);
-      animation: tagPulse 2s ease-in-out infinite;
-    }
-    @keyframes tagPulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50%      { opacity:0.5; transform:scale(0.7); }
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
     }
 
-    /* ═══════════════════════════════════════════════════
-       SECTION HEADERS
-    ═══════════════════════════════════════════════════ */
-    .sec-head { max-width: 620px; margin-bottom: 60px; }
-    .sec-head.center { text-align: center; margin: 0 auto 60px; }
-    .sec-head h2  { margin-bottom: 14px; }
-    .sec-head p   { font-size: 1rem; }
-
-    /* ═══════════════════════════════════════════════════
-       SCROLL REVEAL
-    ═══════════════════════════════════════════════════ */
-    .rv {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
-    }
-    .rv.show  { opacity: 1; transform: translateY(0); }
-    .rv2 {
-      opacity: 0; transform: translateX(-28px);
-      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
-    }
-    .rv2.show { opacity: 1; transform: translateX(0); }
-
-    /* ═══════════════════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════════════════ */
-    .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center;
-      overflow: hidden; padding: 120px 0 80px;
-    }
-    .hero-canvas {
-      position: absolute; inset: 0; z-index: 0;
-    }
-    #particles { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .hero::before {
-      content: ''; position: absolute; inset: 0; z-index: 1;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 40%,rgba(0,55,180,0.18) 0%,transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 70%,rgba(0,163,255,0.1) 0%,transparent 55%),
-        radial-gradient(ellipse 40% 40% at 50% 10%,rgba(200,164,80,0.07) 0%,transparent 50%);
-      pointer-events: none;
-      animation: meshShift 12s ease-in-out infinite alternate;
-    }
-    @keyframes meshShift {
-      0%   { opacity:0.8; transform:scale(1); }
-      100% { opacity:1;   transform:scale(1.05); }
-    }
-    .hero::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 200px;
-      background: linear-gradient(to bottom,transparent,var(--dark));
-      pointer-events: none; z-index: 1;
-    }
-    .hero-inner {
-      position: relative; z-index: 2;
-      display: grid; grid-template-columns: 1fr 0.85fr;
-      gap: 60px; align-items: center;
-    }
-    .hero-left { max-width: 640px; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 7px 18px;
-      background: linear-gradient(135deg,rgba(200,164,80,0.15),rgba(200,164,80,0.05));
-      border: 1px solid rgba(200,164,80,0.3); border-radius: 100px;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #d4a840; margin-bottom: 28px;
-    }
-    .hero-eyebrow .dot {
-      width: 6px; height: 6px; border-radius: 50%; background: #25d366; flex-shrink: 0;
-      box-shadow: 0 0 10px rgba(37,211,102,0.8);
-      animation: livePulse 2s ease infinite;
-    }
-    @keyframes livePulse {
-      0%,100% { box-shadow: 0 0 10px rgba(37,211,102,0.8); }
-      50%      { box-shadow: 0 0 20px rgba(37,211,102,1),0 0 35px rgba(37,211,102,0.4); }
-    }
-    .hero h1 {
-      font-size: clamp(2.6rem,5vw,4rem); font-weight: 800;
-      line-height: 1.08; letter-spacing: -0.04em;
-      margin-bottom: 24px; color: #fff;
-    }
-    .hero h1 em { font-style: normal; display: block; }
-    .hero-sub {
-      font-size: 1.05rem; line-height: 1.75;
-      color: rgba(200,210,230,0.7);
-      margin-bottom: 40px; max-width: 520px; letter-spacing: 0;
-    }
-    .hero-btns {
-      display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 52px;
-    }
-    .hero-trust {
-      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
-    }
-    .trust-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.1); }
-    .trust-item    { display: flex; align-items: center; gap: 10px; }
-    .trust-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; flex-shrink: 0;
-    }
-    .trust-icon.green { background: rgba(16,185,129,0.12); color: #10b981; }
-    .trust-icon.blue  { background: rgba(0,163,255,0.12);  color: var(--cyan); }
-    .trust-icon.gold  { background: rgba(200,164,80,0.12);  color: var(--gold); }
-    .trust-text strong { display: block; font-size: 0.85rem; font-weight: 700; color: #fff; line-height: 1.2; }
-    .trust-text span   { font-size: 0.72rem; color: rgba(200,210,230,0.5); }
-
-    /* ─── HERO VISUAL PANEL ─── */
-    .hero-visual-panel { position: relative; display: flex; flex-direction: column; gap: 16px; }
-    .hv-metrics-card {
-      background: linear-gradient(145deg,rgba(13,18,32,0.95),rgba(8,12,22,0.98));
-      border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
-      padding: 28px 24px; position: relative; overflow: hidden;
-    }
-    .hv-metrics-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg,transparent,rgba(0,163,255,0.4),transparent);
-    }
-    .hv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .hv-stat {
-      text-align: center; padding: 18px 12px;
-      background: rgba(255,255,255,0.02); border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.04);
-      transition: all 0.3s ease;
-    }
-    .hv-stat:hover { background: rgba(0,163,255,0.05); border-color: rgba(0,163,255,0.15); }
-    .hv-num {
-      font-size: 2rem; font-weight: 800; letter-spacing: -0.04em;
-      color: #fff; line-height: 1; margin-bottom: 6px;
-    }
-    .hv-num em { font-style: normal; color: var(--cyan); font-size: 1.1rem; }
-    .hv-num.gold em { color: var(--gold2); }
-    .hv-label { font-size: 0.72rem; color: rgba(200,210,230,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
-    .hv-status-card {
-      background: linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.03));
-      border: 1px solid rgba(16,185,129,0.2); border-radius: 14px;
-      padding: 16px 20px; display: flex; align-items: center; gap: 14px;
-    }
-    .hv-status-dot {
-      width: 10px; height: 10px; border-radius: 50%; background: #10b981; flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(16,185,129,0.8);
-      animation: livePulse 2s ease infinite;
-    }
-    .hv-status-text strong { display: block; font-size: 0.85rem; color: #10b981; font-weight: 600; }
-    .hv-status-text span   { font-size: 0.75rem; color: rgba(200,210,230,0.5); }
-    .hv-tech-card {
-      background: linear-gradient(145deg,rgba(13,18,32,0.9),rgba(8,12,22,0.95));
-      border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;
-      padding: 18px 20px;
-    }
-    .hv-tech-label {
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(200,210,230,0.4); margin-bottom: 12px;
-    }
-    .hv-tech-icons { display: flex; gap: 8px; flex-wrap: wrap; }
-    .hv-tech-badge {
-      padding: 5px 12px;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 6px; font-size: 0.72rem; color: rgba(200,215,235,0.6); font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    .hv-tech-badge:hover { background: rgba(0,163,255,0.08); border-color: rgba(0,163,255,0.2); color: var(--cyan); }
-
-    /* ═══════════════════════════════════════════════════
-       TRUST BAR
-    ═══════════════════════════════════════════════════ */
-    .trust-bar {
-      background: linear-gradient(135deg,rgba(13,18,32,0.95),rgba(8,12,22,0.98));
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      padding: 28px 0;
-    }
-    .trust-items {
-      display: flex; align-items: center; justify-content: center;
-      gap: 32px; flex-wrap: wrap;
-    }
-    .trust-bar .trust-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.08); }
-
-    /* ═══════════════════════════════════════════════════
-       FEATURES PANEL (HOME)
-    ═══════════════════════════════════════════════════ */
-    .fp-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: center;
-    }
-    .fp-feats { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
-    .fp-feat {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding: 16px 18px; border-radius: 12px;
-      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s ease;
-    }
-    .fp-feat:hover { background: rgba(0,163,255,0.04); border-color: rgba(0,163,255,0.12); }
-    .fp-feat-ico {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
-    }
-    .fp-feat-txt strong { display: block; font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .fp-feat-txt span   { font-size: 0.8rem; color: rgba(200,215,235,0.55); line-height: 1.5; }
-    .fp-visual {
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .fv-metrics {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 14px; margin-bottom: 4px;
-    }
-    .fvm {
-      padding: 22px 18px; text-align: center;
-      background: linear-gradient(145deg,rgba(13,18,32,0.95),rgba(8,12,22,0.98));
-      border: 1px solid rgba(255,255,255,0.07); border-radius: 14px;
-      transition: all 0.3s ease;
-    }
-    .fvm:hover { border-color: rgba(0,163,255,0.2); }
-    .fvm-n {
-      font-size: 1.8rem; font-weight: 800; letter-spacing: -0.04em;
-      color: #fff; line-height: 1; margin-bottom: 6px;
-    }
-    .fvm-n em { color: var(--cyan); font-style: normal; font-size: 1rem; }
-    .fvm-l { font-size: 0.7rem; color: rgba(200,210,230,0.45); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; }
-    .fv-badge {
-      display: flex; align-items: center; gap: 14px;
-      padding: 18px 20px; border-radius: 14px;
-      background: linear-gradient(135deg,rgba(0,163,255,0.08),rgba(0,163,255,0.03));
-      border: 1px solid rgba(0,163,255,0.18);
-    }
-    .fv-badge i { font-size: 1.4rem; color: var(--cyan); flex-shrink: 0; }
-    .fv-badge p { font-size: 0.82rem; color: rgba(200,215,235,0.65); margin: 0; }
-
-    /* ═══════════════════════════════════════════════════
-       DELIVERY GRID
-    ═══════════════════════════════════════════════════ */
-    .delivery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-    .del-card {
-      padding: 36px 32px; border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.07);
-      position: relative; overflow: hidden;
-      transition: all 0.4s ease;
-    }
-    .del-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg,transparent,rgba(0,163,255,0.6),transparent);
-      opacity: 0; transition: opacity 0.4s ease;
-    }
-    .del-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-    .del-card:hover::before { opacity: 1; }
-    .d1 { background: linear-gradient(145deg,rgba(0,55,120,0.12),rgba(0,30,70,0.06)); }
-    .d2 { background: linear-gradient(145deg,rgba(16,185,129,0.08),rgba(8,100,70,0.04)); }
-    .del-icon { font-size: 2rem; margin-bottom: 18px; color: var(--cyan); }
-    .d2 .del-icon { color: #10b981; }
-    .del-card h3 { font-size: 1.15rem; margin-bottom: 12px; }
-    .del-card p  { font-size: 0.875rem; margin-bottom: 24px; }
-    .del-feats   { display: flex; flex-direction: column; gap: 10px; }
-    .del-feat {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.83rem; color: rgba(200,215,235,0.65);
-    }
-    .del-feat i { color: var(--cyan); font-size: 0.7rem; flex-shrink: 0; width: 14px; }
-    .d2 .del-feat i { color: #10b981; }
-
-    /* ═══════════════════════════════════════════════════
-       QUOTES / PHILOSOPHY
-    ═══════════════════════════════════════════════════ */
-    .quotes-sec { background: var(--dark2); }
-    .q-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 20px;
-    }
-    .q-card {
-      padding: 28px 26px; border-radius: 16px;
-      background: linear-gradient(145deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: all 0.3s ease;
-    }
-    .q-card:hover { border-color: rgba(0,163,255,0.15); transform: translateY(-3px); }
-    .q-card p { font-size: 0.88rem; line-height: 1.75; color: rgba(200,215,235,0.6); font-style: italic; }
-    .q-feat {
-      grid-row: span 2;
-      background: linear-gradient(145deg,rgba(0,55,140,0.15),rgba(0,30,80,0.1));
-      border-color: rgba(0,163,255,0.12);
-    }
-    .q-feat p { font-size: 1rem; color: rgba(200,215,235,0.75); }
-    .q-orb {
-      width: 50px; height: 50px; border-radius: 14px;
-      background: linear-gradient(135deg,rgba(0,163,255,0.15),rgba(0,163,255,0.05));
-      border: 1px solid rgba(0,163,255,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; color: var(--cyan); margin-bottom: 20px;
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      text-decoration: none;
     }
 
-    /* ═══════════════════════════════════════════════════
-       WHY NAS
-    ═══════════════════════════════════════════════════ */
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .why-items { display: flex; flex-direction: column; margin-top: 28px; }
-    .why-item {
-      display: flex; align-items: flex-start; gap: 16px;
-      padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-      transition: all 0.3s ease;
+    .social-icon:hover {
+      background: rgba(0, 163, 255, 0.1);
+      border-color: rgba(0, 163, 255, 0.3);
+      color: var(--cyan);
+      transform: translateY(-2px) scale(1.05);
     }
-    .why-item:last-child { border-bottom: none; }
-    .wi-ico {
-      width: 44px; height: 44px; border-radius: 11px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      background: linear-gradient(135deg,rgba(0,163,255,0.12),rgba(0,163,255,0.04));
-      border: 1px solid rgba(0,163,255,0.15); color: var(--cyan); flex-shrink: 0;
-      transition: all 0.3s ease;
-    }
-    .why-item:hover .wi-ico {
-      background: linear-gradient(135deg,rgba(0,163,255,0.2),rgba(0,163,255,0.08));
-      border-color: rgba(0,163,255,0.35);
-      box-shadow: 0 0 16px rgba(0,163,255,0.15);
-      transform: scale(1.05);
-    }
-    .wi-txt h4 { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .wi-txt p  { font-size: 0.82rem; color: rgba(200,215,235,0.55); line-height: 1.6; }
-    .why-visual {
-      position: sticky; top: 100px;
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .wv-metrics {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-      padding: 28px; border-radius: 20px;
-      background: linear-gradient(145deg,rgba(13,18,32,0.95),rgba(8,12,22,0.98));
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-    .wm { text-align: center; padding: 16px; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); }
-    .wm-n {
-      font-size: 2rem; font-weight: 800; letter-spacing: -0.04em;
-      color: #fff; line-height: 1; margin-bottom: 6px;
-    }
-    .wm-l { font-size: 0.7rem; color: rgba(200,210,230,0.45); text-transform: uppercase; letter-spacing: 0.08em; }
-    .why-loc {
-      display: flex; align-items: center; gap: 14px;
-      padding: 18px 20px; border-radius: 14px;
-      background: linear-gradient(135deg,rgba(200,164,80,0.07),rgba(200,164,80,0.03));
-      border: 1px solid rgba(200,164,80,0.15);
-    }
-    .why-loc i { font-size: 1.3rem; color: var(--gold); flex-shrink: 0; }
-    .why-loc p { font-size: 0.82rem; color: rgba(200,215,235,0.6); }
 
-    /* ═══════════════════════════════════════════════════
-       CTA SECTION
-    ═══════════════════════════════════════════════════ */
-    .cta-sec { position: relative; padding: 100px 0; overflow: hidden; }
-    .cta-sec::before {
-      content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 80% at 50% 50%,rgba(0,55,180,0.12) 0%,transparent 70%),
-        radial-gradient(ellipse 40% 40% at 80% 20%,rgba(200,164,80,0.06) 0%,transparent 50%);
-    }
-    .cta-inner {
-      position: relative; z-index: 1;
-      max-width: 760px; margin: 0 auto; text-align: center;
-      padding: 64px 48px;
-      background: linear-gradient(145deg,rgba(15,22,42,0.8) 0%,rgba(8,14,28,0.9) 100%);
-      border: 1px solid rgba(255,255,255,0.07); border-radius: 28px;
-      backdrop-filter: blur(20px);
-    }
-    .cta-inner::before {
-      content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
-      background: linear-gradient(90deg,transparent,rgba(200,164,80,0.5),transparent);
-    }
-    .cta-inner h2 { font-size: clamp(1.8rem,3.5vw,2.6rem); margin-bottom: 16px; }
-    .cta-inner p  { font-size: 1rem; max-width: 520px; margin: 0 auto 40px; color: rgba(200,210,230,0.65); }
-    .cta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
-
-    /* ═══════════════════════════════════════════════════
-       PAGE BANNER
-    ═══════════════════════════════════════════════════ */
-    .page-banner {
-      padding: 140px 0 72px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .page-banner::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 70% at 50% 50%,rgba(0,55,180,0.1) 0%,transparent 70%);
-      pointer-events: none;
-    }
-    .page-banner .sec-tag { margin: 0 auto 20px; display: inline-flex; }
-    .page-banner h1 { font-size: clamp(2.2rem,4.5vw,3.5rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 18px; }
-    .page-banner p  { max-width: 580px; margin: 0 auto; font-size: 1rem; color: rgba(200,215,235,0.65); }
-
-    /* ═══════════════════════════════════════════════════
-       SERVICE DETAIL CARDS
-    ═══════════════════════════════════════════════════ */
-    .sdc-grid { display: flex; flex-direction: column; gap: 32px; }
-    .sdc {
-      display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px;
-      background: linear-gradient(145deg,rgba(15,20,35,0.95) 0%,rgba(10,15,28,0.98) 100%);
-      border: 1px solid rgba(255,255,255,0.06); border-radius: 20px;
-      padding: 44px 40px; position: relative; overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    }
-    .sdc::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg,transparent,rgba(0,163,255,0.8),transparent);
-      opacity: 0; transition: opacity 0.4s ease;
-    }
-    .sdc::after {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse 60% 40% at 50% 0%,rgba(0,163,255,0.04) 0%,transparent 60%);
-      opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
-    }
-    .sdc:hover { border-color: rgba(0,163,255,0.2); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
-    .sdc:hover::before { opacity: 1; }
-    .sdc:hover::after  { opacity: 1; }
-    .sdc:first-child::before {
-      background: linear-gradient(90deg,transparent,rgba(200,164,80,0.8),transparent);
-      opacity: 0.6;
-    }
-    .sdc:first-child:hover::before { opacity: 1; }
-    .sdc-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
-    .sdc-icon {
-      width: 54px; height: 54px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      background: linear-gradient(135deg,rgba(0,163,255,0.15),rgba(0,163,255,0.05));
-      border: 1px solid rgba(0,163,255,0.2); color: var(--cyan); flex-shrink: 0;
-      transition: all 0.3s ease;
-    }
-    .sdc:hover .sdc-icon {
-      background: linear-gradient(135deg,rgba(0,163,255,0.25),rgba(0,163,255,0.1));
-      border-color: rgba(0,163,255,0.4);
-      box-shadow: 0 0 20px rgba(0,163,255,0.2); transform: scale(1.05);
-    }
-    .sdc:first-child .sdc-icon { background: linear-gradient(135deg,rgba(200,164,80,0.18),rgba(200,164,80,0.06)); border-color: rgba(200,164,80,0.3); color: var(--gold); }
-    .sdc:first-child:hover .sdc-icon { background: linear-gradient(135deg,rgba(200,164,80,0.28),rgba(200,164,80,0.1)); border-color: rgba(200,164,80,0.5); box-shadow: 0 0 20px rgba(200,164,80,0.2); }
-    .sdc-lbl {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 3px 10px; border-radius: 100px;
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      background: rgba(200,164,80,0.1); border: 1px solid rgba(200,164,80,0.2); color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .sdc h3 { font-size: 1.3rem; margin-bottom: 12px; }
-    .sdc > div > p { font-size: 0.9rem; color: rgba(200,215,235,0.65); margin-bottom: 24px; line-height: 1.7; }
-    .sdc-feats { display: flex; flex-direction: column; gap: 2px; margin-bottom: 28px; }
-    .sdc-feat {
-      display: flex; align-items: center; gap: 10px;
-      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.84rem; color: rgba(200,215,235,0.7);
-    }
-    .sdc-feat:last-child { border-bottom: none; }
-    .sdc-feat i { color: var(--cyan); font-size: 0.7rem; flex-shrink: 0; width: 16px; }
-    .sdc-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-    .sdc-right h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(200,215,235,0.4); margin-bottom: 18px; }
-    .sdc-hilist { display: flex; flex-direction: column; gap: 14px; }
-    .sdc-hi { display: flex; align-items: flex-start; gap: 14px; }
-    .sdc-hi-ico {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.95rem; flex-shrink: 0;
-    }
-    .sdc-hi-txt strong { display: block; font-size: 0.875rem; font-weight: 600; color: #fff; margin-bottom: 3px; }
-    .sdc-hi-txt span   { font-size: 0.78rem; color: rgba(200,215,235,0.5); line-height: 1.5; }
-
-    /* ═══════════════════════════════════════════════════
-       ABOUT PAGE
-    ═══════════════════════════════════════════════════ */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .about-grid p { margin-bottom: 16px; }
-    .about-vals { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-    .aval {
-      padding: 20px 18px; border-radius: 14px;
-      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s ease;
-    }
-    .aval:hover { background: rgba(0,163,255,0.04); border-color: rgba(0,163,255,0.12); }
-    .aval i  { font-size: 1.2rem; color: var(--cyan); margin-bottom: 10px; display: block; }
-    .aval h4 { font-size: 0.9rem; margin-bottom: 6px; }
-    .aval p  { font-size: 0.78rem; color: rgba(200,215,235,0.5); }
-    .about-card {
-      background: linear-gradient(145deg,rgba(13,18,32,0.95),rgba(8,12,22,0.98));
-      border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; overflow: hidden;
-    }
-    .about-metrics { display: grid; grid-template-columns: 1fr 1fr; }
-    .am {
-      padding: 28px 24px; text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .am:nth-child(2n) { border-right: none; }
-    .am:nth-child(3), .am:nth-child(4) { border-bottom: none; }
-    .am-n { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: #fff; line-height: 1; margin-bottom: 6px; }
-    .am-n em { color: var(--cyan); font-style: normal; font-size: 1rem; }
-    .am-l { font-size: 0.7rem; color: rgba(200,210,230,0.45); text-transform: uppercase; letter-spacing: 0.08em; }
-    .about-mission { padding: 24px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .about-mission p { font-size: 0.88rem; color: rgba(200,215,235,0.65); line-height: 1.75; font-style: italic; }
-
-    /* ═══════════════════════════════════════════════════
-       CONTACT PAGE
-    ═══════════════════════════════════════════════════ */
-    .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
-    .form-card {
-      background: linear-gradient(145deg,rgba(13,18,32,0.95),rgba(8,12,22,0.98));
-      border: 1px solid rgba(255,255,255,0.07); border-radius: 24px; padding: 44px 40px;
-    }
-    .form-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-    .form-card > p { font-size: 0.88rem; color: rgba(200,215,235,0.6); margin-bottom: 32px; }
-    .fr { margin-bottom: 18px; }
-    .fr2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
-    .fr label {
-      display: block; font-size: 0.75rem; font-weight: 600;
-      color: rgba(200,215,235,0.55); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 8px;
-    }
-    .fr input, .fr select, .fr textarea {
-      width: 100%; background: rgba(255,255,255,0.04);
-      border: 1.5px solid rgba(255,255,255,0.08); border-radius: 10px;
-      padding: 13px 16px; font-size: 0.9rem; color: #e8edf5;
-      font-family: inherit; outline: none; transition: all 0.25s ease;
-    }
-    .fr input:focus, .fr select:focus, .fr textarea:focus {
-      border-color: rgba(0,163,255,0.4); background: rgba(0,163,255,0.04);
-      box-shadow: 0 0 0 4px rgba(0,163,255,0.08);
-    }
-    .fr input::placeholder, .fr textarea::placeholder { color: rgba(200,215,235,0.25); }
-    .fr select { color: rgba(200,215,235,0.75); }
-    .fr select option { background: #0d1220; color: #e8edf5; }
-    .fr textarea { resize: vertical; min-height: 110px; }
-    .form-ok {
-      display: none; text-align: center; padding: 40px 20px;
-    }
-    .form-ok i  { font-size: 2.8rem; color: #10b981; margin-bottom: 16px; display: block; }
-    .form-ok h4 { font-size: 1.3rem; margin-bottom: 10px; }
-    .form-ok p  { font-size: 0.88rem; color: rgba(200,215,235,0.65); }
-    .form-err {
-      display: none; padding: 14px 18px; border-radius: 10px;
-      background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2);
-      color: #f87171; font-size: 0.85rem; margin-bottom: 16px;
-    }
-    .wa-cta-card {
-      padding: 24px; border-radius: 16px;
-      background: linear-gradient(135deg,rgba(37,211,102,0.08),rgba(37,211,102,0.03));
-      border: 1px solid rgba(37,211,102,0.2); text-align: center;
-    }
-    .wa-cta-card i  { font-size: 2rem; color: #25d366; display: block; margin-bottom: 10px; }
-    .wa-cta-card h4 { font-size: 1rem; margin-bottom: 8px; }
-    .wa-cta-card p  { font-size: 0.82rem; color: rgba(200,215,235,0.6); margin-bottom: 18px; }
-    .ci-card {
-      padding: 20px; border-radius: 14px; margin-bottom: 14px;
-      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
-    }
-    .ci-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-    .ci-ico {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
-    }
-    .ci-ico.bl { background: rgba(0,163,255,0.12); color: var(--cyan); border: 1px solid rgba(0,163,255,0.2); }
-    .ci-ico.gr { background: rgba(16,185,129,0.12); color: #10b981; border: 1px solid rgba(16,185,129,0.2); }
-    .ci-ico.gd { background: rgba(200,164,80,0.12);  color: var(--gold); border: 1px solid rgba(200,164,80,0.2); }
-    .ci-head h4 { font-size: 0.9rem; margin-bottom: 2px; }
-    .ci-head p  { font-size: 0.75rem; color: rgba(200,215,235,0.45); }
-    .ci-links { display: flex; flex-direction: column; gap: 8px; }
-    .ci-link {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.82rem; color: rgba(200,215,235,0.6); padding: 6px 0;
-      transition: color 0.2s ease;
-    }
-    .ci-link:hover { color: var(--cyan); }
-    .ci-link i { width: 16px; color: rgba(200,215,235,0.4); font-size: 0.85rem; flex-shrink: 0; }
-
-    /* ═══════════════════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════════════════ */
-    footer {
-      background: linear-gradient(180deg,var(--dark2) 0%,#060810 100%);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 80px 0 0;
-    }
-    .foot-top {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
-      gap: 60px; padding-bottom: 60px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .foot-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; cursor: pointer; }
-    .fl-bg {
-      width: 38px; height: 38px; border-radius: 9px;
-      background: linear-gradient(135deg,rgba(0,163,255,0.12),rgba(0,163,255,0.04));
-      border: 1px solid rgba(0,163,255,0.18);
-      display: flex; align-items: center; justify-content: center; overflow: hidden;
-    }
-    .fl-bg img { height: 26px; width: auto; }
-    .fl-name { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
-    .fl-tag  { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
-    .foot-brand p { font-size: 0.83rem; color: rgba(200,215,235,0.45); line-height: 1.7; margin-bottom: 20px; }
-    .foot-social { display: flex; gap: 10px; }
-    .soc {
-      width: 36px; height: 36px; border-radius: 9px;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; color: rgba(200,215,235,0.55);
-      transition: all 0.2s ease;
-    }
-    .soc:hover { background: rgba(0,163,255,0.1); border-color: rgba(0,163,255,0.2); color: var(--cyan); transform: translateY(-2px); }
-    .foot-col h5 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
-    .foot-links { display: flex; flex-direction: column; gap: 10px; }
-    .foot-links a {
-      font-size: 0.83rem; color: rgba(200,215,235,0.5); cursor: pointer;
-      transition: color 0.2s ease;
-    }
-    .foot-links a:hover { color: rgba(200,215,235,0.9); }
-    .foot-btm {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 0; flex-wrap: wrap; gap: 12px;
-    }
-    .foot-btm p { font-size: 0.78rem; color: rgba(200,215,235,0.3); }
-    .ac { color: #ef4444; }
-
-    /* ═══════════════════════════════════════════════════
-       WA FLOAT BUTTON
-    ═══════════════════════════════════════════════════ */
-    .wa-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 4000;
-    }
-    .wa-pulse {
-      position: absolute; top: -4px; right: -4px;
-      width: 66px; height: 66px; border-radius: 50%;
-      background: rgba(37,211,102,0.25);
-      animation: waPulse 2.5s ease-out infinite;
-    }
-    @keyframes waPulse {
-      0%   { transform:scale(1); opacity:0.8; }
-      100% { transform:scale(1.6); opacity:0; }
-    }
-    .wa-fab {
-      width: 58px; height: 58px;
-      background: linear-gradient(135deg,#075e45,#25d366);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; color: #fff; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-      transition: all 0.3s ease; position: relative; z-index: 2;
-    }
-    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
-    .wa-panel {
-      position: absolute; bottom: 70px; right: 0; width: 300px;
-      background: linear-gradient(145deg,rgba(13,18,34,0.98),rgba(8,12,24,0.99));
-      border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
-      padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      backdrop-filter: blur(20px);
-      opacity: 0; transform: translateY(10px) scale(0.97);
-      pointer-events: none;
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-    }
-    .wa-panel::before {
-      content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
-      background: linear-gradient(90deg,transparent,rgba(37,211,102,0.3),transparent);
-    }
-    .wa-panel.show { opacity:1; transform:translateY(0) scale(1); pointer-events:all; }
-    .wap-close {
-      position: absolute; top: 14px; right: 14px;
-      width: 28px; height: 28px; border-radius: 6px;
-      background: rgba(255,255,255,0.06);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; color: rgba(255,255,255,0.4); font-size: 0.8rem;
-      transition: all 0.2s ease;
-    }
-    .wap-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
-    .wap-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .wap-ico {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg,#075e45,#25d366);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; color: #fff;
-    }
-    .wap-head h4 { font-size: 0.95rem; margin-bottom: 2px; }
-    .on { font-size: 0.7rem; color: #25d366; font-weight: 500; }
-    .wa-opts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-    .wa-opt {
-      display: flex; align-items: center; gap: 12px;
-      padding: 11px 14px; border-radius: 10px;
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.82rem; color: rgba(200,215,235,0.75);
-      transition: all 0.2s ease;
-    }
-    .wa-opt:hover { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.2); color: #fff; }
-    .wa-opt i { color: var(--cyan); font-size: 0.9rem; width: 18px; flex-shrink: 0; }
-    .wap-call {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 13px; border-radius: 10px;
-      background: linear-gradient(135deg,rgba(37,211,102,0.12),rgba(37,211,102,0.05));
-      border: 1px solid rgba(37,211,102,0.2);
-      font-size: 0.85rem; font-weight: 600; color: #25d366;
-      transition: all 0.2s ease;
-    }
-    .wap-call:hover { background: linear-gradient(135deg,rgba(37,211,102,0.2),rgba(37,211,102,0.08)); }
-
-    /* ═══════════════════════════════════════════════════
-       SCROLL TO TOP
-    ═══════════════════════════════════════════════════ */
-    .stb {
-      position: fixed; bottom: 100px; right: 28px; z-index: 3999;
-      width: 42px; height: 42px; border-radius: 10px;
-      background: rgba(13,18,32,0.9); border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; color: rgba(200,215,235,0.6); cursor: pointer;
-      opacity: 0; transform: translateY(10px);
-      transition: all 0.3s ease; backdrop-filter: blur(10px);
-    }
-    .stb.on { opacity:1; transform:translateY(0); }
-    .stb:hover { background: rgba(0,163,255,0.15); border-color: rgba(0,163,255,0.3); color: var(--cyan); }
-
-    /* ═══════════════════════════════════════════════════
-       PAGES
-    ═══════════════════════════════════════════════════ */
-    .page { display: none; }
-    .page.active { display: block; }
-
-    /* ═══════════════════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .hero-inner      { grid-template-columns: 1fr; }
-      .hero-visual-panel { display: none; }
-      .why-grid        { grid-template-columns: 1fr; }
-      .why-visual      { position: static; }
-      .fp-grid         { grid-template-columns: 1fr; }
-      .sdc             { grid-template-columns: 1fr; }
-      .sdc-right       { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 28px; }
-      .foot-top        { grid-template-columns: 1fr 1fr; }
-      .about-grid      { grid-template-columns: 1fr; }
-      .contact-grid    { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .sec  { padding: 64px 0; }
-      .hero { padding: 100px 0 60px; }
-      .hero h1 { font-size: clamp(2rem,8vw,2.8rem); }
-      .hero-btns { flex-direction: column; }
-      .hero-btns .btn { width: 100%; justify-content: center; }
-      .hero-trust { gap: 16px; }
-      .trust-divider { display: none; }
-      .delivery-grid  { grid-template-columns: 1fr; }
-      .q-grid         { grid-template-columns: 1fr; }
-      .q-feat         { grid-row: auto; }
-      .cta-btns       { flex-direction: column; }
-      .cta-btns .btn  { width: 100%; }
-      .cta-inner      { padding: 40px 24px; }
-      .sdc            { padding: 28px 20px; }
-      .fr2            { grid-template-columns: 1fr; }
-      .foot-top       { grid-template-columns: 1fr; gap: 32px; }
-      .foot-btm       { flex-direction: column; text-align: center; }
-      .about-vals     { grid-template-columns: 1fr; }
-      .fv-metrics     { grid-template-columns: 1fr 1fr; }
-      .hv-grid        { grid-template-columns: 1fr 1fr; }
-      .form-card      { padding: 28px 20px; }
-      .nav-inner      { padding: 0 20px; }
-      .container      { padding: 0 20px; }
-    }
-    @media (max-width: 480px) {
-      .wv-metrics     { grid-template-columns: 1fr 1fr; }
-      .about-metrics  { grid-template-columns: 1fr 1fr; }
-      .popup-grid     { grid-template-columns: 1fr; }
-      .popup-box      { padding: 32px 24px; }
+    /* Responsive adjustments */
+    @media (max-width: 580px) {
+      .glass-card {
+        padding: 40px 24px;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════
-     LOADER
-════════════════════════════════════════ -->
-<div id="loader">
-  <div class="loader-logo">
-    <img src="logo.jpg" alt="NAS New Age Solution" style="height:28px;width:auto;">
+  <div class="bg-container">
+    <div class="bg-gradient-mesh"></div>
+    <div class="grid-lines"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="glass-card">
+    <div class="card-glow-border"></div>
+
+    <div class="logo-wrapper">
+      <div class="logo-badge">
+        <i class="fa-solid fa-network-wired"></i>
+      </div>
+      <div class="brand-name">N.A.S</div>
+      <div class="brand-tag">New Age Solution</div>
+    </div>
+
     <div>
-      <div class="loader-logo-text">N.A.S</div>
-      <div class="loader-logo-sub">New Age Solution</div>
-    </div>
-  </div>
-  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-</div>
-
-<!-- ════════════════════════════════════════
-     LEAD POPUP
-════════════════════════════════════════ -->
-<div id="leadPopup">
-  <div class="popup-box">
-    <div class="popup-close" onclick="closePopup()"><i class="fas fa-times"></i></div>
-    <div class="popup-badge">Limited Availability</div>
-    <h3>Get Your <span class="grad">Free IT Audit</span></h3>
-    <p>Find out exactly what is costing your business — downtime, security gaps, or inefficiencies. Zero obligation. 100% free.</p>
-    <div class="popup-grid">
-      <div class="pg-item"><i class="fas fa-shield-halved"></i>Security Audit</div>
-      <div class="pg-item"><i class="fas fa-server"></i>Infrastructure Check</div>
-      <div class="pg-item"><i class="fas fa-clock"></i>Response in 2 Hours</div>
-      <div class="pg-item"><i class="fas fa-star"></i>No Obligation</div>
-    </div>
-    <div id="popupForm">
-      <form onsubmit="handlePopup(event)">
-        <div class="popup-fr"><input type="text" name="name" placeholder="Your Name" required autocomplete="name"></div>
-        <div class="popup-fr"><input type="email" name="email" placeholder="Business Email" required autocomplete="email"></div>
-        <div class="popup-fr"><input type="tel" name="phone" placeholder="WhatsApp / Mobile" required autocomplete="tel"></div>
-        <input type="hidden" name="_subject" value="Free IT Audit Request - NAS Website">
-        <button type="submit" id="popupBtn" class="btn btn-gold btn-full btn-lg" style="margin-top:8px">
-          <i class="fas fa-rocket"></i> Claim My Free Audit
-        </button>
-      </form>
-    </div>
-    <div class="pop-ok" id="pSuccess">
-      <i class="fas fa-circle-check"></i>
-      <h4>You are on the list!</h4>
-      <p>We will reach out within 2 hours. Check WhatsApp — a message from us is on its way.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════
-     NAVBAR
-════════════════════════════════════════ -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo" onclick="showPage('home')">
-      <div class="nl-bg">
-        <img src="logo.jpg" alt="NAS New Age Solution" style="height:28px;width:auto;">
-      </div>
-      <div>
-        <div class="nl-name">N.A.S</div>
-        <div class="nl-tag">New Age Solution</div>
+      <div class="status-badge" id="status-badge-container">
+        <div class="status-dot"></div>
+        <span id="status-badge-text">Digital Upgrade</span>
       </div>
     </div>
-    <div class="nav-links">
-      <a id="nav-home"     onclick="showPage('home');closeMob()"     class="active">Home</a>
-      <a id="nav-services" onclick="showPage('services');closeMob()">Services</a>
-      <a id="nav-about"    onclick="showPage('about');closeMob()"   >About</a>
-      <a id="nav-contact"  onclick="showPage('contact');closeMob()" >Contact</a>
-    </div>
-    <div class="nav-cta">
-      <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+would+like+to+discuss+IT+services." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a onclick="showPage('contact');return false" class="btn btn-gold btn-sm"><i class="fas fa-rocket"></i> Free Audit</a>
-    </div>
-    <div class="hamburger" id="hamburger" onclick="toggleMob()">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</nav>
 
-<!-- Mobile Menu -->
-<div class="mob-menu" id="mobMenu">
-  <a id="mob-home"     onclick="showPage('home');closeMob()"><i class="fas fa-home"></i>Home</a>
-  <a id="mob-services" onclick="showPage('services');closeMob()"><i class="fas fa-server"></i>Services</a>
-  <a id="mob-about"    onclick="showPage('about');closeMob()"><i class="fas fa-building"></i>About</a>
-  <a id="mob-contact"  onclick="showPage('contact');closeMob()"><i class="fas fa-envelope"></i>Contact</a>
-  <a href="https://wa.me/27763631820" target="_blank" class="mob-wa"><i class="fab fa-whatsapp"></i>WhatsApp Us Now</a>
-</div>
+    <h1>Under Construction</h1>
+    <p class="message" id="intro-message">
+      We are currently rebuilding our entire website to provide you with a more robust, state-of-the-art managed IT experience. 
+      Our digital partner ecosystem upgrades are underway, and we will be back online soon.
+    </p>
 
-<!-- ════════════════════════════════════════════════════════════
-     HOME PAGE
-════════════════════════════════════════════════════════════ -->
-<div class="page active" id="page-home">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-canvas"><canvas id="particles"></canvas></div>
-    <div class="container">
-      <div class="hero-inner">
-        <!-- LEFT -->
-        <div class="hero-left">
-          <div class="hero-eyebrow">
-            <span class="dot"></span>
-            Gauteng's Premier IT Ecosystem Partner
-          </div>
-          <h1>
-            We Don't Fix IT.
-            <em><span class="grad">We Own It.</span></em>
-          </h1>
-          <p class="hero-sub">
-            One partner takes complete responsibility for your entire technology ecosystem — remotely and onsite across Gauteng. No more chasing vendors. No more downtime surprises.
-          </p>
-          <div class="hero-btns">
-            <a onclick="showPage('contact');return false" class="btn btn-gold btn-lg">
-              <i class="fas fa-rocket"></i> Get My Free IT Audit
-            </a>
-            <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+would+like+to+discuss+IT+services." target="_blank" class="btn btn-outline btn-lg">
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-          </div>
-          <div class="hero-trust">
-            <div class="trust-item">
-              <div class="trust-icon green"><i class="fas fa-shield-halved"></i></div>
-              <div class="trust-text">
-                <strong>Enterprise Security</strong>
-                <span>Bank-level protection</span>
-              </div>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <div class="trust-icon blue"><i class="fas fa-clock"></i></div>
-              <div class="trust-text">
-                <strong>2-Hour Response</strong>
-                <span>Remote &amp; onsite</span>
-              </div>
-            </div>
-            <div class="trust-divider"></div>
-            <div class="trust-item">
-              <div class="trust-icon gold"><i class="fas fa-star"></i></div>
-              <div class="trust-text">
-                <strong>150+ Businesses</strong>
-                <span>Across Gauteng</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- RIGHT VISUAL -->
-        <div class="hero-visual-panel rv">
-          <div class="hv-metrics-card">
-            <div class="hv-grid">
-              <div class="hv-stat">
-                <div class="hv-num"><span class="counter" data-t="8">0</span><em>+</em></div>
-                <div class="hv-label">Years Active</div>
-              </div>
-              <div class="hv-stat">
-                <div class="hv-num"><span class="counter" data-t="99">0</span><em>%</em></div>
-                <div class="hv-label">Uptime SLA</div>
-              </div>
-              <div class="hv-stat">
-                <div class="hv-num"><span class="counter" data-t="150">0</span><em>+</em></div>
-                <div class="hv-label">Businesses</div>
-              </div>
-              <div class="hv-stat">
-                <div class="hv-num gold"><span class="counter" data-t="2">0</span><em>hr</em></div>
-                <div class="hv-label">Avg Response</div>
-              </div>
-            </div>
-          </div>
-          <div class="hv-status-card">
-            <div class="hv-status-dot"></div>
-            <div class="hv-status-text">
-              <strong>All Systems Operational</strong>
-              <span>Remote support active — Gauteng technicians on standby</span>
-            </div>
-          </div>
-          <div class="hv-tech-card">
-            <div class="hv-tech-label">Technologies We Master</div>
-            <div class="hv-tech-icons">
-              <span class="hv-tech-badge">Microsoft 365</span>
-              <span class="hv-tech-badge">Azure</span>
-              <span class="hv-tech-badge">AWS</span>
-              <span class="hv-tech-badge">Fortinet</span>
-              <span class="hv-tech-badge">Hikvision</span>
-              <span class="hv-tech-badge">pfSense</span>
-              <span class="hv-tech-badge">Google Workspace</span>
-              <span class="hv-tech-badge">AI Agents</span>
-            </div>
-          </div>
-        </div>
+    <div class="progress-container" id="progress-container">
+      <div class="progress-label">
+        <span id="progress-title">System Rebuild</span>
+        <span id="progress-label-val">0% Complete</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-bar"></div>
       </div>
     </div>
-  </section>
 
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <div class="container">
-      <div class="trust-items">
-        <div class="trust-item">
-          <div class="trust-icon green"><i class="fas fa-shield-check"></i></div>
-          <div class="trust-text"><strong>Enterprise Security</strong><span>Bank-level protection</span></div>
-        </div>
-        <div class="trust-bar trust-divider"></div>
-        <div class="trust-item">
-          <div class="trust-icon blue"><i class="fas fa-wifi"></i></div>
-          <div class="trust-text"><strong>Remote Support</strong><span>Nationwide coverage</span></div>
-        </div>
-        <div class="trust-bar trust-divider"></div>
-        <div class="trust-item">
-          <div class="trust-icon gold"><i class="fas fa-truck"></i></div>
-          <div class="trust-text"><strong>Onsite Dispatch</strong><span>Across Gauteng</span></div>
-        </div>
-        <div class="trust-bar trust-divider"></div>
-        <div class="trust-item">
-          <div class="trust-icon green"><i class="fas fa-server"></i></div>
-          <div class="trust-text"><strong>99% Uptime</strong><span>Guaranteed SLA</span></div>
-        </div>
-        <div class="trust-bar trust-divider"></div>
-        <div class="trust-item">
-          <div class="trust-icon blue"><i class="fas fa-robot"></i></div>
-          <div class="trust-text"><strong>AI-Powered</strong><span>Future-ready solutions</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SERVICES OVERVIEW -->
-  <section class="sec" style="background:var(--dark2);position:relative;z-index:2">
-    <div class="container">
-      <div class="sec-head center rv">
-        <div class="sec-tag">Complete Service Stack</div>
-        <h2>Everything Your Business Needs.<br><span class="grad">One Accountable Partner.</span></h2>
-        <p>From daily helpdesk support to AI automation — we handle the full spectrum of technology so you never have to manage multiple vendors again.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
-
-        <div class="del-card d1 rv" style="cursor:pointer" onclick="showPage('services')">
-          <div class="del-icon"><i class="fas fa-crown"></i></div>
-          <h3>Full IT Ecosystem Takeover</h3>
-          <p>Your complete IT department. One partner owns everything — remote and onsite across Gauteng.</p>
-          <div class="del-feats">
-            <div class="del-feat"><i class="fas fa-check"></i>Dedicated IT Account Manager</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Unlimited Remote and Onsite Support</div>
-            <div class="del-feat"><i class="fas fa-check"></i>24/7 Network Monitoring</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Monthly IT Strategy Reviews</div>
-          </div>
-        </div>
-
-        <div class="del-card rv" style="background:linear-gradient(145deg,rgba(139,92,246,0.08),rgba(80,40,180,0.04));border-color:rgba(139,92,246,0.12);cursor:pointer" onclick="showPage('services')">
-          <div class="del-icon" style="color:#A78BFA"><i class="fas fa-network-wired"></i></div>
-          <h3>Network and Infrastructure</h3>
-          <p>Enterprise WiFi, cabling, firewalls, VPNs and server rooms — built to perform.</p>
-          <div class="del-feats">
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#A78BFA"></i>Enterprise WiFi Design</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#A78BFA"></i>Structured Cabling</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#A78BFA"></i>Firewall Configuration</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#A78BFA"></i>ISP Management and Failover</div>
-          </div>
-        </div>
-
-        <div class="del-card d2 rv" style="cursor:pointer" onclick="showPage('services')">
-          <div class="del-icon"><i class="fas fa-robot"></i></div>
-          <h3>Custom AI Agents</h3>
-          <p>WhatsApp bots, lead qualification, workflow automation and GPT-powered business tools.</p>
-          <div class="del-feats">
-            <div class="del-feat"><i class="fas fa-check"></i>WhatsApp Business Automation</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Lead Qualification Bots</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Custom GPT Internal Tools</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Workflow Automation</div>
-          </div>
-        </div>
-
-        <div class="del-card rv" style="background:linear-gradient(145deg,rgba(236,72,153,0.08),rgba(150,30,100,0.04));border-color:rgba(236,72,153,0.12);cursor:pointer" onclick="showPage('services')">
-          <div class="del-icon" style="color:#F472B6"><i class="fas fa-globe"></i></div>
-          <h3>Website Design and Development</h3>
-          <p>Premium, conversion-focused websites built to generate leads for your business.</p>
-          <div class="del-feats">
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F472B6"></i>Custom Business Websites</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F472B6"></i>High-Converting Landing Pages</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F472B6"></i>E-Commerce Development</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F472B6"></i>SEO and Performance Optimised</div>
-          </div>
-        </div>
-
-        <div class="del-card rv" style="background:linear-gradient(145deg,rgba(249,115,22,0.08),rgba(150,60,0,0.04));border-color:rgba(249,115,22,0.12);cursor:pointer" onclick="showPage('services')">
-          <div class="del-icon" style="color:#F97316"><i class="fas fa-video"></i></div>
-          <h3>CCTV and Physical Security</h3>
-          <p>IP cameras, NVR systems, access control and remote monitoring for Gauteng businesses.</p>
-          <div class="del-feats">
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F97316"></i>IP Camera Installation</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F97316"></i>Remote Viewing Setup</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F97316"></i>Access Control Systems</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#F97316"></i>Off-Site Footage Backup</div>
-          </div>
-        </div>
-
-        <div class="del-card rv" style="background:linear-gradient(145deg,rgba(0,114,239,0.08),rgba(0,50,150,0.04));border-color:rgba(0,114,239,0.12);cursor:pointer" onclick="showPage('services')">
-          <div class="del-icon" style="color:#60A5FA"><i class="fas fa-cloud-arrow-up"></i></div>
-          <h3>Cloud Migration and Backup</h3>
-          <p>Azure, AWS, Microsoft 365 and automated backup with full disaster recovery planning.</p>
-          <div class="del-feats">
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#60A5FA"></i>Azure and AWS Migration</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#60A5FA"></i>Automated Daily Backup</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#60A5FA"></i>Disaster Recovery Planning</div>
-            <div class="del-feat" style="color:rgba(200,215,235,0.65)"><i class="fas fa-check" style="color:#60A5FA"></i>3-2-1 Backup Strategy</div>
-          </div>
-        </div>
-
-      </div>
-      <div style="text-align:center;margin-top:40px">
-        <a onclick="showPage('services');return false" class="btn btn-primary btn-lg">
-          <i class="fas fa-th-large"></i> View All Services
+    <div class="contact-info">
+      <div class="contact-title">Get In Touch</div>
+      <div class="contact-buttons">
+        <a href="" id="email-btn" class="btn btn-primary">
+          <i class="fa-solid fa-envelope"></i> Email Support
+        </a>
+        <a href="" id="phone-btn" class="btn btn-outline">
+          <i class="fa-solid fa-phone"></i> Call Office
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- WEBSITE DESIGN FEATURE -->
-  <section class="sec" style="position:relative;z-index:2">
-    <div class="container">
-      <div class="fp-grid">
-        <div class="rv2">
-          <div class="sec-tag">New Service</div>
-          <h2>Websites That Work as Hard as <span class="grad">You Do</span></h2>
-          <p style="margin-top:12px;font-size:1rem;color:var(--muted)">We design and build premium, conversion-focused websites that turn visitors into paying clients. Mobile-first, lightning-fast, built for results.</p>
-          <div class="fp-feats">
-            <div class="fp-feat">
-              <div class="fp-feat-ico" style="background:rgba(236,72,153,.18);color:#F472B6"><i class="fas fa-paint-brush"></i></div>
-              <div class="fp-feat-txt"><strong>Premium Design Quality</strong><span>Luxury, conversion-focused designs that reflect your brand value</span></div>
-            </div>
-            <div class="fp-feat">
-              <div class="fp-feat-ico" style="background:rgba(16,185,129,.18);color:#10B981"><i class="fas fa-mobile-alt"></i></div>
-              <div class="fp-feat-txt"><strong>Mobile-First and Fast</strong><span>Perfect on every device, optimized for speed and Core Web Vitals</span></div>
-            </div>
-            <div class="fp-feat">
-              <div class="fp-feat-ico" style="background:rgba(0,85,255,.18);color:var(--cyan)"><i class="fas fa-bullseye"></i></div>
-              <div class="fp-feat-txt"><strong>Built to Convert</strong><span>Lead funnels, WhatsApp integration and CTAs engineered for results</span></div>
-            </div>
-          </div>
-          <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
-            <a onclick="showPage('contact');return false" class="btn btn-gold"><i class="fas fa-rocket"></i> Get a Quote</a>
-            <a onclick="showPage('services');return false" class="btn btn-ghost"><i class="fas fa-arrow-right"></i> Learn More</a>
-          </div>
-        </div>
-        <div class="fp-visual rv">
-          <div class="fv-metrics">
-            <div class="fvm"><div class="fvm-n">&lt;1<em>s</em></div><div class="fvm-l">First Impression</div></div>
-            <div class="fvm"><div class="fvm-n">3x<em></em></div><div class="fvm-l">More Leads</div></div>
-            <div class="fvm"><div class="fvm-n">A+<em></em></div><div class="fvm-l">Performance Score</div></div>
-            <div class="fvm"><div class="fvm-n">7<em>d</em></div><div class="fvm-l">Avg Delivery</div></div>
-          </div>
-          <div class="fv-badge">
-            <i class="fas fa-wifi"></i>
-            <p><strong style="color:#fff">Remote Delivery:</strong> Full design and development with video review sessions throughout the process.</p>
-          </div>
-        </div>
+      <div class="social-links" id="social-container">
+        <!-- Dynamically generated social icons -->
       </div>
     </div>
-  </section>
-
-  <!-- DELIVERY METHODS -->
-  <section class="sec" style="position:relative;z-index:2;background:var(--dark2)">
-    <div class="container">
-      <div class="sec-head rv">
-        <div class="sec-tag">How We Reach You</div>
-        <h2>Remote Support. <span class="grad">Onsite Presence.</span></h2>
-        <p>Instant remote assistance or a technician at your door. We cover both across Gauteng.</p>
-      </div>
-      <div class="delivery-grid rv">
-        <div class="del-card d1">
-          <i class="del-icon fas fa-wifi"></i>
-          <h3>Remote IT Support</h3>
-          <p>Our engineers connect securely to your systems in minutes, fixing issues and resolving problems without anyone needing to arrive on-site.</p>
-          <div class="del-feats">
-            <div class="del-feat"><i class="fas fa-check"></i>Same-day response for most issues</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Secure remote desktop technology</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Software installs, updates and patches</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Cloud system management and admin</div>
-            <div class="del-feat"><i class="fas fa-check"></i>24/7 network monitoring</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Email, 365 and Workspace support</div>
-          </div>
-        </div>
-        <div class="del-card d2">
-          <i class="del-icon fas fa-truck"></i>
-          <h3>Onsite Technician Dispatch</h3>
-          <p>When problems need physical hands, our certified technicians dispatch across Gauteng for installations, hardware, cabling, CCTV, and anything requiring an on-site presence.</p>
-          <div class="del-feats">
-            <div class="del-feat"><i class="fas fa-check"></i>Technician dispatch across Gauteng</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Network cabling and infrastructure</div>
-            <div class="del-feat"><i class="fas fa-check"></i>CCTV and security installation</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Hardware setup and repair</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Server room setup and maintenance</div>
-            <div class="del-feat"><i class="fas fa-check"></i>Emergency callouts available</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHILOSOPHY QUOTES -->
-  <section class="sec quotes-sec">
-    <div class="container">
-      <div class="sec-head rv">
-        <div class="sec-tag">The N.A.S Philosophy</div>
-        <h2>We Do Not Just Fix IT.<br><span class="grad">We Architect Futures.</span></h2>
-      </div>
-      <div class="q-grid">
-        <div class="q-card q-feat rv">
-          <div class="q-orb"><i class="fas fa-bolt"></i></div>
-          <p>Technology should not be a problem you manage. It should be a weapon you wield. Every business that chooses the right IT partner gains an unfair competitive advantage.</p>
-        </div>
-        <div class="q-card rv"><p>Every hour your team spends on IT issues is an hour they are not closing deals, serving clients, or growing your business. That is the real cost of unmanaged IT.</p></div>
-        <div class="q-card rv"><p>We do not sell packages. We build ecosystems. A package fixes what is broken today, but an ecosystem prevents problems from ever happening at all.</p></div>
-        <div class="q-card rv"><p>Your competitors are upgrading their technology right now. Your IT infrastructure is either a growth accelerator or a growth anchor. There is no neutral ground.</p></div>
-        <div class="q-card rv"><p>The most expensive IT decision you will make is not our service fee. It is the cost of doing nothing while downtime and security gaps silently erode your business.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY NAS -->
-  <section class="sec" style="position:relative;z-index:2">
-    <div class="container">
-      <div class="why-grid">
-        <div class="rv2">
-          <div class="sec-tag">Why N.A.S</div>
-          <h2>Why Smart Businesses Give Us<br><span class="grad">Their Entire IT</span></h2>
-          <p style="margin-top:12px;font-size:1rem;color:var(--muted)">We are not a break-fix IT company. We are a strategic technology partner who takes full responsibility for your IT infrastructure and treats it like our own business is on the line.</p>
-          <div class="why-items">
-            <div class="why-item">
-              <div class="wi-ico"><i class="fas fa-crown"></i></div>
-              <div class="wi-txt"><h4>Enterprise-Grade Without Enterprise Cost</h4><p>Fortune-500 level IT management, sized and priced for South African SMBs.</p></div>
-            </div>
-            <div class="why-item">
-              <div class="wi-ico"><i class="fas fa-clock"></i></div>
-              <div class="wi-txt"><h4>2-Hour Average Response Time</h4><p>When something breaks we are on it — remotely within 2 hours, onsite same-day.</p></div>
-            </div>
-            <div class="why-item">
-              <div class="wi-ico"><i class="fas fa-shield-halved"></i></div>
-              <div class="wi-txt"><h4>Proactive Not Reactive</h4><p>We monitor, patch, and update before issues become disasters.</p></div>
-            </div>
-            <div class="why-item">
-              <div class="wi-ico"><i class="fas fa-handshake"></i></div>
-              <div class="wi-txt"><h4>One Partner Zero Finger-Pointing</h4><p>One team owns your entire IT. No vendors passing blame. We are accountable for everything.</p></div>
-            </div>
-            <div class="why-item">
-              <div class="wi-ico"><i class="fas fa-robot"></i></div>
-              <div class="wi-txt"><h4>AI and Future-Ready Technology</h4><p>From custom AI agents to modern cloud architecture, the future delivered to your business today.</p></div>
-            </div>
-          </div>
-        </div>
-        <div class="why-visual rv">
-          <div class="wv-metrics">
-            <div class="wm"><div class="wm-n"><span class="counter3" data-t="8">0</span><span style="color:var(--cyan)">+</span></div><div class="wm-l">Years</div></div>
-            <div class="wm"><div class="wm-n"><span class="counter3" data-t="99">0</span><span style="color:var(--cyan)">%</span></div><div class="wm-l">Uptime</div></div>
-            <div class="wm"><div class="wm-n"><span class="counter3" data-t="150">0</span><span style="color:var(--cyan)">+</span></div><div class="wm-l">Clients</div></div>
-            <div class="wm"><div class="wm-n"><span class="counter3" data-t="2">0</span><span style="color:var(--cyan)">hr</span></div><div class="wm-l">Response</div></div>
-          </div>
-          <div class="why-loc">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>Serving businesses across <strong>Gauteng, South Africa</strong>. Remote support nationally, onsite dispatch throughout the province.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOME CTA -->
-  <section class="cta-sec sec-sm">
-    <div class="cta-inner rv">
-      <div class="sec-tag" style="margin:0 auto 20px"><i class="fas fa-bolt"></i> Take the First Step</div>
-      <h2>Stop Managing IT.<br><span class="grad">Start Owning Your Market.</span></h2>
-      <p>Let N.A.S take complete ownership of your technology so you can focus 100% on growing your business. Request your free IT audit — no obligation, no hard sell.</p>
-      <div class="cta-btns">
-        <a onclick="showPage('contact');return false" class="btn btn-gold btn-lg"><i class="fas fa-rocket"></i> Request My Free IT Audit</a>
-        <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+am+interested+in+an+IT+Takeover+for+my+business." target="_blank" class="btn btn-wa btn-lg"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /page-home -->
-
-<!-- ════════════════════════════════════════════════════════════
-     SERVICES PAGE
-════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-services">
-  <div class="page-banner">
-    <div class="sec-tag">Full Capability Stack</div>
-    <h1>Every IT Problem.<br><span class="grad">One Accountable Partner.</span></h1>
-    <p>Comprehensive IT solutions delivered remotely and onsite across Gauteng — from daily helpdesk to AI-powered business automation.</p>
   </div>
 
-  <section class="sec" style="background:var(--dark2);position:relative;z-index:2">
-    <div class="container">
-      <div class="sdc-grid">
+  <!-- ═══════════════════════════════════════════════════
+       EASY CONFIGURATION BLOCK
+  ═══════════════════════════════════════════════════ -->
+  <script>
+    const CONFIG = {
+      // 1. Status & Progress Configuration
+      statusBadge: "System Rebuild",       // Text in the small glowing pill badge
+      progressLabel: "Core Architecture",  // Label above the progress bar
+      progressPercent: 45,                 // Progress percentage (0 to 100)
+      
+      // 2. Launch Date Message (Updates main message)
+      message: "We are currently rebuilding our entire website to provide you with a more robust, state-of-the-art managed IT experience. Our system upgrades are underway, and our new portal is scheduled to launch in October 2026.",
 
-        <!-- 1. IT ECOSYSTEM TAKEOVER -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-crown"></i></div>
-              <div><div class="sdc-lbl">Flagship Service — Most Popular</div></div>
-            </div>
-            <h3>Full IT Ecosystem Takeover</h3>
-            <p>Your complete IT department in one engagement. We take full ownership of every aspect of your technology. No more chasing vendors. No more unexpected downtime. You run your business. We run your IT — remotely and onsite across Gauteng.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Dedicated IT Account Manager</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Unlimited Remote and Onsite Support</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>24/7 Network Monitoring</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Security Threat Detection and Response</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Software License Management</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Hardware Procurement and Lifecycle</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Cloud Infrastructure Management</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Backup and Disaster Recovery</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Vendor and ISP Management</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Monthly IT Strategy Reviews</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>User Onboarding and Offboarding</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Compliance and IT Documentation</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-gold"><i class="fas fa-rocket"></i> Request Assessment</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+Tell+me+about+Full+IT+Takeover." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>What Is Included</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(200,164,80,.15);color:var(--gold)"><i class="fas fa-user-tie"></i></div>
-                <div class="sdc-hi-txt"><strong>Personal IT Manager</strong><span>Single point of contact who knows your business inside out</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(16,185,129,.15);color:#10B981"><i class="fas fa-eye"></i></div>
-                <div class="sdc-hi-txt"><strong>Proactive Monitoring</strong><span>We catch and fix problems before they impact operations</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(0,85,255,.15);color:var(--cyan)"><i class="fas fa-chart-line"></i></div>
-                <div class="sdc-hi-txt"><strong>Quarterly IT Roadmaps</strong><span>Strategic planning aligned with your business growth goals</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(139,92,246,.15);color:#A78BFA"><i class="fas fa-shield-halved"></i></div>
-                <div class="sdc-hi-txt"><strong>Enterprise Security</strong><span>Endpoint protection, firewall management, threat intelligence</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      // 3. Main Contact Channels
+      email: "info@newagesolution.co.za",  // Target email address
+      phone: "+27878221627",               // Clean phone digits for calling (e.g. +27878221627)
+      phoneLabel: "+27 87 822 1627",       // Display format of the phone number
 
-        <!-- 2. NETWORK -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-network-wired"></i></div>
-              <div><div class="sdc-lbl">Remote and Onsite Delivery</div></div>
-            </div>
-            <h3>Network and Infrastructure</h3>
-            <p>The backbone of your digital operations. We design, install, and manage enterprise-grade network infrastructure. Our technicians deploy onsite across Gauteng for physical installations while all monitoring and management is handled remotely.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Enterprise WiFi Design and Installation</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Structured Cabling and Patching</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Server Room Setup and Management</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Firewall Config — Fortinet and pfSense</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>VPN and Remote Access Setup</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>VLAN Segmentation</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Network Performance Monitoring</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>ISP Management and Failover</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-primary btn-sm"><i class="fas fa-file-lines"></i> Request Quote</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+need+networking+help." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>Why This Matters</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(0,85,255,.15);color:var(--cyan)"><i class="fas fa-wifi"></i></div>
-                <div class="sdc-hi-txt"><strong>Zero Dead Zones</strong><span>Full-coverage enterprise AP deployment for seamless connectivity</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(16,185,129,.15);color:#10B981"><i class="fas fa-lock"></i></div>
-                <div class="sdc-hi-txt"><strong>Bank-Level Security</strong><span>Firewall rules, intrusion detection, encrypted traffic management</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(249,115,22,.15);color:#F97316"><i class="fas fa-bolt"></i></div>
-                <div class="sdc-hi-txt"><strong>Maximum Throughput</strong><span>Optimized for VoIP, cloud tools, and video conferencing</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      // 4. Social Media Links (Set to "" if you want to hide specific links)
+      facebook: "https://facebook.com/newagesolution",
+      linkedin: "https://linkedin.com/company/newagesolution",
+      whatsapp: "https://wa.me/27878221627"
+    };
 
-        <!-- 3. EMAIL AND CLOUD -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-envelope"></i></div>
-              <div><div class="sdc-lbl">Remote Delivery</div></div>
-            </div>
-            <h3>Email and Cloud Productivity</h3>
-            <p>We set up, migrate, secure, and manage Microsoft 365 and Google Workspace so collaboration is seamless, data is protected, and nothing gets lost. All setup and management is handled remotely with full guidance provided to your team.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Microsoft 365 Setup and Licensing</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Google Workspace Configuration</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Email Domain and MX Record Setup</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Full Email Migration — Any Platform</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>SharePoint and Teams Deployment</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>OneDrive and Google Drive Management</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Anti-Phishing and Spam Filtering</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Mobile Device Email Configuration</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-primary btn-sm"><i class="fas fa-file-lines"></i> Request Quote</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+need+cloud+email+setup." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>Platforms We Master</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(0,114,239,.15);color:#0078D4"><i class="fab fa-microsoft"></i></div>
-                <div class="sdc-hi-txt"><strong>Microsoft 365</strong><span>Outlook, Teams, SharePoint, OneDrive, Word, Excel</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(234,67,53,.15);color:#EA4335"><i class="fab fa-google"></i></div>
-                <div class="sdc-hi-txt"><strong>Google Workspace</strong><span>Gmail, Meet, Drive, Docs, Sheets, Calendar, Chat</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(16,185,129,.15);color:#10B981"><i class="fas fa-shield-alt"></i></div>
-                <div class="sdc-hi-txt"><strong>Email Security</strong><span>SPF, DKIM, DMARC, anti-spam, anti-phishing</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+    // ═══════════════════════════════════════════════════
+    // RENDER LOGIC (Automatic)
+    // ═══════════════════════════════════════════════════
+    document.addEventListener("DOMContentLoaded", () => {
+      // Update Status Badge
+      document.getElementById("status-badge-text").textContent = CONFIG.statusBadge;
+      
+      // Update Message
+      document.getElementById("intro-message").textContent = CONFIG.message;
+      
+      // Update Progress
+      document.getElementById("progress-title").textContent = CONFIG.progressLabel;
+      document.getElementById("progress-label-val").textContent = `${CONFIG.progressPercent}% Complete`;
+      
+      // Trigger progress bar width animation
+      setTimeout(() => {
+        document.getElementById("progress-bar").style.width = `${CONFIG.progressPercent}%`;
+      }, 300);
 
-        <!-- 4. CCTV -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-video"></i></div>
-              <div><div class="sdc-lbl">Onsite Installation — Remote Management</div></div>
-            </div>
-            <h3>CCTV and Physical Security</h3>
-            <p>We plan, install, and configure complete CCTV and physical security systems across Gauteng. Our technicians handle all on-site installation while you gain remote access to view your premises live from any device, anytime.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>IP CCTV Camera Installation Indoor and Outdoor</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>NVR and DVR System Configuration</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Remote Viewing App Setup</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Access Control System Installation</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Intercom and Gate Automation</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Alarm System Integration</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Security System Audits</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Off-Site Footage Backup Configuration</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-primary btn-sm"><i class="fas fa-file-lines"></i> Request Quote</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+need+CCTV+installation." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>Security Capabilities</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(139,92,246,.15);color:#A78BFA"><i class="fas fa-camera"></i></div>
-                <div class="sdc-hi-txt"><strong>HD and 4K IP Cameras</strong><span>Hikvision and Dahua with night vision and motion detection</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(249,115,22,.15);color:#F97316"><i class="fas fa-mobile-alt"></i></div>
-                <div class="sdc-hi-txt"><strong>Watch From Anywhere</strong><span>Live view and playback from your phone, 24/7</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(16,185,129,.15);color:#10B981"><i class="fas fa-door-open"></i></div>
-                <div class="sdc-hi-txt"><strong>Access Control</strong><span>Biometric, card, and PIN-based entry systems</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. WEBSITE DESIGN -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-globe"></i></div>
-              <div><div class="sdc-lbl">New Service — High Value</div></div>
-            </div>
-            <h3>Website Design and Development</h3>
-            <p>We build premium, high-converting websites and landing pages. From Facebook Ads landing pages to full corporate websites, we build with conversion at the core so visitors become paying clients. Every site is mobile-first, fast, and built to generate leads.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Custom Business Website Design</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>High-Converting Landing Pages</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>E-Commerce — Shopify and WooCommerce</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>WordPress Development</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Website Hosting and Domain Management</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>SEO Foundation and Analytics</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Lead Capture and CRM Integration</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Performance Optimization</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-primary btn-sm"><i class="fas fa-file-lines"></i> Request Quote</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+need+a+new+website." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>What We Build</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(236,72,153,.15);color:#F472B6"><i class="fas fa-paint-brush"></i></div>
-                <div class="sdc-hi-txt"><strong>Premium Design Quality</strong><span>Luxury conversion-focused designs that reflect your brand value</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(16,185,129,.15);color:#10B981"><i class="fas fa-mobile-alt"></i></div>
-                <div class="sdc-hi-txt"><strong>Mobile-First and Fast</strong><span>Perfect on every device, optimized for speed</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(0,85,255,.15);color:var(--cyan)"><i class="fas fa-bullseye"></i></div>
-                <div class="sdc-hi-txt"><strong>Built to Convert</strong><span>Strategic CTAs, lead funnels, WhatsApp integration built in</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. AI AGENTS -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-robot"></i></div>
-              <div><div class="sdc-lbl">New Service — Cutting Edge AI</div></div>
-            </div>
-            <h3>Custom AI Agents and Automation</h3>
-            <p>We build purpose-built AI systems designed around how your business actually operates. Intelligent automation that handles repetitive tasks, qualifies leads, answers customer queries, and automates complex workflows so your team focuses only on high-value work.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>AI Customer Service Chatbots</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>WhatsApp Business Automation</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Lead Qualification Bots</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Document Processing and Summarization</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Custom GPT-Powered Internal Tools</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Workflow Automation — Make and Zapier</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>AI Appointment Booking Systems</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Data Analysis and Automated Reporting</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-primary btn-sm"><i class="fas fa-file-lines"></i> Request Quote</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+want+a+custom+AI+agent." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>AI Use Cases</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(20,184,166,.15);color:#2DD4BF"><i class="fab fa-whatsapp"></i></div>
-                <div class="sdc-hi-txt"><strong>WhatsApp AI Bot</strong><span>Auto-qualify leads, answer FAQs, book appointments 24/7</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(139,92,246,.15);color:#A78BFA"><i class="fas fa-brain"></i></div>
-                <div class="sdc-hi-txt"><strong>GPT Business Assistant</strong><span>Custom AI trained on your business data and processes</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(249,115,22,.15);color:#F97316"><i class="fas fa-cogs"></i></div>
-                <div class="sdc-hi-txt"><strong>Workflow Automation</strong><span>Connect apps, automate flows, eliminate manual tasks entirely</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7. COMPUTER REPAIRS -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-laptop-code"></i></div>
-              <div><div class="sdc-lbl">Remote and Onsite</div></div>
-            </div>
-            <h3>Computer Repairs and Hardware</h3>
-            <p>Professional hardware repairs, upgrades, and procurement for businesses across Gauteng. We manage the full device lifecycle from purchase through to decommission so your team always has the right tools to do their best work.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Laptop and Desktop Repairs</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>RAM, SSD and Performance Upgrades</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Virus and Malware Removal</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Data Recovery Services</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Hardware Procurement and Sourcing</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>OS Reinstallation and Setup</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Device Configuration</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Warranty Claims Management</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-primary btn-sm"><i class="fas fa-file-lines"></i> Request Quote</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+need+computer+repair+help." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>Devices We Service</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(20,184,166,.15);color:#2DD4BF"><i class="fas fa-laptop"></i></div>
-                <div class="sdc-hi-txt"><strong>Laptops and Notebooks</strong><span>Dell, HP, Lenovo, Apple, ASUS, Acer and more</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(59,130,246,.15);color:#60A5FA"><i class="fas fa-desktop"></i></div>
-                <div class="sdc-hi-txt"><strong>Desktops and Workstations</strong><span>Consumer and enterprise builds and custom systems</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(249,115,22,.15);color:#F97316"><i class="fas fa-server"></i></div>
-                <div class="sdc-hi-txt"><strong>Servers</strong><span>Physical and virtual server maintenance and upgrades</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. CLOUD MIGRATION -->
-        <div class="sdc rv">
-          <div>
-            <div class="sdc-head">
-              <div class="sdc-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-              <div><div class="sdc-lbl">Remote Delivery</div></div>
-            </div>
-            <h3>Cloud Migration and Backup</h3>
-            <p>We move your business to the cloud securely and implement automated backup systems that ensure your data is always protected and recoverable — even in a worst-case scenario. All migration and backup management is handled remotely with zero business downtime.</p>
-            <div class="sdc-feats">
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Azure and AWS Cloud Migration</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Automated Daily Cloud Backup</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Disaster Recovery Planning</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Off-Site Data Redundancy</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Backup Monitoring and Alerting</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Microsoft 365 Backup</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Server-to-Cloud Migration</div>
-              <div class="sdc-feat"><i class="fas fa-check-circle"></i>Cloud Cost Optimization</div>
-            </div>
-            <div class="sdc-cta">
-              <a onclick="showPage('contact');return false" class="btn btn-primary btn-sm"><i class="fas fa-file-lines"></i> Request Quote</a>
-              <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+need+cloud+migration+or+backup." target="_blank" class="btn btn-wa btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-          </div>
-          <div class="sdc-right">
-            <h4>Cloud Platforms</h4>
-            <div class="sdc-hilist">
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(0,114,239,.15);color:#0078D4"><i class="fab fa-microsoft"></i></div>
-                <div class="sdc-hi-txt"><strong>Microsoft Azure</strong><span>VMs, Azure Backup, storage, and identity management</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(249,115,22,.15);color:#FF9900"><i class="fab fa-aws"></i></div>
-                <div class="sdc-hi-txt"><strong>Amazon AWS</strong><span>EC2, S3, RDS databases and AWS Backup solutions</span></div>
-              </div>
-              <div class="sdc-hi">
-                <div class="sdc-hi-ico" style="background:rgba(16,185,129,.15);color:#10B981"><i class="fas fa-shield-alt"></i></div>
-                <div class="sdc-hi-txt"><strong>3-2-1 Backup Strategy</strong><span>3 copies, 2 media types, 1 off-site — industry best practice</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-sec sec-sm">
-    <div class="cta-inner rv">
-      <div class="sec-tag" style="margin:0 auto 20px"><i class="fas fa-bolt"></i> Ready?</div>
-      <h2>Every Service. <span class="grad">One Trusted Partner.</span></h2>
-      <p>Do not compare prices. Compare outcomes. Request a quote and see what professional IT management actually looks like.</p>
-      <div class="cta-btns">
-        <a onclick="showPage('contact');return false" class="btn btn-gold btn-lg"><i class="fas fa-file-lines"></i> Request a Quote</a>
-        <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+would+like+to+discuss+your+services." target="_blank" class="btn btn-wa btn-lg"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-services -->
-
-<!-- ════════════════════════════════════════════════════════════
-     ABOUT PAGE
-════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-about">
-  <div class="page-banner">
-    <div class="sec-tag">Our Story</div>
-    <h1>Built to Take Over.<br><span class="grad">Built to Last.</span></h1>
-    <p>N.A.S was founded on a simple belief: South African businesses deserve enterprise-level IT without the enterprise-level complexity or the price tag.</p>
-  </div>
-
-  <section class="sec" style="position:relative;z-index:2">
-    <div class="container">
-      <div class="about-grid">
-        <div class="rv2">
-          <div class="sec-tag">Who We Are</div>
-          <h2>New Age Solution.<br><span class="grad">Your IT Ecosystem Partner.</span></h2>
-          <p style="margin-top:14px">N.A.S is a premium managed IT services provider based in Gauteng, South Africa. We serve small to medium businesses ready to stop treating IT as an afterthought and start using technology as a true competitive advantage.</p>
-          <p>We operate both remotely and onsite across Gauteng, giving businesses the best of both worlds: instant remote assistance when speed matters, and experienced technicians at your door when physical presence is required.</p>
-          <p>Instead of waiting for your technology to break and fixing it, we take complete ownership of your IT ecosystem and ensure problems simply do not happen. We become your IT department, security team, cloud architects, and technology strategists — all in one trusted relationship.</p>
-          <div class="about-vals">
-            <div class="aval"><i class="fas fa-crown"></i><h4>Excellence</h4><p>Enterprise standards for everything we deliver.</p></div>
-            <div class="aval"><i class="fas fa-handshake"></i><h4>Ownership</h4><p>Full responsibility, no excuses, no finger-pointing.</p></div>
-            <div class="aval"><i class="fas fa-bolt"></i><h4>Speed</h4><p>Fast response because your business cannot wait.</p></div>
-            <div class="aval"><i class="fas fa-lightbulb"></i><h4>Innovation</h4><p>Tomorrow's technology delivered to you today.</p></div>
-          </div>
-        </div>
-        <div class="rv">
-          <div class="about-card">
-            <div class="about-metrics">
-              <div class="am"><div class="am-n"><span class="counter4" data-t="8">0</span><em>+</em></div><div class="am-l">Years in Business</div></div>
-              <div class="am"><div class="am-n"><span class="counter4" data-t="99">0</span><em>%</em></div><div class="am-l">Uptime Guarantee</div></div>
-              <div class="am"><div class="am-n"><span class="counter4" data-t="150">0</span><em>+</em></div><div class="am-l">Businesses Served</div></div>
-              <div class="am"><div class="am-n"><span class="counter4" data-t="2">0</span><em>hr</em></div><div class="am-l">Avg Response Time</div></div>
-            </div>
-            <div class="about-mission">
-              <p>Our mission is to eliminate IT problems entirely. We exist to give South African businesses the competitive edge that comes from world-class technology managed by people who care as much about your success as you do.</p>
-            </div>
-            <div style="margin:0 24px 24px;padding:16px 18px;background:rgba(0,85,255,.06);border:1px solid rgba(0,85,255,.15);border-radius:var(--r)">
-              <p style="font-size:.83rem;color:rgba(255,255,255,.62);margin:0"><i class="fas fa-map-marker-alt" style="color:var(--cyan);margin-right:8px"></i>Based in <strong style="color:#fff">Gauteng, South Africa</strong>. Remote IT support nationally, onsite dispatch across the province.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-sec sec-sm">
-    <div class="cta-inner rv">
-      <h2>Ready to Meet Your <span class="grad">IT Partner?</span></h2>
-      <p>Start with a free IT audit and see what is possible when the right team owns your technology.</p>
-      <div class="cta-btns">
-        <a onclick="showPage('contact');return false" class="btn btn-gold btn-lg"><i class="fas fa-rocket"></i> Request Free IT Audit</a>
-        <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+would+like+to+learn+more+about+your+company." target="_blank" class="btn btn-wa btn-lg"><i class="fab fa-whatsapp"></i> Chat With Us</a>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-about -->
-
-<!-- ════════════════════════════════════════════════════════════
-     CONTACT PAGE
-════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-contact">
-  <div class="page-banner">
-    <div class="sec-tag">Let's Talk</div>
-    <h1>Request a Quote.<br><span class="grad">Get a Partner.</span></h1>
-    <p>Tell us about your business. We respond within 2 hours with a tailored recommendation — no generic packages, no pressure.</p>
-  </div>
-
-  <section class="sec" style="position:relative;z-index:2">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="form-card rv">
-          <h3>Request a <span class="grad">Quote</span></h3>
-          <p>Fill in your details and we will come back with a custom recommendation — no obligation.</p>
-          <div class="form-ok" id="formOk">
-            <i class="fas fa-circle-check"></i>
-            <h4>Quote Request Received!</h4>
-            <p>We will be in touch within 2 business hours. Expect a WhatsApp confirmation from us shortly.</p>
-          </div>
-          <div class="form-err" id="formErr">Something went wrong. Please try again or WhatsApp us directly at +27 76 363 1820.</div>
-          <form id="contactForm" onsubmit="handleForm(event)">
-            <div class="fr2">
-              <div class="fr"><label>First Name</label><input type="text" name="first_name" placeholder="John" required autocomplete="given-name"></div>
-              <div class="fr"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required autocomplete="family-name"></div>
-            </div>
-            <div class="fr"><label>Business Email</label><input type="email" name="email" placeholder="john@company.co.za" required autocomplete="email"></div>
-            <div class="fr"><label>WhatsApp / Mobile</label><input type="tel" name="phone" placeholder="+27 76 363 1820" required autocomplete="tel"></div>
-            <div class="fr"><label>Company Name</label><input type="text" name="company" placeholder="Your Company (Pty) Ltd" required autocomplete="organization"></div>
-            <div class="fr"><label>Service Interested In</label>
-              <select name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <option>Full IT Ecosystem Takeover</option>
-                <option>Network and Infrastructure</option>
-                <option>Email and Cloud Productivity</option>
-                <option>CCTV and Physical Security</option>
-                <option>IT Support Remote and Onsite</option>
-                <option>Website Design and Development</option>
-                <option>Custom AI Agents</option>
-                <option>Computer Repairs and Hardware</option>
-                <option>Cloud Migration and Backup</option>
-                <option>Multiple Services or Not Sure</option>
-              </select>
-            </div>
-            <div class="fr"><label>Company Size</label>
-              <select name="company_size">
-                <option value="" disabled selected>Number of employees</option>
-                <option>1-5 employees</option>
-                <option>6-20 employees</option>
-                <option>21-50 employees</option>
-                <option>50+ employees</option>
-              </select>
-            </div>
-            <div class="fr"><label>Tell Us About Your Needs</label><textarea name="message" placeholder="Describe your current IT situation and what you are looking to achieve..."></textarea></div>
-            <button type="submit" class="btn btn-gold btn-full btn-lg" id="submitBtn"><i class="fas fa-paper-plane"></i> Send Quote Request</button>
-          </form>
-        </div>
-
-        <div class="rv">
-          <div class="wa-cta-card" style="margin-bottom:16px">
-            <i class="fab fa-whatsapp"></i>
-            <h4>Prefer WhatsApp?</h4>
-            <p>Chat with us directly for a faster response. We are active during business hours.</p>
-            <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+would+like+a+quote+for+IT+services." target="_blank" class="btn btn-wa btn-full"><i class="fab fa-whatsapp"></i> Open WhatsApp Chat</a>
-          </div>
-          <div class="ci-card">
-            <div class="ci-head">
-              <div class="ci-ico bl"><i class="fas fa-envelope"></i></div>
-              <div><h4>Email Us</h4><p>General enquiries and quotes</p></div>
-            </div>
-            <div class="ci-links">
-              <div class="ci-link"><i class="fas fa-at"></i> info@newagesolution.co.za</div>
-            </div>
-          </div>
-          <div class="ci-card">
-            <div class="ci-head">
-              <div class="ci-ico gr"><i class="fas fa-map-marker-alt"></i></div>
-              <div><h4>Service Area</h4><p>Where we operate</p></div>
-            </div>
-            <div class="ci-links">
-              <div class="ci-link"><i class="fas fa-wifi"></i> Remote support nationwide</div>
-              <div class="ci-link"><i class="fas fa-truck"></i> Onsite dispatch — Gauteng, SA</div>
-            </div>
-          </div>
-          <div class="ci-card">
-            <div class="ci-head">
-              <div class="ci-ico gd"><i class="fas fa-share-alt"></i></div>
-              <div><h4>Connect With Us</h4><p>Follow for IT tips and updates</p></div>
-            </div>
-            <div class="ci-links">
-              <a href="https://www.facebook.com/profile.php?id=61578529301796" target="_blank" class="ci-link"><i class="fab fa-facebook"></i> Facebook Page</a>
-              <a href="https://www.linkedin.com/company/n-a-s-new-age-solution/" target="_blank" class="ci-link"><i class="fab fa-linkedin"></i> LinkedIn Company Page</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div><!-- /page-contact -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <div class="foot-logo" onclick="showPage('home')">
-          <div class="fl-bg">
-            <img src="logo.jpg" alt="NAS New Age Solution" style="height:28px;width:auto;">
-          </div>
-          <div>
-            <div class="fl-name">N.A.S</div>
-            <div class="fl-tag">New Age Solution</div>
-          </div>
-        </div>
-        <p>We take over your entire IT ecosystem so you never have to think about technology again. Remote support nationally. Onsite across Gauteng, South Africa.</p>
-        <div class="foot-social">
-          <a href="https://www.facebook.com/profile.php?id=61578529301796" target="_blank" class="soc" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.linkedin.com/company/n-a-s-new-age-solution/" target="_blank" class="soc" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/27763631820" target="_blank" class="soc" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div class="foot-col">
-        <h5>Services</h5>
-        <ul class="foot-links">
-          <li><a onclick="showPage('services')">IT Ecosystem Takeover</a></li>
-          <li><a onclick="showPage('services')">Networking and WiFi</a></li>
-          <li><a onclick="showPage('services')">Email and Microsoft 365</a></li>
-          <li><a onclick="showPage('services')">CCTV and Security</a></li>
-          <li><a onclick="showPage('services')">Website Design</a></li>
-          <li><a onclick="showPage('services')">Custom AI Agents</a></li>
-          <li><a onclick="showPage('services')">Cloud and Backup</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h5>Company</h5>
-        <ul class="foot-links">
-          <li><a onclick="showPage('home')">Home</a></li>
-          <li><a onclick="showPage('about')">About Us</a></li>
-          <li><a onclick="showPage('contact')">Request a Quote</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61578529301796" target="_blank">Facebook</a></li>
-          <li><a href="https://www.linkedin.com/company/n-a-s-new-age-solution/" target="_blank">LinkedIn</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h5>Contact</h5>
-        <ul class="foot-links">
-          <li><a>Gauteng, South Africa</a></li>
-          <li><a>info@newagesolution.co.za</a></li>
-          <li><a href="https://wa.me/27763631820" target="_blank">WhatsApp Us</a></li>
-          <li><a>Remote Support: Nationwide</a></li>
-          <li><a>Onsite: Gauteng Province</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-btm">
-      <p>&copy; 2025 N.A.S New Age Solution. All rights reserved.</p>
-      <p>Designed with <span class="ac">&#9829;</span> in Gauteng &nbsp;|&nbsp; Remote and Onsite IT Experts</p>
-    </div>
-  </div>
-</footer>
-
-<!-- ════════════════════════════════════════
-     WA FLOAT
-════════════════════════════════════════ -->
-<div class="wa-float">
-  <div class="wa-pulse"></div>
-  <div class="wa-fab" onclick="toggleWaPanel()"><i class="fab fa-whatsapp"></i></div>
-  <div class="wa-panel" id="waPanel">
-    <div class="wap-close" onclick="toggleWaPanel()"><i class="fas fa-times"></i></div>
-    <div class="wap-head">
-      <div class="wap-ico"><i class="fab fa-whatsapp"></i></div>
-      <div><h4>N.A.S Support</h4><div class="on">&#9679; Online Now</div></div>
-    </div>
-    <div class="wa-opts">
-      <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+am+interested+in+Full+IT+Takeover." target="_blank" class="wa-opt"><i class="fas fa-crown"></i><span>IT Ecosystem Takeover</span></a>
-      <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+would+like+to+request+a+quote." target="_blank" class="wa-opt"><i class="fas fa-file-lines"></i><span>Request a Quote</span></a>
-      <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+have+an+urgent+IT+issue." target="_blank" class="wa-opt"><i class="fas fa-bolt"></i><span>Urgent IT Support</span></a>
-      <a href="https://wa.me/27763631820?text=Hi+N.A.S!+I+want+to+learn+more." target="_blank" class="wa-opt"><i class="fas fa-comment"></i><span>General Enquiry</span></a>
-    </div>
-    <a href="tel:+27763631820" class="wap-call"><i class="fas fa-phone"></i><span>Call: +27 76 363 1820</span></a>
-  </div>
-</div>
-
-<!-- Scroll to Top -->
-<div class="stb" id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></div>
-
-<!-- ════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════ -->
-<script>
-/* ─── PARTICLES ─── */
-(function(){
-  var c=document.getElementById('particles');
-  if(!c)return;
-  var ctx=c.getContext('2d'),W,H,pts=[];
-  function resize(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}
-  resize();
-  window.addEventListener('resize',resize);
-  for(var i=0;i<55;i++){
-    pts.push({
-      x:Math.random()*2000,y:Math.random()*900,
-      r:Math.random()*1.4+.3,
-      vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,
-      a:Math.random()*.35+.08
-    });
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    for(var i=0;i<pts.length;i++){
-      var p=pts[i];
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(0,163,255,'+p.a+')';ctx.fill();
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0||p.x>W)p.vx*=-1;
-      if(p.y<0||p.y>H)p.vy*=-1;
-      for(var j=i+1;j<pts.length;j++){
-        var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<115){
-          ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
-          ctx.strokeStyle='rgba(0,87,184,'+(.1*(1-d/115))+')';
-          ctx.lineWidth=.5;ctx.stroke();
-        }
+      // Update Contact Buttons
+      const emailBtn = document.getElementById("email-btn");
+      if (CONFIG.email) {
+        emailBtn.href = `mailto:${CONFIG.email}`;
+      } else {
+        emailBtn.style.display = "none";
       }
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
 
-/* ─── INIT ─── */
-window.addEventListener('load',function(){
-  setTimeout(function(){document.getElementById('loader').classList.add('hide');},2400);
-  setTimeout(function(){if(!sessionStorage.getItem('ps'))showPopup();},9000);
-  initCounters('.counter','c1');
-  checkReveal();
-});
+      const phoneBtn = document.getElementById("phone-btn");
+      if (CONFIG.phone) {
+        phoneBtn.href = `tel:${CONFIG.phone}`;
+        phoneBtn.innerHTML = `<i class="fa-solid fa-phone"></i> Call ${CONFIG.phoneLabel}`;
+      } else {
+        phoneBtn.style.display = "none";
+      }
 
-/* ─── NAVBAR SCROLL ─── */
-window.addEventListener('scroll',function(){
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
-  document.getElementById('stb').classList.toggle('on',window.scrollY>400);
-  checkReveal();
-});
+      // Generate Social Links
+      const socialContainer = document.getElementById("social-container");
+      const socials = [
+        { key: "facebook", icon: "fa-brands fa-facebook-f", label: "Facebook" },
+        { key: "linkedin", icon: "fa-brands fa-linkedin-in", label: "LinkedIn" },
+        { key: "whatsapp", icon: "fa-brands fa-whatsapp", label: "WhatsApp" }
+      ];
 
-/* ─── PAGE SWITCHING ─── */
-function showPage(n){
-  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
-  var pg=document.getElementById('page-'+n);
-  if(pg)pg.classList.add('active');
-  document.querySelectorAll('.nav-links a,.mob-menu a').forEach(function(a){a.classList.remove('active');});
-  var na=document.getElementById('nav-'+n);
-  if(na)na.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-  var titles={
-    home:'N.A.S New Age Solution — IT Ecosystem Partner',
-    services:'Services — N.A.S New Age Solution',
-    about:'About — N.A.S New Age Solution',
-    contact:'Request a Quote — N.A.S New Age Solution'
-  };
-  if(titles[n])document.title=titles[n];
-  setTimeout(checkReveal,120);
-}
-
-/* ─── MOBILE MENU ─── */
-function toggleMob(){
-  document.getElementById('mobMenu').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
-}
-function closeMob(){
-  document.getElementById('mobMenu').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-}
-
-/* ─── SCROLL REVEAL ─── */
-function checkReveal(){
-  document.querySelectorAll('.rv:not(.show),.rv2:not(.show)').forEach(function(el){
-    if(el.getBoundingClientRect().top<window.innerHeight*.9)el.classList.add('show');
-  });
-}
-window.addEventListener('load',checkReveal);
-
-/* ─── COUNTERS ─── */
-function animCount(el,t){
-  var v=0,step=t/80;
-  var tm=setInterval(function(){
-    v=Math.min(v+step,t);
-    el.textContent=Math.floor(v);
-    if(v>=t)clearInterval(tm);
-  },18);
-}
-var done={};
-function initCounters(cls,key){
-  if(done[key])return;
-  done[key]=true;
-  document.querySelectorAll(cls).forEach(function(el){animCount(el,+el.dataset.t);});
-}
-var obs=new IntersectionObserver(function(es){
-  es.forEach(function(e){
-    if(e.isIntersecting){
-      initCounters('.counter2','c2');
-      initCounters('.counter3','c3');
-      initCounters('.counter4','c4');
-    }
-  });
-},{threshold:.3});
-document.querySelectorAll('.why-visual,.about-card,.hv-metrics-card').forEach(function(el){obs.observe(el);});
-
-/* ─── WA PANEL ─── */
-function toggleWaPanel(){document.getElementById('waPanel').classList.toggle('show');}
-document.addEventListener('click',function(e){
-  var fl=document.querySelector('.wa-float');
-  if(fl&&!fl.contains(e.target))document.getElementById('waPanel').classList.remove('show');
-});
-
-/* ─── POPUP ─── */
-function showPopup(){document.getElementById('leadPopup').classList.add('show');}
-function closePopup(){
-  document.getElementById('leadPopup').classList.remove('show');
-  sessionStorage.setItem('ps','1');
-}
-document.getElementById('leadPopup').addEventListener('click',function(e){
-  if(e.target===document.getElementById('leadPopup'))closePopup();
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'){closeMob();closePopup();}
-});
-
-/* ─── FORMSPREE ENDPOINT ─── */
-var FORM='https://formspree.io/f/mjgpkpqy';
-
-/* ─── POPUP FORM ─── */
-async function handlePopup(e){
-  e.preventDefault();
-  var btn=document.getElementById('popupBtn');
-  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
-  btn.disabled=true;
-  var data=new FormData(e.target);
-  data.append('_subject','New IT Audit Request — NAS Website');
-  try{
-    var r=await fetch(FORM,{method:'POST',body:data,headers:{'Accept':'application/json'}});
-    if(r.ok){
-      document.getElementById('popupForm').style.display='none';
-      document.getElementById('pSuccess').style.display='block';
-      sessionStorage.setItem('ps','1');
-      var name=encodeURIComponent(data.get('name')||'there');
-      setTimeout(function(){
-        window.open('https://wa.me/27763631820?text=Hi+N.A.S!+I+just+submitted+a+Free+IT+Audit+request.+My+name+is+'+name+'.+Looking+forward+to+hearing+from+you!','_blank');
-      },2000);
-    }else{throw new Error('err');}
-  }catch(err){
-    btn.innerHTML='<i class="fas fa-rocket"></i> Claim My Free Audit';
-    btn.disabled=false;
-    alert('Something went wrong. Please WhatsApp us at +27 76 363 1820');
-  }
-}
-
-/* ─── CONTACT FORM ─── */
-async function handleForm(e){
-  e.preventDefault();
-  var btn=document.getElementById('submitBtn');
-  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
-  btn.disabled=true;
-  document.getElementById('formErr').style.display='none';
-  var data=new FormData(e.target);
-  data.append('_subject','New Quote Request — NAS Website');
-  try{
-    var r=await fetch(FORM,{method:'POST',body:data,headers:{'Accept':'application/json'}});
-    if(r.ok){
-      document.getElementById('contactForm').style.display='none';
-      document.getElementById('formOk').style.display='block';
-      var name=encodeURIComponent(data.get('first_name')||'there');
-      var service=encodeURIComponent(data.get('service')||'IT services');
-      setTimeout(function(){
-        window.open('https://wa.me/27763631820?text=Hi+N.A.S!+I+just+submitted+a+quote+request+for+'+service+'.+My+name+is+'+name+'.+Looking+forward+to+your+response!','_blank');
-      },1500);
-    }else{throw new Error('err');}
-  }catch(err){
-    btn.innerHTML='<i class="fas fa-paper-plane"></i> Send Quote Request';
-    btn.disabled=false;
-    document.getElementById('formErr').style.display='block';
-  }
-}
-</script>
+      socials.forEach(s => {
+        const url = CONFIG[s.key];
+        if (url) {
+          const a = document.createElement("a");
+          a.href = url;
+          a.className = "social-icon";
+          a.target = "_blank";
+          a.ariaLabel = s.label;
+          a.innerHTML = `<i class="${s.icon}"></i>`;
+          socialContainer.appendChild(a);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
