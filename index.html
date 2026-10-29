@@ -3,562 +3,1106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="N.A.S New Age Solution is undergoing a digital transformation. We are currently rebuilding our website to bring you a premium IT ecosystem experience.">
-  <meta name="keywords" content="IT support Gauteng, managed IT services, under construction, digital transformation, New Age Solution">
-  <meta name="author" content="N.A.S New Age Solution">
-  <meta property="og:title" content="N.A.S New Age Solution — Under Construction">
-  <meta property="og:description" content="We are rebuilding our digital presence. We will be back online soon with an enhanced IT experience.">
-  <meta property="og:type" content="website">
-  <title>N.A.S New Age Solution — Under Construction</title>
+  <title>NAS | Cyber Resilience & Managed IT for Gauteng Businesses</title>
+  <meta name="description" content="NAS helps Gauteng businesses strengthen cybersecurity, protect business data and manage IT through practical backup, recovery and managed IT services.">
+  <meta name="keywords" content="Cybersecurity services Gauteng, Managed IT services Pretoria, Managed IT services Centurion, Business backup services South Africa, Microsoft 365 backup South Africa, Cyber resilience assessment">
   
-  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="NAS — Cyber Resilience & Managed IT for Growing Businesses">
+  <meta property="og:description" content="Protect Your Business. Strengthen Your IT. Stay Resilient. Practical cybersecurity, managed IT and data protection for SMEs in Gauteng.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <style>
-    /* ═══════════════════════════════════════════════════
-       CSS VARIABLES & SYSTEM
-    ═══════════════════════════════════════════════════ */
-    :root {
-      --dark:   #060913;
-      --dark2:  #0a0e1c;
-      --dark3:  #0f1426;
-      --cyan:   #00a3ff;
-      --cyan-glow: rgba(0, 163, 255, 0.4);
-      --gold:   #c8a450;
-      --gold-glow: rgba(200, 164, 80, 0.3);
-      --gold-grad: linear-gradient(135deg, #c8a450 0%, #f5e0a0 50%, #c8a450 100%);
-      --blue-grad: linear-gradient(135deg, #0055ff 0%, #00a3ff 100%);
-      --text-main: #e8edf5;
-      --text-muted: rgba(232, 237, 245, 0.6);
-      --glass: rgba(10, 14, 28, 0.6);
-      --border: rgba(255, 255, 255, 0.08);
-      --r-card: 24px;
-      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--dark);
-      color: var(--text-main);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* ═══════════════════════════════════════════════════
-       BACKGROUND EFFECTS
-    ═══════════════════════════════════════════════════ */
-    .bg-container {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .bg-gradient-mesh {
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(0, 85, 255, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 90% 80%, rgba(200, 164, 80, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(10, 14, 28, 0.9) 0%, var(--dark) 100%);
-      animation: meshAnim 20s ease-in-out infinite alternate;
-    }
-
-    @keyframes meshAnim {
-      0% { transform: scale(1) translate(0, 0); }
-      100% { transform: scale(1.05) translate(2%, 2%); }
-    }
-
-    /* Network Nodes Simulation Grid */
-    .grid-lines {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-      background-size: 60px 60px;
-      background-position: center center;
-      mask-image: radial-gradient(circle 500px at center, black, transparent);
-      -webkit-mask-image: radial-gradient(circle 500px at center, black, transparent);
-    }
-
-    /* Glowing Orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.4;
-      mix-blend-mode: screen;
-      animation: orbFloat 15s ease-in-out infinite alternate;
-    }
-
-    .orb-1 {
-      top: 20%;
-      left: 15%;
-      width: 300px;
-      height: 300px;
-      background: var(--cyan);
-      animation-duration: 20s;
-    }
-
-    .orb-2 {
-      bottom: 15%;
-      right: 15%;
-      width: 400px;
-      height: 400px;
-      background: var(--gold);
-      animation-duration: 25s;
-    }
-
-    @keyframes orbFloat {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(50px, -30px) scale(1.2); }
-    }
-
-    /* ═══════════════════════════════════════════════════
-       CARD CONTAINER & CONTENT
-    ═══════════════════════════════════════════════════ */
-    .glass-card {
-      position: relative;
-      z-index: 1;
-      width: 90%;
-      max-width: 680px;
-      padding: 56px 48px;
-      background: var(--glass);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid var(--border);
-      border-radius: var(--r-card);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 
-                  0 0 100px rgba(0, 163, 255, 0.05);
-      text-align: center;
-      overflow: hidden;
-      animation: cardFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes cardFadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .card-glow-border {
-      position: absolute;
-      top: 0; left: 15%; right: 15%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), var(--gold), transparent);
-    }
-
-    /* Logo Styling */
-    .logo-wrapper {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 36px;
-    }
-
-    .logo-badge {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(0, 163, 255, 0.1), rgba(200, 164, 80, 0.1));
-      border: 1px solid rgba(0, 163, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      position: relative;
-    }
-
-    .logo-badge::after {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--cyan), var(--gold));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0.5;
-    }
-
-    .logo-badge i {
-      background: var(--gold-grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: pulseIcon 4s ease-in-out infinite;
-    }
-
-    @keyframes pulseIcon {
-      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px var(--cyan)); }
-      50% { transform: scale(1.08); filter: drop-shadow(0 0 8px var(--cyan)); }
-    }
-
-    .brand-name {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #fff;
-      line-height: 1.1;
-    }
-
-    .brand-tag {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* Live status badge */
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: rgba(200, 164, 80, 0.08);
-      border: 1px solid rgba(200, 164, 80, 0.2);
-      border-radius: 100px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold2);
-      margin-bottom: 24px;
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 10px var(--cyan);
-      animation: pulseDot 2s infinite;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { transform: scale(1); opacity: 0.6; }
-      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 16px var(--cyan), 0 0 25px rgba(0, 163, 255, 0.6); }
-    }
-
-    /* Typography */
-    h1 {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      background: var(--gold-grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .message {
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 36px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Progress Bar */
-    .progress-container {
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto 40px auto;
-      text-align: left;
-    }
-
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .progress-bar-wrap {
-      width: 100%;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.03);
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%; /* Initial state for animation */
-      background: linear-gradient(90deg, var(--cyan), var(--gold));
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 163, 255, 0.3);
-      transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Contact Details and Social Links */
-    .contact-info {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .contact-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .contact-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #004fb2 0%, #0077ff 100%);
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(0, 119, 255, 0.2);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 119, 255, 0.4);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: var(--text-main);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .social-links {
-      display: flex;
-      gap: 16px;
-      margin-top: 12px;
-    }
-
-    .social-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      transition: var(--transition);
-      text-decoration: none;
-    }
-
-    .social-icon:hover {
-      background: rgba(0, 163, 255, 0.1);
-      border-color: rgba(0, 163, 255, 0.3);
-      color: var(--cyan);
-      transform: translateY(-2px) scale(1.05);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 580px) {
-      .glass-card {
-        padding: 40px 24px;
-      }
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
 
-  <div class="bg-container">
-    <div class="bg-gradient-mesh"></div>
-    <div class="grid-lines"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+  <!-- Dynamic Background Grid, Mesh & Interactive Particle Canvas -->
+  <div class="bg-canvas">
+    <div class="bg-mesh"></div>
+    <div class="bg-grid"></div>
   </div>
 
-  <div class="glass-card">
-    <div class="card-glow-border"></div>
+  <!-- ═════════════════════════════════════════════════════════════════════
+       GLOBAL NAVIGATION BAR WITH FULL 7-ITEM SERVICES DROPDOWN
+       ═════════════════════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="nas-logo-nav.png" alt="NAS New Age Solutions Logo" class="logo-img">
+      </a>
 
-    <div class="logo-wrapper">
-      <div class="logo-badge">
-        <i class="fa-solid fa-network-wired"></i>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        
+        <div class="nav-item">
+          <a href="services.html" class="nav-link">Services <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
+          <div class="dropdown-menu">
+            <a href="cyber-resilience.html" class="dropdown-link"><i class="fa-solid fa-shield-halved"></i> Cyber Resilience</a>
+            <a href="backup-recovery.html" class="dropdown-link"><i class="fa-solid fa-database"></i> Backup & Data Protection</a>
+            <a href="services.html#cybersecurity" class="dropdown-link"><i class="fa-solid fa-user-shield"></i> Cybersecurity</a>
+            <a href="services.html#m365-protection" class="dropdown-link"><i class="fa-brands fa-microsoft"></i> Microsoft 365 Protection</a>
+            <a href="managed-it.html" class="dropdown-link"><i class="fa-solid fa-laptop-code"></i> Managed IT & RMM</a>
+            <a href="disaster-recovery.html" class="dropdown-link"><i class="fa-solid fa-cloud-arrow-up"></i> Disaster Recovery</a>
+            <a href="services.html" class="dropdown-link" style="border-top:1px solid rgba(255,255,255,0.08); margin-top:4px; padding-top:12px;"><i class="fa-solid fa-layer-group"></i> All Services</a>
+          </div>
+        </div>
+
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="about.html" class="nav-link">About NAS</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </div>
-      <div class="brand-name">N.A.S</div>
-      <div class="brand-tag">New Age Solution</div>
-    </div>
 
-    <div>
-      <div class="status-badge" id="status-badge-container">
-        <div class="status-dot"></div>
-        <span id="status-badge-text">Digital Upgrade</span>
-      </div>
-    </div>
-
-    <h1>Under Construction</h1>
-    <p class="message" id="intro-message">
-      We are currently rebuilding our entire website to provide you with a more robust, state-of-the-art managed IT experience. 
-      Our digital partner ecosystem upgrades are underway, and we will be back online soon.
-    </p>
-
-    <div class="progress-container" id="progress-container">
-      <div class="progress-label">
-        <span id="progress-title">System Rebuild</span>
-        <span id="progress-label-val">0% Complete</span>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progress-bar"></div>
-      </div>
-    </div>
-
-    <div class="contact-info">
-      <div class="contact-title">Get In Touch</div>
-      <div class="contact-buttons">
-        <a href="" id="email-btn" class="btn btn-primary">
-          <i class="fa-solid fa-envelope"></i> Email Support
+      <div class="nav-actions">
+        <a href="security-assessment.html" class="btn btn-cyan btn-sm">
+          Book a Free Assessment
         </a>
-        <a href="" id="phone-btn" class="btn btn-outline">
-          <i class="fa-solid fa-phone"></i> Call Office
-        </a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
-      <div class="social-links" id="social-container">
-        <!-- Dynamically generated social icons -->
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="services.html" class="mobile-nav-link">All Services</a>
+      <a href="cyber-resilience.html" class="mobile-nav-link">Cyber Resilience</a>
+      <a href="backup-recovery.html" class="mobile-nav-link">Backup & Data Protection</a>
+      <a href="managed-it.html" class="mobile-nav-link">Managed IT & RMM</a>
+      <a href="disaster-recovery.html" class="mobile-nav-link">Disaster Recovery</a>
+      <a href="packages.html" class="mobile-nav-link">Packages & Pricing</a>
+      <a href="about.html" class="mobile-nav-link">About NAS</a>
+      <a href="resources.html" class="mobile-nav-link">Resources</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    </div>
+    <a href="security-assessment.html" class="btn btn-cyan">Book a Free Cyber Resilience Assessment</a>
+  </div>
+
+  <main>
+    <!-- ═══════════════════════════════════════════════════════════════════
+         1. HERO SECTION — VAULTRA / NOVA-AGENT INTERACTIVE CONSOLE
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="hero-section brand-watermark-bg">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="editorial-eyebrow">
+              <span>CYBER RESILIENCE &amp; MANAGED IT FOR GROWING BUSINESSES</span>
+            </div>
+
+            <h1 class="h1-hero">
+              Protect Your Business.<br>
+              <span class="text-gradient-cyan">Strengthen Your IT.</span><br>
+              Stay Resilient.
+            </h1>
+
+            <p class="subhead">
+              NAS helps growing businesses protect their data, secure their devices and manage their IT through practical cybersecurity, managed backup and recovery services.
+            </p>
+
+            <div class="btn-group">
+              <a href="security-assessment.html" class="btn btn-cyan">
+                Book Your Free Cyber Resilience Assessment <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="services.html" class="btn btn-outline">
+                Explore Our Services
+              </a>
+            </div>
+
+            <div style="margin-top:16px; font-size:0.8rem; color:var(--text-subtle);">
+              Understand your current risks, identify potential gaps and explore practical next steps. No obligation to purchase.
+            </div>
+
+            <!-- Nova-Agent Style Live Auto-Typing Cyber Resilience Terminal -->
+            <div class="nova-terminal-box" aria-live="polite">
+              <div class="nova-terminal-header">
+                <span><i class="fa-solid fa-terminal"></i> NAS // LIVE RESILIENCE TELEMETRY</span>
+                <span style="color:var(--accent-emerald);">● ONLINE</span>
+              </div>
+              <div class="nova-terminal-line">
+                <span style="color:var(--accent-cyan); font-weight:700;">&gt;</span>
+                <span id="nova-typing-text">Verifying Microsoft 365 & workstation backup schedules...</span>
+                <span class="nova-caret"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vaultra / Nova-Agent Interactive Cyber Resilience Console -->
+          <div class="vaultra-console" aria-label="Interactive NAS Cyber Resilience Telemetry Console">
+            <div class="console-topbar">
+              <div class="console-dots">
+                <span class="console-dot red"></span>
+                <span class="console-dot amber"></span>
+                <span class="console-dot green"></span>
+              </div>
+              <div class="console-title-bar">
+                <i class="fa-solid fa-satellite-dish" style="color:var(--accent-cyan);"></i> NAS RESILIENCE COMMAND
+              </div>
+              <div class="console-live-pill">
+                <span class="pill-dot" style="width:6px; height:6px; background:var(--accent-emerald);"></span> ACTIVE OVERSIGHT
+              </div>
+            </div>
+
+            <!-- Interactive 5 Proposal Pillars Switcher Tabs: Protect, Prevent, Detect, Respond, Recover -->
+            <div class="console-tabs" role="tablist">
+              <button class="console-tab active" type="button" role="tab">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Protect</span>
+              </button>
+              <button class="console-tab" type="button" role="tab">
+                <i class="fa-solid fa-lock"></i>
+                <span>Prevent</span>
+              </button>
+              <button class="console-tab" type="button" role="tab">
+                <i class="fa-solid fa-satellite-dish"></i>
+                <span>Detect</span>
+              </button>
+              <button class="console-tab" type="button" role="tab">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Respond</span>
+              </button>
+              <button class="console-tab" type="button" role="tab">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span>Recover</span>
+              </button>
+            </div>
+
+            <!-- Console Live Screen -->
+            <div class="console-screen">
+              <!-- Pillar 1: PROTECT -->
+              <div class="console-panel active">
+                <div class="telemetry-header">
+                  <div class="telemetry-title">01. Protect — Data, Workloads &amp; Cloud Suites</div>
+                  <span class="telemetry-badge">PILLAR 01 • PROTECT</span>
+                </div>
+                <p style="font-size:0.84rem; color:var(--text-muted);">
+                  Safeguard critical business data across workstations, servers, Microsoft 365 and Google Workspace through configured backup and protection plans.
+                </p>
+                <div class="telemetry-metrics">
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Protected Workloads</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-circle-check" style="color:var(--accent-emerald); font-size:0.85rem;"></i> Workstations, M365 &amp; Servers</div>
+                  </div>
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Base Cloud Quota</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-cloud" style="color:var(--accent-cyan); font-size:0.85rem;"></i> 300 GB / Workstation</div>
+                  </div>
+                </div>
+                <div class="telemetry-bar-wrap">
+                  <div class="telemetry-bar-label">
+                    <span>Data &amp; Workload Protection Coverage</span>
+                    <span style="color:var(--accent-cyan); font-weight:700;">Managed Scope</span>
+                  </div>
+                  <div class="telemetry-bar"><div class="telemetry-bar-fill" style="width:95%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Pillar 2: PREVENT -->
+              <div class="console-panel">
+                <div class="telemetry-header">
+                  <div class="telemetry-title">02. Prevent — Endpoint Security, Patching &amp; Awareness</div>
+                  <span class="telemetry-badge">PILLAR 02 • PREVENT</span>
+                </div>
+                <p style="font-size:0.84rem; color:var(--text-muted);">
+                  Reduce your risk exposure through endpoint anti-malware, anti-ransomware policies, scheduled OS/software patching and employee phishing awareness training.
+                </p>
+                <div class="telemetry-metrics">
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Endpoint Hardening</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-shield-virus" style="color:var(--accent-cyan); font-size:0.85rem;"></i> Policy &amp; Patch Active</div>
+                  </div>
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Human Firewall</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-user-graduate" style="color:var(--accent-emerald); font-size:0.85rem;"></i> Awareness Training</div>
+                  </div>
+                </div>
+                <div class="telemetry-bar-wrap">
+                  <div class="telemetry-bar-label">
+                    <span>Preventative Security Posture Alignment</span>
+                    <span style="color:var(--accent-cyan); font-weight:700;">Proactive Controls</span>
+                  </div>
+                  <div class="telemetry-bar"><div class="telemetry-bar-fill" style="width:92%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Pillar 3: DETECT -->
+              <div class="console-panel">
+                <div class="telemetry-header">
+                  <div class="telemetry-title">03. Detect — Monitoring, Alerting &amp; Risk Visibility</div>
+                  <span class="telemetry-badge">PILLAR 03 • DETECT</span>
+                </div>
+                <p style="font-size:0.84rem; color:var(--text-muted);">
+                  Identify potential security threats, backup anomalies, device health issues and configuration weaknesses early through RMM oversight and assessments.
+                </p>
+                <div class="telemetry-metrics">
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Telemetry Visibility</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-satellite-dish" style="color:var(--accent-cyan); font-size:0.85rem;"></i> Endpoint &amp; Backup Alerts</div>
+                  </div>
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Vulnerability Review</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-magnifying-glass-chart" style="color:var(--accent-emerald); font-size:0.85rem;"></i> Assessment-Led</div>
+                  </div>
+                </div>
+                <div class="telemetry-bar-wrap">
+                  <div class="telemetry-bar-label">
+                    <span>Continuous Alert &amp; Health Visibility</span>
+                    <span style="color:var(--accent-cyan); font-weight:700;">Active Monitoring</span>
+                  </div>
+                  <div class="telemetry-bar"><div class="telemetry-bar-fill" style="width:93%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Pillar 4: RESPOND -->
+              <div class="console-panel">
+                <div class="telemetry-header">
+                  <div class="telemetry-title">04. Respond — Incident Triage &amp; Remote IT Support</div>
+                  <span class="telemetry-badge">PILLAR 04 • RESPOND</span>
+                </div>
+                <p style="font-size:0.84rem; color:var(--text-muted);">
+                  Act swiftly when alerts or disruptions occur through agreed remote IT support, structured escalation, investigation and optional MDR arrangements.
+                </p>
+                <div class="telemetry-metrics">
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Support &amp; Triage</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-headset" style="color:var(--accent-cyan); font-size:0.85rem;"></i> Remote Response</div>
+                  </div>
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Co-Managed Ready</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-handshake" style="color:var(--accent-emerald); font-size:0.85rem;"></i> Clear Escalation</div>
+                  </div>
+                </div>
+                <div class="telemetry-bar-wrap">
+                  <div class="telemetry-bar-label">
+                    <span>Response Readiness &amp; Escalation Clarity</span>
+                    <span style="color:var(--accent-cyan); font-weight:700;">Defined SLA Scope</span>
+                  </div>
+                  <div class="telemetry-bar"><div class="telemetry-bar-fill" style="width:90%;"></div></div>
+                </div>
+              </div>
+
+              <!-- Pillar 5: RECOVER -->
+              <div class="console-panel">
+                <div class="telemetry-header">
+                  <div class="telemetry-title">05. Recover — Assisted Restoration &amp; Continuity</div>
+                  <span class="telemetry-badge">PILLAR 05 • RECOVER</span>
+                </div>
+                <p style="font-size:0.84rem; color:var(--text-muted);">
+                  Restore protected files, Microsoft 365 mailboxes, workstations or critical servers through documented recovery runbooks and disaster recovery planning.
+                </p>
+                <div class="telemetry-metrics">
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Data &amp; System Restore</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-rotate-left" style="color:var(--accent-cyan); font-size:0.85rem;"></i> Assisted Recovery</div>
+                  </div>
+                  <div class="telemetry-box">
+                    <div class="telemetry-label">Continuity Validation</div>
+                    <div class="telemetry-val"><i class="fa-solid fa-vial-circle-check" style="color:var(--accent-emerald); font-size:0.85rem;"></i> Scoped DR Drills</div>
+                  </div>
+                </div>
+                <div class="telemetry-bar-wrap">
+                  <div class="telemetry-bar-label">
+                    <span>Recovery &amp; Business Continuity Alignment</span>
+                    <span style="color:var(--accent-cyan); font-weight:700;">Verified Process</span>
+                  </div>
+                  <div class="telemetry-bar"><div class="telemetry-bar-fill" style="width:96%;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px; display:flex; align-items:center; justify-content:space-between; font-size:0.75rem; color:var(--text-subtle); position:relative; z-index:2;">
+              <span><i class="fa-solid fa-hand-pointer" style="color:var(--accent-cyan);"></i> Click any pillar above to inspect NAS service telemetry</span>
+              <a href="services.html" style="color:var(--accent-cyan); font-weight:700;">View All 26 Services →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         2. THE BUSINESS PROBLEM — ASYMMETRIC EDITORIAL BENTO
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="editorial-split-header">
+          <div>
+            <div class="editorial-eyebrow">Business Risk Reality</div>
+            <h2 class="h2-section">Your Business Depends on IT.<br><span class="text-gradient-cyan">Is It Properly Protected?</span></h2>
+          </div>
+          <p class="subhead">
+            Your team depends on email, business applications, devices and digital information every day. When those systems fail—or critical data becomes unavailable—the impact extends far beyond IT.
+          </p>
+        </div>
+
+        <div class="bento-editorial-grid">
+          <div class="bento-card bento-span-7">
+            <div>
+              <div class="bento-num">01 / Critical Exposure</div>
+              <h3>Data Loss & Ransomware</h3>
+              <p>Accidental deletion, hardware failure or a single ransomware incident can lock or erase the client records, financial files and operational data your business relies on to trade.</p>
+            </div>
+            <div style="margin-top:24px; font-size:0.8rem; color:var(--accent-rose); font-weight:700; letter-spacing:0.06em; text-transform:uppercase;">
+              <i class="fa-solid fa-triangle-exclamation"></i> Primary Operational Risk for Growing SMEs
+            </div>
+          </div>
+
+          <div class="bento-card bento-span-5">
+            <div>
+              <div class="bento-num">02 / Silent Gaps</div>
+              <h3>Unclear Backup Protection</h3>
+              <p>Many businesses assume their data is backed up—only to discover during an emergency that key folders or Microsoft 365 mailboxes were never included in the scope.</p>
+            </div>
+            <div style="margin-top:24px; font-size:0.8rem; color:var(--accent-cyan); font-weight:700; letter-spacing:0.06em; text-transform:uppercase;">
+              <i class="fa-solid fa-database"></i> Requires Verified Recovery Testing
+            </div>
+          </div>
+
+          <div class="bento-card bento-span-5">
+            <div>
+              <div class="bento-num">03 / Endpoint Drift</div>
+              <h3>Cybersecurity Gaps</h3>
+              <p>Outdated laptops, unpatched operating systems, weak configurations and limited security visibility leave staff devices exposed to avoidable phishing and malware risks.</p>
+            </div>
+            <div style="margin-top:24px; font-size:0.8rem; color:var(--accent-cyan); font-weight:700; letter-spacing:0.06em; text-transform:uppercase;">
+              <i class="fa-solid fa-shield-halved"></i> Managed Endpoint & Human Layer
+            </div>
+          </div>
+
+          <div class="bento-card bento-span-7" style="border-color: rgba(125, 211, 252, 0.28);">
+            <div>
+              <div class="bento-num">04 / Unplanned Downtime</div>
+              <h3>IT Disruption Without a Recovery Plan</h3>
+              <p>When systems fail, businesses need more than software—they need a clear support process, accountable oversight and a practical plan to restore normal operations.</p>
+            </div>
+            <div style="margin-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+              <span style="font-size:0.88rem; color:#fff; font-weight:600;">Find out where your business stands today:</span>
+              <a href="security-assessment.html" class="btn btn-cyan btn-sm">Book Your Free Cyber Resilience Assessment <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         3. WHAT NAS DOES — INTERACTIVE EDITORIAL SERVICE LEDGER
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="editorial-split-header">
+          <div>
+            <div class="editorial-eyebrow">Core Capabilities</div>
+            <h2 class="h2-section">Practical Protection.<br><span class="text-gradient-cyan">Proactive Management.</span></h2>
+          </div>
+          <p class="subhead">
+            NAS brings together essential IT management and cyber resilience services to help businesses reduce risk, improve visibility and prepare for disruption.
+          </p>
+        </div>
+
+        <div class="editorial-ledger">
+          <!-- Row 01 -->
+          <div class="ledger-row">
+            <div class="ledger-idx">01</div>
+            <div class="ledger-title-col">
+              <h3>Backup & Data Protection</h3>
+              <div class="status-tag-group" style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+                <span class="status-tag tag-essential">Essential</span>
+                <span class="status-tag tag-secure">Business Secure</span>
+                <span class="status-tag tag-complete">Complete</span>
+              </div>
+            </div>
+            <div class="ledger-desc-col">
+              <p>Protect important business data across workstations, Microsoft 365 and servers with managed backup monitoring and a defined recovery process.</p>
+            </div>
+            <div class="ledger-actions">
+              <button class="btn btn-outline btn-sm" data-service-detail="workstation-backup">10-Point Spec</button>
+              <a href="backup-recovery.html" class="btn btn-cyan btn-sm">Explore <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Row 02 -->
+          <div class="ledger-row">
+            <div class="ledger-idx">02</div>
+            <div class="ledger-title-col">
+              <h3>Managed Cybersecurity</h3>
+              <div class="status-tag-group" style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+                <span class="status-tag tag-secure">Included in Business Secure</span>
+                <span class="status-tag tag-complete">Complete</span>
+              </div>
+            </div>
+            <div class="ledger-desc-col">
+              <p>Strengthen endpoint protection, anti-malware controls and visibility into security risks through managed security oversight.</p>
+            </div>
+            <div class="ledger-actions">
+              <button class="btn btn-outline btn-sm" data-service-detail="endpoint-security">10-Point Spec</button>
+              <a href="cyber-resilience.html" class="btn btn-cyan btn-sm">Explore <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Row 03 -->
+          <div class="ledger-row">
+            <div class="ledger-idx">03</div>
+            <div class="ledger-title-col">
+              <h3>Managed IT & RMM</h3>
+              <div class="status-tag-group" style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+                <span class="status-tag tag-addon">Available as Add-On</span>
+                <span class="status-tag tag-assessment">Scoped SLA</span>
+              </div>
+            </div>
+            <div class="ledger-desc-col">
+              <p>Support your team with proactive device monitoring, scheduled patch management, maintenance and agreed remote IT support.</p>
+            </div>
+            <div class="ledger-actions">
+              <button class="btn btn-outline btn-sm" data-service-detail="rmm">10-Point Spec</button>
+              <a href="managed-it.html" class="btn btn-cyan btn-sm">Explore <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Row 04 -->
+          <div class="ledger-row">
+            <div class="ledger-idx">04</div>
+            <div class="ledger-title-col">
+              <h3>Disaster Recovery Planning</h3>
+              <div class="status-tag-group" style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+                <span class="status-tag tag-addon">Available as Add-On</span>
+                <span class="status-tag tag-assessment">Subject to Assessment</span>
+              </div>
+            </div>
+            <div class="ledger-desc-col">
+              <p>Plan how critical business systems and servers can be restored when a major disruption affects normal operations.</p>
+            </div>
+            <div class="ledger-actions">
+              <button class="btn btn-outline btn-sm" data-service-detail="cloud-dr">10-Point Spec</button>
+              <a href="disaster-recovery.html" class="btn btn-cyan btn-sm">Explore <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Row 05 -->
+          <div class="ledger-row">
+            <div class="ledger-idx">05</div>
+            <div class="ledger-title-col">
+              <h3>Employee Security Awareness</h3>
+              <div class="status-tag-group" style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+                <span class="status-tag tag-secure">Included in Business Secure</span>
+                <span class="status-tag tag-complete">Complete</span>
+              </div>
+            </div>
+            <div class="ledger-desc-col">
+              <p>Help employees recognise phishing, social engineering and everyday cyber threats through structured awareness training.</p>
+            </div>
+            <div class="ledger-actions">
+              <button class="btn btn-outline btn-sm" data-service-detail="security-awareness">10-Point Spec</button>
+              <a href="services.html" class="btn btn-cyan btn-sm">All 26 Services <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         4. THE 5 PILLARS OF CYBER RESILIENCE (PROPOSAL FRAMEWORK)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="center-text">
+          <div class="pill-badge">The 5 Cyber Resilience Pillars</div>
+          <h2 class="h2-section">More Than Software. Five Pillars of Managed Resilience.</h2>
+          <p class="subhead">Technology is only one part of effective cyber resilience. NAS structures every client engagement around five core operational pillars — combining protection tools with configuration, monitoring, response and recovery.</p>
+        </div>
+
+        <div class="grid-5" style="margin-top:40px;">
+          <div class="value-card">
+            <div class="step-num">01 // PROTECT</div>
+            <h3 class="card-title">Protect Assets</h3>
+            <p class="card-desc">Safeguard critical business data, workstations, servers and Microsoft 365 workloads through managed backup and access controls.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="step-num">02 // PREVENT</div>
+            <h3 class="card-title">Prevent Threats</h3>
+            <p class="card-desc">Reduce risk exposure with managed endpoint security, anti-ransomware policies, patch management and staff phishing awareness.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="step-num">03 // DETECT</div>
+            <h3 class="card-title">Detect Early</h3>
+            <p class="card-desc">Identify security alerts, backup failures, device health issues and configuration weaknesses before they escalate.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="step-num">04 // RESPOND</div>
+            <h3 class="card-title">Respond Swiftly</h3>
+            <p class="card-desc">Act on alerts and disruptions through structured incident procedures, remote IT support and agreed escalation paths.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="step-num">05 // RECOVER</div>
+            <h3 class="card-title">Recover Confidently</h3>
+            <p class="card-desc">Restore protected files, mailboxes and systems following a defined recovery process and continuity plan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         5. ASSESSMENT FEATURE BANNER
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding brand-watermark-bg" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="glass-card" style="border-color: var(--accent-cyan); padding: 48px;">
+          <div class="pill-badge">Complimentary Review</div>
+          <h2 class="h2-section" style="font-size:2.2rem;">Know Where Your Business Stands.</h2>
+          <p style="color: var(--text-body); max-width: 780px; margin-bottom: 24px;">
+            Before recommending a package, NAS takes the time to understand your business, your IT environment and how you currently protect your data. Our complimentary Cyber Resilience Assessment helps identify potential gaps in backup, endpoint security, Microsoft 365 protection and recovery readiness.
+          </p>
+
+          <div style="font-weight:700; color:#fff; margin-bottom:12px;">Assessment review areas:</div>
+          <div class="grid-3" style="gap:16px; margin-bottom:32px;">
+            <div style="font-size:0.9rem; color:var(--text-muted);"><i class="fa-solid fa-check text-gradient-cyan"></i> Backup arrangements</div>
+            <div style="font-size:0.9rem; color:var(--text-muted);"><i class="fa-solid fa-check text-gradient-cyan"></i> Endpoint protection</div>
+            <div style="font-size:0.9rem; color:var(--text-muted);"><i class="fa-solid fa-check text-gradient-cyan"></i> M365 / Google Workspace</div>
+            <div style="font-size:0.9rem; color:var(--text-muted);"><i class="fa-solid fa-check text-gradient-cyan"></i> Device & IT management</div>
+            <div style="font-size:0.9rem; color:var(--text-muted);"><i class="fa-solid fa-check text-gradient-cyan"></i> Recovery readiness</div>
+            <div style="font-size:0.9rem; color:var(--text-muted);"><i class="fa-solid fa-check text-gradient-cyan"></i> Business continuity</div>
+          </div>
+
+          <div class="btn-group">
+            <a href="security-assessment.html" class="btn btn-cyan">Book Your Free Cyber Resilience Assessment <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div style="font-size:0.75rem; color:var(--text-subtle); margin-top:12px;">
+            * No obligation to purchase. The initial assessment is not a penetration test, formal compliance audit or guarantee that every vulnerability will be identified.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         6. PACKAGES PREVIEW
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="center-text">
+          <div class="pill-badge">Packages & Pricing Preview</div>
+          <h2 class="h2-section">Protection That Fits Your Business.</h2>
+          <p class="subhead">Every business has different requirements. NAS offers structured service packages to help businesses select an appropriate level of backup, cybersecurity and managed protection.</p>
+        </div>
+
+        <div class="packages-grid">
+          <!-- Essential -->
+          <div class="pkg-card">
+            <div class="pkg-tier-badge">TIER 01 • FOUNDATION</div>
+            <h3 class="pkg-title">NAS Essential</h3>
+            <div class="pkg-subtitle">Backup &amp; Recovery</div>
+            <div class="pkg-price-box">
+              <div style="font-size:0.8rem; color:var(--text-muted);">From</div>
+              <span class="pkg-price">R699</span>
+              <div class="pkg-unit">/ user / month*</div>
+              <div class="pkg-vat">Excl. VAT</div>
+            </div>
+            <p class="pkg-desc">For businesses looking to establish a reliable managed backup foundation for workstations and Microsoft 365.</p>
+            <div class="pkg-features">
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Workstation backup</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Microsoft 365 backup</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> 300 GB workstation storage</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Managed backup health monitoring</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Assisted recovery support</div>
+            </div>
+            <a href="packages.html" class="btn btn-outline" style="width:100%;">View Package</a>
+          </div>
+
+          <!-- Business Secure (RECOMMENDED) -->
+          <div class="pkg-card recommended">
+            <div class="pkg-tier-badge pkg-tier-recommended"><i class="fa-solid fa-star"></i> RECOMMENDED • MOST POPULAR</div>
+            <h3 class="pkg-title">NAS Business Secure</h3>
+            <div class="pkg-subtitle">Security + Backup + Awareness</div>
+            <div class="pkg-price-box">
+              <div style="font-size:0.8rem; color:var(--text-muted);">From</div>
+              <span class="pkg-price text-gradient-cyan">R999</span>
+              <div class="pkg-unit">/ user / month*</div>
+              <div class="pkg-vat">Excl. VAT</div>
+            </div>
+            <p class="pkg-desc" style="color:var(--text-body);">For businesses seeking a broader combination of endpoint protection, managed backup and employee security awareness.</p>
+            <div class="pkg-features">
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Workstation &amp; M365 backup</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Endpoint security &amp; anti-malware</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Security awareness training</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Agreed endpoint monitoring</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Assisted recovery support</div>
+            </div>
+            <a href="packages.html" class="btn btn-cyan" style="width:100%;">View Package <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <!-- Complete -->
+          <div class="pkg-card">
+            <div class="pkg-tier-badge">TIER 03 • ADVANCED</div>
+            <h3 class="pkg-title">NAS Complete</h3>
+            <div class="pkg-subtitle">Complete Cyber Resilience</div>
+            <div class="pkg-price-box">
+              <div style="font-size:0.8rem; color:var(--text-muted);">From</div>
+              <span class="pkg-price">R1,499</span>
+              <div class="pkg-unit">/ user / month*</div>
+              <div class="pkg-vat">Excl. VAT</div>
+            </div>
+            <p class="pkg-desc">For businesses seeking a more comprehensive combination of advanced endpoint and Microsoft 365 protection.</p>
+            <div class="pkg-features">
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Ultimate Workstation protection</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Ultimate Microsoft 365 protection</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Security awareness training</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Managed oversight &amp; reporting</div>
+              <div class="pkg-feature-item"><i class="fa-solid fa-check"></i> Priority recovery coordination</div>
+            </div>
+            <a href="packages.html" class="btn btn-outline" style="width:100%;">Compare Packages</a>
+          </div>
+        </div>
+
+        <div style="margin-top:20px; font-size:0.75rem; color:var(--text-subtle); text-align:center;">
+          * Proposed starting prices, excl. VAT. Final pricing depends on the confirmed service scope, protected workloads, storage requirements, add-ons and applicable terms. Confirm all prices and inclusions before publishing.
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         7. WHO WE WORK WITH — LOCATION-INDEPENDENT & INDUSTRY FOCUS
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="editorial-split-header">
+          <div>
+            <div class="editorial-eyebrow">Location-Independent Protection</div>
+            <h2 class="h2-section">Built for Businesses That<br><span class="text-gradient-cyan">Depend on Their Data.</span></h2>
+          </div>
+          <p class="subhead">
+            Location does not limit your protection. NAS supports growing businesses anywhere through cloud-managed backup, remote endpoint security and proactive IT oversight—whether your team works from a central office, on construction sites or remotely.
+          </p>
+        </div>
+
+        <div class="human-partner-strip">
+          <div>
+            <p class="partner-quote">
+              “When your project files, site tenders, accounting ledgers or mailboxes go offline, it isn’t just an IT ticket—it stops your team from working. Regardless of where your business is located, we take personal accountability for the backup, security and recovery scope we agree with you.”
+            </p>
+            <div style="margin-top:20px; font-size:0.85rem; color:var(--accent-cyan); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">
+              — New Age Solutions (NAS) • Cyber Resilience &amp; Managed IT
+            </div>
+            <div class="location-pills">
+              <span class="location-pill"><i class="fa-solid fa-globe"></i> Location-Independent Support</span>
+              <span class="location-pill"><i class="fa-solid fa-cloud-arrow-up"></i> Cloud-Managed Protection</span>
+              <span class="location-pill"><i class="fa-solid fa-laptop-file"></i> Office, Site &amp; Remote Teams</span>
+              <span class="location-pill"><i class="fa-solid fa-users"></i> 5 – 25+ Employee SMEs</span>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="bento-card" style="padding:18px 22px;">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <strong style="color:#fff; font-size:1.02rem;">Construction, Civil &amp; Engineering Companies</strong>
+                <i class="fa-solid fa-helmet-safety" style="color:var(--accent-cyan);"></i>
+              </div>
+              <p style="font-size:0.85rem; margin-top:4px;">Protecting project tenders, BOQs, CAD/site drawings, field laptops and office operations.</p>
+            </div>
+
+            <div class="bento-card" style="padding:18px 22px;">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <strong style="color:#fff; font-size:1.02rem;">Accounting, Tax &amp; Bookkeeping Firms</strong>
+                <i class="fa-solid fa-calculator" style="color:var(--accent-cyan);"></i>
+              </div>
+              <p style="font-size:0.85rem; margin-top:4px;">Protecting financial working papers, tax deadline continuity and sensitive client records.</p>
+            </div>
+
+            <div class="bento-card" style="padding:18px 22px;">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <strong style="color:#fff; font-size:1.02rem;">Legal Practices &amp; Conveyancers</strong>
+                <i class="fa-solid fa-scale-balanced" style="color:var(--accent-cyan);"></i>
+              </div>
+              <p style="font-size:0.85rem; margin-top:4px;">Safeguarding confidential legal correspondence, M365 mailboxes and matter files.</p>
+            </div>
+
+            <div class="bento-card" style="padding:18px 22px;">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <strong style="color:#fff; font-size:1.02rem;">Financial, Consulting &amp; Real Estate SMEs</strong>
+                <i class="fa-solid fa-building-shield" style="color:var(--accent-cyan);"></i>
+              </div>
+              <p style="font-size:0.85rem; margin-top:4px;">Practical endpoint security, staff awareness and structured recovery for growing teams.</p>
+            </div>
+
+            <div style="margin-top:6px;">
+              <a href="contact.html" class="btn btn-cyan" style="width:100%;">Let's Discuss Your Business Requirements <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         8. EXISTING IT PROVIDER (CO-MANAGED)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="grid-2" style="align-items:center;">
+          <div>
+            <div class="pill-badge">Co-Managed Capability</div>
+            <h2 class="h2-section">Already Have an IT Provider? NAS Can Complement Your Team.</h2>
+            <p class="subhead" style="margin-bottom:20px;">You don't necessarily need to replace your existing IT provider to improve your cyber resilience.</p>
+            <p style="color:var(--text-body); margin-bottom:24px;">NAS can assess opportunities to strengthen specific areas such as managed backup, endpoint protection, security awareness and recovery planning. Where appropriate, we explore a co-managed arrangement with documented responsibilities.</p>
+            <a href="security-assessment.html" class="btn btn-cyan">Discuss a Co-Managed Solution <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="glass-card" style="border-color:var(--border-active);">
+            <h3 style="color:#fff; font-size:1.2rem; margin-bottom:16px;">Co-Managed Scope Options</h3>
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.9rem; color:var(--text-muted);">
+              <div><i class="fa-solid fa-check text-gradient-cyan"></i> <strong>Dedicated Backup Oversight:</strong> Independent cloud retention & recovery verification</div>
+              <div><i class="fa-solid fa-check text-gradient-cyan"></i> <strong>Endpoint Security Layer:</strong> Managed anti-malware & threat monitoring</div>
+              <div><i class="fa-solid fa-check text-gradient-cyan"></i> <strong>Security Awareness:</strong> Ongoing staff phishing training</div>
+              <div><i class="fa-solid fa-check text-gradient-cyan"></i> <strong>Clear Escalation:</strong> Documented boundaries between your provider and NAS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         9. HOW IT WORKS (5 STEPS)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="center-text">
+          <div class="pill-badge">Clear Engagement Process</div>
+          <h2 class="h2-section">A Clear Path to Better Cyber Resilience.</h2>
+          <p class="subhead">A structured 5-step process ensuring total transparency and alignment.</p>
+        </div>
+
+        <div class="stepper-container">
+          <div class="step-card active">
+            <span class="step-num">STEP 1</span>
+            <h3 class="step-title">Assess</h3>
+            <p class="step-desc">We learn about your business, current IT environment and protection requirements.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">STEP 2</span>
+            <h3 class="step-title">Recommend</h3>
+            <p class="step-desc">We explain the findings and recommend services aligned with your needs.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">STEP 3</span>
+            <h3 class="step-title">Implement</h3>
+            <p class="step-desc">Once approved, we configure agreed services and establish relevant protection processes.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">STEP 4</span>
+            <h3 class="step-title">Manage</h3>
+            <p class="step-desc">We deliver the agreed ongoing monitoring, maintenance, support and reporting.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">STEP 5</span>
+            <h3 class="step-title">Review</h3>
+            <p class="step-desc">We review service performance and discuss changing business requirements.</p>
+          </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         10. FREQUENTLY ASKED QUESTIONS (SECTION 19 OF MASTER BRIEF)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="editorial-split-header">
+          <div>
+            <div class="editorial-eyebrow">Transparent Answers</div>
+            <h2 class="h2-section">Frequently Asked<br><span class="text-gradient-cyan">Questions.</span></h2>
+          </div>
+          <p class="subhead">
+            Straightforward, practical answers about how NAS works, what our packages include, and how we support growing Gauteng businesses without technical jargon.
+          </p>
+        </div>
+
+        <div class="faq-container" style="margin-top:40px;">
+          <div class="faq-item open">
+            <button class="faq-header" type="button">
+              <span>1. What size businesses does NAS work with?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                NAS works with small and medium-sized businesses regardless of location—including construction companies, accounting practices, legal firms and growing teams of 5 to 25+ employees—scoping remote and cloud-managed protection around your environment.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" type="button">
+              <span>2. Do we need to replace our current IT provider?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                Not necessarily. Depending on your setup, NAS can discuss a co-managed or complementary arrangement with clearly agreed responsibilities alongside your existing IT provider.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" type="button">
+              <span>3. Isn't Microsoft 365 already backed up?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                Microsoft 365 includes platform availability and retention features, but businesses should still assess whether they need a separately configured backup and recovery service for accidental deletion, retention gaps or user offboarding.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" type="button">
+              <span>4. What happens during the free Cyber Resilience Assessment?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                NAS reviews your current backup, security, device management and recovery arrangements at a high level and discusses practical next steps tailored to your business. There is no obligation to purchase.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" type="button">
+              <span>5. Are the package prices final?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                Published prices are starting prices excluding VAT. Final pricing depends on the confirmed number of users, devices, servers, storage requirements, add-ons and agreed service scope.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" type="button">
+              <span>6. Are servers and disaster recovery included in standard user packages?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                No. Server protection and disaster recovery are scoped separately as add-on services based on your specific workloads and business continuity requirements.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" type="button">
+              <span>7. Can NAS recover our entire computer onto new hardware?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                Full-machine recovery depends on whether full-image backup is supported, licensed, configured and validated for the relevant device and replacement hardware.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" type="button">
+              <span>8. Does NAS guarantee that our business will never experience a cyber incident?</span>
+              <i class="fa-solid fa-chevron-down faq-icon"></i>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body-inner">
+                No responsible provider can guarantee complete immunity from cyber threats. NAS focuses on reducing risk, improving visibility and strengthening recovery readiness.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         11. FINAL HOMEPAGE CTA
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section-padding" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="statement-banner" style="padding: 60px 40px; border-color: rgba(255, 255, 255, 0.14);">
+          <h2 class="h2-section text-gradient-cyan" style="font-size:2.4rem;">Let's Make Your Business More Resilient.</h2>
+          <p style="max-width:640px; margin: 16px auto 32px auto; color: var(--text-body); font-size:1.1rem;">
+            Start with a conversation about your IT environment, your current protection and what your business needs to operate confidently.
+          </p>
+
+          <div class="btn-group" style="justify-content:center;">
+            <a href="security-assessment.html" class="btn btn-cyan">
+              Book Your Free Cyber Resilience Assessment <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn btn-outline">
+              Prefer to speak first? Contact NAS
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 10-POINT SERVICE DETAIL INTERACTIVE MODAL -->
+  <div class="service-detail-modal" id="service-detail-modal" role="dialog" aria-modal="true" aria-labelledby="sd-title">
+    <div class="service-detail-dialog">
+      <button class="service-detail-close" aria-label="Close Service Details"><i class="fa-solid fa-xmark"></i></button>
+      <div class="pill-badge" id="sd-badge">PACKAGE STATUS</div>
+      <h2 class="h2-section" id="sd-title" style="font-size:1.9rem; margin-bottom:8px;">Service Name</h2>
+      <p style="font-size:0.85rem; color:var(--text-muted);">Structured 10-Point NAS Service Specification</p>
+
+      <div class="detail-grid-10">
+        <div class="detail-block">
+          <h4>1. What the Service Is</h4>
+          <p id="sd-what"></p>
+        </div>
+        <div class="detail-block">
+          <h4>2. Business Problem Addressed</h4>
+          <p id="sd-problem"></p>
+        </div>
+        <div class="detail-block">
+          <h4>3. What NAS Does</h4>
+          <p id="sd-nas-does"></p>
+        </div>
+        <div class="detail-block">
+          <h4>4. What Is Included</h4>
+          <p id="sd-included"></p>
+        </div>
+        <div class="detail-block">
+          <h4>5. What Is Not Included</h4>
+          <p id="sd-not-included"></p>
+        </div>
+        <div class="detail-block">
+          <h4>6. Who the Service Suits</h4>
+          <p id="sd-suits"></p>
+        </div>
+        <div class="detail-block">
+          <h4>7. How the Service Works</h4>
+          <p id="sd-how"></p>
+        </div>
+        <div class="detail-block">
+          <h4>8. Package & Add-On Compatibility</h4>
+          <p id="sd-pkg-status"></p>
+        </div>
+        <div class="detail-block full">
+          <h4>9. Frequently Asked Question</h4>
+          <p id="sd-faq"></p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08);">
+        <span style="font-size:0.8rem; color:var(--text-subtle);">10. Final scope and pricing confirmed following initial assessment.</span>
+        <a href="security-assessment.html" class="btn btn-cyan">Book a Free Cyber Resilience Assessment <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════
-       EASY CONFIGURATION BLOCK
-  ═══════════════════════════════════════════════════ -->
-  <script>
-    const CONFIG = {
-      // 1. Status & Progress Configuration
-      statusBadge: "System Rebuild",       // Text in the small glowing pill badge
-      progressLabel: "Core Architecture",  // Label above the progress bar
-      progressPercent: 45,                 // Progress percentage (0 to 100)
-      
-      // 2. Launch Date Message (Updates main message)
-      message: "We are currently rebuilding our entire website to provide you with a more robust, state-of-the-art managed IT experience. Our system upgrades are underway, and our new portal is scheduled to launch in October 2026.",
+  <!-- ═════════════════════════════════════════════════════════════════════
+       FOOTER
+       ═════════════════════════════════════════════════════════════════════ -->
+    <!-- ═════════════════════════════════════════════════════════════════════
+       FOOTER
+       ═════════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="nas-logo-nav.png" alt="NAS New Age Solutions Logo" class="logo-img">
+          </a>
+          <p>Practical cybersecurity, managed IT and data protection for growing businesses — supporting your team wherever you operate.</p>
+          <div class="footer-contact-list">
+            <a href="mailto:info@newagesolution.co.za" class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@newagesolution.co.za</span>
+            </a>
+            <a href="https://wa.me/27763631820" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+              <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
+              <span>076 363 1820 (WhatsApp &amp; Direct)</span>
+            </a>
+          </div>
+          <div class="social-links-row">
+            <a href="https://www.facebook.com/profile.php?id=61578529301796" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="NAS on Facebook" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/112508781/admin/dashboard/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="NAS on LinkedIn" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/27763631820" target="_blank" rel="noopener noreferrer" class="social-icon-btn whatsapp" aria-label="Chat on WhatsApp" title="WhatsApp: 076 363 1820">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="mailto:info@newagesolution.co.za" class="social-icon-btn" aria-label="Email NAS" title="info@newagesolution.co.za">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
 
-      // 3. Main Contact Channels
-      email: "info@newagesolution.co.za",  // Target email address
-      phone: "",                           // Clean phone digits for calling (e.g. +27878221627)
-      phoneLabel: "",                      // Display format of the phone number
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <div class="footer-links">
+            <a href="services.html" class="footer-link">All Services Catalogue</a>
+            <a href="cyber-resilience.html" class="footer-link">Cyber Resilience</a>
+            <a href="backup-recovery.html" class="footer-link">Backup &amp; Data Protection</a>
+            <a href="managed-it.html" class="footer-link">Managed IT &amp; RMM</a>
+            <a href="disaster-recovery.html" class="footer-link">Disaster Recovery</a>
+          </div>
+        </div>
 
-      // 4. Social Media Links (Set to "" if you want to hide specific links)
-      facebook: "https://facebook.com/newagesolution",
-      linkedin: "https://linkedin.com/company/newagesolution",
-      whatsapp: ""
-    };
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <div class="footer-links">
+            <a href="packages.html" class="footer-link">Packages &amp; Pricing</a>
+            <a href="about.html" class="footer-link">About NAS</a>
+            <a href="resources.html" class="footer-link">Resources</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+          </div>
+        </div>
 
-    // ═══════════════════════════════════════════════════
-    // RENDER LOGIC (Automatic)
-    // ═══════════════════════════════════════════════════
-    document.addEventListener("DOMContentLoaded", () => {
-      // Update Status Badge
-      document.getElementById("status-badge-text").textContent = CONFIG.statusBadge;
-      
-      // Update Message
-      document.getElementById("intro-message").textContent = CONFIG.message;
-      
-      // Update Progress
-      document.getElementById("progress-title").textContent = CONFIG.progressLabel;
-      document.getElementById("progress-label-val").textContent = `${CONFIG.progressPercent}% Complete`;
-      
-      // Trigger progress bar width animation
-      setTimeout(() => {
-        document.getElementById("progress-bar").style.width = `${CONFIG.progressPercent}%`;
-      }, 300);
+        <div>
+          <h4 class="footer-col-title">Legal &amp; Privacy</h4>
+          <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="popia.html" class="footer-link">POPIA Information</a>
+            <a href="terms.html" class="footer-link">Website Terms</a>
+          </div>
+        </div>
+      </div>
 
-      // Update Contact Buttons
-      const emailBtn = document.getElementById("email-btn");
-      if (CONFIG.email) {
-        emailBtn.href = `mailto:${CONFIG.email}`;
-      } else {
-        emailBtn.style.display = "none";
-      }
+      <div class="footer-bottom">
+        <div>© New Age Solutions (NAS). All rights reserved.</div>
+        <div>Protect Today. Recover Tomorrow. Stay Resilient.</div>
+      </div>
+    </div>
+  </footer>
 
-      const phoneBtn = document.getElementById("phone-btn");
-      if (CONFIG.phone) {
-        phoneBtn.href = `tel:${CONFIG.phone}`;
-        phoneBtn.innerHTML = `<i class="fa-solid fa-phone"></i> Call ${CONFIG.phoneLabel}`;
-      } else {
-        phoneBtn.style.display = "none";
-      }
+  <!-- Modal -->
+  <div class="modal-overlay" id="success-modal">
+    <div class="modal-content">
+      <div class="card-icon" style="margin: 0 auto 20px auto; color: var(--accent-emerald); border-color: rgba(16,185,129,0.3);">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 id="modal-title" style="font-size: 1.5rem; margin-bottom: 12px; color: #fff;">Request Received</h3>
+      <p id="modal-msg" style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 28px;"></p>
+      <button class="btn btn-cyan" id="modal-close-btn">Close Window</button>
+    </div>
+  </div>
 
-      // Generate Social Links
-      const socialContainer = document.getElementById("social-container");
-      const socials = [
-        { key: "facebook", icon: "fa-brands fa-facebook-f", label: "Facebook" },
-        { key: "linkedin", icon: "fa-brands fa-linkedin-in", label: "LinkedIn" },
-        { key: "whatsapp", icon: "fa-brands fa-whatsapp", label: "WhatsApp" }
-      ];
-
-      socials.forEach(s => {
-        const url = CONFIG[s.key];
-        if (url) {
-          const a = document.createElement("a");
-          a.href = url;
-          a.className = "social-icon";
-          a.target = "_blank";
-          a.ariaLabel = s.label;
-          a.innerHTML = `<i class="${s.icon}"></i>`;
-          socialContainer.appendChild(a);
-        }
-      });
-    });
-  </script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

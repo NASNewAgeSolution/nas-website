@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster Recovery Services — New Age Solutions (NAS)</title>
+  <meta name="description" content="Plan how critical business systems can be restored when a major IT disruption occurs. Disaster recovery planning and cloud failover options from NAS.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+  <div class="bg-canvas">
+    <div class="bg-mesh"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="nas-logo-nav.png" alt="NAS New Age Solutions Logo" class="logo-img">
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        
+        <div class="nav-item">
+          <a href="services.html" class="nav-link active">Services <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
+          <div class="dropdown-menu">
+            <a href="cyber-resilience.html" class="dropdown-link"><i class="fa-solid fa-shield-halved"></i> Cyber Resilience</a>
+            <a href="backup-recovery.html" class="dropdown-link"><i class="fa-solid fa-database"></i> Backup & Data Protection</a>
+            <a href="services.html#cybersecurity" class="dropdown-link"><i class="fa-solid fa-user-shield"></i> Cybersecurity</a>
+            <a href="services.html#m365-protection" class="dropdown-link"><i class="fa-brands fa-microsoft"></i> Microsoft 365 Protection</a>
+            <a href="managed-it.html" class="dropdown-link"><i class="fa-solid fa-laptop-code"></i> Managed IT & RMM</a>
+            <a href="disaster-recovery.html" class="dropdown-link active"><i class="fa-solid fa-cloud-arrow-up"></i> Disaster Recovery</a>
+            <a href="services.html" class="dropdown-link" style="border-top:1px solid rgba(255,255,255,0.08); margin-top:4px; padding-top:12px;"><i class="fa-solid fa-layer-group"></i> All Services</a>
+          </div>
+        </div>
+
+        <a href="packages.html" class="nav-link">Packages</a>
+        <a href="about.html" class="nav-link">About NAS</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="security-assessment.html" class="btn btn-cyan btn-sm">
+          Book a Free Assessment
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="services.html" class="mobile-nav-link">All Services</a>
+      <a href="cyber-resilience.html" class="mobile-nav-link">Cyber Resilience</a>
+      <a href="backup-recovery.html" class="mobile-nav-link">Backup & Recovery</a>
+      <a href="managed-it.html" class="mobile-nav-link">Managed IT Services</a>
+      <a href="disaster-recovery.html" class="mobile-nav-link active">Disaster Recovery</a>
+      <a href="packages.html" class="mobile-nav-link">Packages & Pricing</a>
+      <a href="about.html" class="mobile-nav-link">About NAS</a>
+      <a href="resources.html" class="mobile-nav-link">Resources</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    </div>
+    <a href="security-assessment.html" class="btn btn-cyan">Book a Free Assessment</a>
+  </div>
+
+  <main>
+    <section class="hero-section brand-watermark-bg" style="padding-bottom: 60px;">
+      <div class="container center-text">
+        <div class="pill-badge">Business Continuity Planning</div>
+        <h1 class="h1-hero text-gradient-cyan">When Normal Operations Stop, Your Recovery Plan Matters.</h1>
+        <p class="subhead">NAS helps businesses assess and plan how critical systems can be restored when a major IT disruption occurs.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="security-assessment.html" class="btn btn-cyan">Assess My Recovery Readiness <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn btn-outline">Discuss Disaster Recovery</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: BACKUP VS DISASTER RECOVERY -->
+    <section class="section-padding" style="background: var(--bg-surface);">
+      <div class="container">
+        <div class="center-text">
+          <div class="pill-badge">Understanding The Difference</div>
+          <h2 class="h2-section">Backup vs. Disaster Recovery</h2>
+          <p class="subhead">Understanding why having backup files is different from having a operational disaster recovery plan.</p>
+        </div>
+
+        <div class="grid-2" style="margin-top: 40px;">
+          <div class="glass-card">
+            <h3 class="card-title" style="color:var(--accent-cyan);"><i class="fa-solid fa-database"></i> Backup Focus</h3>
+            <p class="card-desc" style="margin-bottom:16px;">Backup helps protect recoverable copies of data and systems. However, a business with backup alone may still require replacement server hardware, complex software reconfigurations and long restoration download times before normal operations resume.</p>
+            <p class="card-desc">Suitable for day-to-day file recovery and non-critical system restoration.</p>
+          </div>
+
+          <div class="glass-card" style="border-color:var(--border-active);">
+            <h3 class="card-title" style="color:var(--accent-emerald);"><i class="fa-solid fa-cloud-arrow-up"></i> Disaster Recovery Focus</h3>
+            <p class="card-desc" style="margin-bottom:16px;">Disaster recovery focuses on restoring critical workloads and business operations when normal infrastructure is completely unavailable or destroyed.</p>
+            <p class="card-desc">A properly configured disaster recovery solution provides an alternative cloud environment in which supported workloads can run while your primary environment is restored.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: NAS DR SERVICES -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="center-text">
+          <div class="pill-badge">Disaster Recovery Framework</div>
+          <h2 class="h2-section">NAS DR Planning & Services</h2>
+          <p class="subhead">Structured recovery planning tailored to your critical system dependencies.</p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 40px;">
+          <div class="glass-card">
+            <div class="card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+            <h3 class="card-title">Readiness Assessment</h3>
+            <p class="card-desc">Evaluate current infrastructure vulnerabilities, single points of failure, and operational risk exposure.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon"><i class="fa-solid fa-stopwatch"></i></div>
+            <h3 class="card-title">RPO & RTO Objectives</h3>
+            <p class="card-desc">Define realistic Recovery Point Objectives (acceptable data loss) and Recovery Time Objectives (acceptable downtime) for each workload.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+            <h3 class="card-title">Recovery Planning</h3>
+            <p class="card-desc">Design supported workload and cloud recovery-environment configurations aligned with business requirements.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <h3 class="card-title">Failover & Failback</h3>
+            <p class="card-desc">Establish documented failover and failback procedures, where supported by configured infrastructure.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon"><i class="fa-solid fa-vial"></i></div>
+            <h3 class="card-title">Recovery Testing</h3>
+            <p class="card-desc">Conduct periodic recovery simulation testing where included in the agreed service scope to validate failover health.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon"><i class="fa-solid fa-file-contract"></i></div>
+            <h3 class="card-title">Recovery Documentation</h3>
+            <p class="card-desc">Maintain clear operational recovery documentation detailing step-by-step procedures during a major incident.</p>
+          </div>
+        </div>
+
+        <!-- Considerations Banner -->
+        <div class="statement-banner" style="margin-top:60px;">
+          <h2 class="h2-section" style="font-size:1.8rem;">Important Recovery Considerations</h2>
+          <p style="color:var(--text-muted); max-width:740px; margin:12px auto 0 auto;">
+            Not every business needs a dedicated DR environment. The right solution depends on the criticality of your workloads, acceptable downtime, internet connectivity, and budget. NAS does not promise a specific recovery time until your environment has been assessed and validated.
+          </p>
+          <div style="margin-top:24px;">
+            <a href="security-assessment.html" class="btn btn-cyan">Discuss Disaster Recovery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- ═════════════════════════════════════════════════════════════════════
+       FOOTER
+       ═════════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="nas-logo-nav.png" alt="NAS New Age Solutions Logo" class="logo-img">
+          </a>
+          <p>Practical cybersecurity, managed IT and data protection for growing businesses — supporting your team wherever you operate.</p>
+          <div class="footer-contact-list">
+            <a href="mailto:info@newagesolution.co.za" class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@newagesolution.co.za</span>
+            </a>
+            <a href="https://wa.me/27763631820" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+              <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
+              <span>076 363 1820 (WhatsApp &amp; Direct)</span>
+            </a>
+          </div>
+          <div class="social-links-row">
+            <a href="https://www.facebook.com/profile.php?id=61578529301796" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="NAS on Facebook" title="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/112508781/admin/dashboard/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="NAS on LinkedIn" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/27763631820" target="_blank" rel="noopener noreferrer" class="social-icon-btn whatsapp" aria-label="Chat on WhatsApp" title="WhatsApp: 076 363 1820">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="mailto:info@newagesolution.co.za" class="social-icon-btn" aria-label="Email NAS" title="info@newagesolution.co.za">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <div class="footer-links">
+            <a href="services.html" class="footer-link">All Services Catalogue</a>
+            <a href="cyber-resilience.html" class="footer-link">Cyber Resilience</a>
+            <a href="backup-recovery.html" class="footer-link">Backup &amp; Data Protection</a>
+            <a href="managed-it.html" class="footer-link">Managed IT &amp; RMM</a>
+            <a href="disaster-recovery.html" class="footer-link">Disaster Recovery</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <div class="footer-links">
+            <a href="packages.html" class="footer-link">Packages &amp; Pricing</a>
+            <a href="about.html" class="footer-link">About NAS</a>
+            <a href="resources.html" class="footer-link">Resources</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal &amp; Privacy</h4>
+          <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="popia.html" class="footer-link">POPIA Information</a>
+            <a href="terms.html" class="footer-link">Website Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© New Age Solutions (NAS). All rights reserved.</div>
+        <div>Protect Today. Recover Tomorrow. Stay Resilient.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=6"></script>
+</body>
+</html>
