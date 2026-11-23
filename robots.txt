@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /old-website-backup/
+
+Sitemap: https://www.newagesolution.co.za/sitemap.xml
