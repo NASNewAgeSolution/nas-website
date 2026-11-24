@@ -40,15 +40,53 @@ html, body {
   color: #334155 !important;
 }
 
-/* ---------- NAVBAR (Matches Homepage Matte Navy Header) ---------- */
+/* ---------- NAVBAR (Exact Pixel-for-Pixel Match to Homepage Header) ---------- */
 .navbar {
-  background: rgba(15, 23, 42, 0.97) !important;
+  position: sticky !important;
+  top: 0 !important;
+  height: 76px !important;
+  padding: 0 !important;
+  background: rgba(15, 23, 42, 0.96) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
   backdrop-filter: blur(10px) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar .nav-container {
+  max-width: 1200px !important;
+  width: 100% !important;
+  height: 76px !important;
+  padding: 0 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+}
+
+.navbar .nav-logo .logo-img {
+  height: 40px !important;
+  max-height: 40px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.navbar .nav-links {
+  gap: 28px !important;
 }
 
 .navbar .nav-link {
   color: #cbd5e1 !important;
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+}
+
+.navbar .nav-actions .btn {
+  padding: 9px 18px !important;
+  font-size: 0.86rem !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
 }
 
 .navbar .nav-link:hover,
@@ -538,6 +576,39 @@ html, body {
 .service-detail-close {
   color: #0f172a !important;
   background: #f1f5f9 !important;
+}
+
+/* Fix faint badge inside Service Detail Modal */
+.service-detail-dialog .pill-badge,
+#sd-badge {
+  background: #e0f2fe !important;
+  color: #0369a1 !important;
+  border: 1px solid #bae6fd !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+/* Fix empty square boxes: prevent .text-gradient-cyan from overriding FontAwesome font-family */
+i.fa-solid,
+i.fas,
+i.fa-solid.text-gradient-cyan,
+i.fas.text-gradient-cyan {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
+
+i.fa-brands,
+i.fab,
+i.fa-brands.text-gradient-cyan {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+
+i.text-gradient-cyan {
+  color: #0284c7 !important;
+  -webkit-text-fill-color: #0284c7 !important;
+  background: none !important;
+  margin-right: 6px;
 }
 
 /* ---------- FOOTER (Matches Homepage Matte Deep Navy Footer) ---------- */
