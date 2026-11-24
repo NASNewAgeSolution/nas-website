@@ -1052,7 +1052,7 @@ function initFormHandler() {
   const forms = document.querySelectorAll('form[data-validate]');
 
   forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       if (!form.checkValidity()) {
@@ -1060,15 +1060,58 @@ function initFormHandler() {
         return;
       }
 
+      const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending Enquiry...';
+      }
+
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
+      const formTitle = form.id === 'assessment-form'
+        ? 'New NAS Cyber Resilience Assessment Request'
+        : 'New NAS Website Contact Enquiry';
 
-      openModal(
-        'Enquiry Received',
-        `Thank you ${data.name || 'there'}. Your enquiry for ${data.company || 'your business'} has been received. We'll review the information provided and contact you to discuss the next step.`
-      );
+      const payload = {
+        ...data,
+        _subject: `${formTitle} — ${data.company || data.name || 'Website Lead'}`,
+        _template: 'table',
+        _captcha: 'false'
+      };
 
-      form.reset();
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/info@newagesolution.co.za', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) throw new Error('Email relay returned ' + res.status);
+
+        openModal(
+          'Enquiry Sent Successfully',
+          `Thank you ${data.name || 'there'}. Your enquiry for ${data.company || 'your business'} has been emailed directly to our team at info@newagesolution.co.za. We will respond shortly—or you can message us immediately on WhatsApp (+27 76 363 1820).`
+        );
+        form.reset();
+      } catch (err) {
+        const waMsg = encodeURIComponent(
+          `Hi NAS, I submitted an enquiry on your website.\nName: ${data.name || ''}\nCompany: ${data.company || ''}\nEmail: ${data.email || ''}\nPhone: ${data.phone || ''}\nMessage: ${data.message || data.notes || ''}`
+        );
+        openModal(
+          'Direct Contact Fallback',
+          `We could not reach the email relay right now. Please email info@newagesolution.co.za directly or click OK to send your details via WhatsApp (+27 76 363 1820).`
+        );
+        window.open(`https://wa.me/27763631820?text=${waMsg}`, '_blank', 'noopener');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      }
     });
   });
 }
