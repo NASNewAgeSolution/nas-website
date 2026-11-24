@@ -1,0 +1,398 @@
+/* ==========================================================================
+   NEW AGE SOLUTIONS (NAS) — GROUNDED ENTERPRISE BOUTIQUE INNER-PAGE THEME
+   Unifies all 15 inner pages with the homepage's Matte Navy + Crisp Paper system
+   ========================================================================== */
+
+:root {
+  --bg-dark: #ffffff;
+  --bg-surface: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-glass: #ffffff;
+  --bg-glass-elevated: #ffffff;
+
+  --accent-cyan: #0284c7;
+  --accent-cyan-glow: rgba(2, 132, 199, 0.14);
+  --accent-blue: #0284c7;
+  --accent-blue-glow: rgba(2, 132, 199, 0.14);
+  --accent-emerald: #0d9488;
+  --accent-gold: #d97706;
+
+  --text-main: #0f172a;
+  --text-body: #334155;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+
+  --border-subtle: #e2e8f0;
+  --border-active: #cbd5e1;
+  --border-highlight: #0284c7;
+}
+
+/* Remove dark neon grids, glowing blobs & watermarks */
+.bg-canvas,
+.bg-mesh,
+.bg-grid {
+  display: none !important;
+}
+
+html, body {
+  background-color: #ffffff !important;
+  color: #334155 !important;
+}
+
+/* ---------- NAVBAR (Matches Homepage Matte Navy Header) ---------- */
+.navbar {
+  background: rgba(15, 23, 42, 0.97) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.navbar .nav-link {
+  color: #cbd5e1 !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffffff !important;
+}
+
+.navbar .dropdown-menu {
+  background: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35) !important;
+}
+
+.navbar .dropdown-link {
+  color: #cbd5e1 !important;
+}
+
+.navbar .dropdown-link i {
+  color: #38bdf8 !important;
+}
+
+.navbar .dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+.mobile-menu {
+  background: #0f172a !important;
+}
+
+.mobile-nav-link {
+  color: #cbd5e1 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.mobile-toggle {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* ---------- INNER-PAGE HERO (Matte Deep Navy Editorial Band) ---------- */
+.hero-section,
+.hero-section.brand-watermark-bg {
+  background: linear-gradient(135deg, #060a12 0%, #0f172a 100%) !important;
+  border-bottom: 3px solid #0284c7 !important;
+  color: #ffffff !important;
+  padding-top: 120px !important;
+  padding-bottom: 72px !important;
+}
+
+.hero-section::before,
+.hero-section::after {
+  display: none !important;
+}
+
+.hero-section .h1-hero,
+.hero-section h1,
+.hero-section .text-gradient-cyan {
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+.hero-section .subhead,
+.hero-section p {
+  color: #cbd5e1 !important;
+}
+
+.hero-section .pill-badge {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+}
+
+.hero-section .btn-outline {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.32) !important;
+  background: transparent !important;
+}
+
+.hero-section .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #ffffff !important;
+}
+
+/* ---------- CONTENT SECTIONS (Crisp Architectural Paper & White) ---------- */
+.section-padding {
+  background: #f8fafc !important;
+  color: #334155 !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.section-padding:nth-of-type(even) {
+  background: #ffffff !important;
+}
+
+.section-padding h2,
+.section-padding h3,
+.section-padding h4,
+.section-padding .h2-section,
+.section-padding .card-title,
+.section-padding .pkg-title,
+.section-padding .pkg-price,
+.section-padding .text-gradient-cyan {
+  color: #0f172a !important;
+  background: none !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+.section-padding p,
+.section-padding li,
+.section-padding .card-desc,
+.section-padding .pkg-desc,
+.section-padding .pkg-subtitle,
+.section-padding .pkg-feature-item,
+.section-padding .subhead {
+  color: #334155 !important;
+}
+
+.section-padding .pill-badge {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.22) !important;
+  color: #0284c7 !important;
+}
+
+/* ---------- CARDS (Pure White, Hairline Borders, Zero Neon Glow) ---------- */
+.glass-card,
+.value-card,
+.pkg-card,
+.service-catalog-card,
+.form-card,
+.diff-table-box,
+.faq-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
+  backdrop-filter: none !important;
+  color: #334155 !important;
+}
+
+.glass-card:hover,
+.value-card:hover,
+.pkg-card:hover,
+.service-catalog-card:hover {
+  border-color: #94a3b8 !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08) !important;
+}
+
+.pkg-card.recommended {
+  border: 2px solid #0284c7 !important;
+  box-shadow: 0 14px 32px rgba(2, 132, 199, 0.12) !important;
+}
+
+.pkg-tier-badge,
+.pkg-tier-recommended {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+.pkg-price-box {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.pkg-unit, .pkg-vat {
+  color: #64748b !important;
+}
+
+.card-icon {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.18) !important;
+  color: #0284c7 !important;
+  box-shadow: none !important;
+}
+
+.step-num {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* Status & Service Tags */
+.status-tag {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.tag-essential { background: #e0f2fe !important; color: #0369a1 !important; border-color: #bae6fd !important; }
+.tag-secure    { background: #dcfce7 !important; color: #15803d !important; border-color: #bbf7d0 !important; }
+.tag-complete  { background: #eef2ff !important; color: #4338ca !important; border-color: #c7d2fe !important; }
+.tag-addon     { background: #fef3c7 !important; color: #b45309 !important; border-color: #fde68a !important; }
+
+/* Filter Buttons on Services Catalog */
+.filter-btn {
+  background: #ffffff !important;
+  color: #334155 !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+/* Statement / CTA Banners inside inner pages */
+.statement-banner {
+  background: #0f172a !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-left: 4px solid #0284c7 !important;
+  color: #ffffff !important;
+}
+
+.statement-banner h2,
+.statement-banner h3,
+.statement-banner h4,
+.statement-banner strong {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.statement-banner p,
+.statement-banner span {
+  color: #cbd5e1 !important;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn-cyan {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border: 1px solid #0284c7 !important;
+  box-shadow: none !important;
+}
+
+.btn-cyan:hover {
+  background: #0369a1 !important;
+  border-color: #0369a1 !important;
+  color: #ffffff !important;
+}
+
+.section-padding .btn-outline {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.section-padding .btn-outline:hover {
+  border-color: #0284c7 !important;
+  color: #0284c7 !important;
+}
+
+.statement-banner .btn-outline {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* ---------- FORMS (Clean Executive White Inputs) ---------- */
+.form-label {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+.form-control {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.form-control::placeholder {
+  color: #94a3b8 !important;
+}
+
+.form-control:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15) !important;
+}
+
+.form-disclaimer {
+  color: #64748b !important;
+}
+
+/* ---------- FAQ & MODALS ---------- */
+.faq-header {
+  color: #0f172a !important;
+  background: #ffffff !important;
+}
+
+.faq-body {
+  color: #334155 !important;
+  border-top-color: #e2e8f0 !important;
+}
+
+.modal-content,
+.service-detail-dialog {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #334155 !important;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25) !important;
+}
+
+.modal-content h2,
+.modal-content h3,
+.service-detail-dialog h2,
+.service-detail-dialog h3,
+.service-detail-dialog h4 {
+  color: #0f172a !important;
+}
+
+.service-detail-dialog .detail-block {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.service-detail-close {
+  color: #0f172a !important;
+  background: #f1f5f9 !important;
+}
+
+/* ---------- FOOTER (Matches Homepage Matte Deep Navy Footer) ---------- */
+.footer {
+  background: #060a12 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #94a3b8 !important;
+}
+
+.footer .footer-col-title {
+  color: #ffffff !important;
+}
+
+.footer .footer-link,
+.footer .footer-contact-item,
+.footer p {
+  color: #94a3b8 !important;
+}
+
+.footer .footer-link:hover {
+  color: #38bdf8 !important;
+}
+
+.footer .footer-bottom {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+  color: #64748b !important;
+}
