@@ -43,6 +43,18 @@
       </nav>
       <div class="eb-nav-actions">
         <a href="security-assessment.html" class="eb-btn eb-btn-primary eb-btn-sm">Book Free Assessment</a>
+        <button class="eb-mobile-toggle" id="ebMobileBtn" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+    <div class="eb-mobile-drawer" id="ebMobileDrawer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="packages.html">Packages &amp; Pricing</a>
+      <a href="about.html">About NAS</a>
+      <a href="resources.html">Insights &amp; Resources</a>
+      <a href="contact.html">Contact</a>
+      <div style="margin-top:16px;">
+        <a href="security-assessment.html" class="eb-btn eb-btn-primary" style="width:100%;">Book Free Assessment</a>
       </div>
     </div>
   </header>
@@ -89,5 +101,10 @@
       </div>
     </div>
   </footer>
+  <script>
+    const btn = document.getElementById('ebMobileBtn');
+    const drawer = document.getElementById('ebMobileDrawer');
+    if (btn && drawer) btn.addEventListener('click', () => drawer.classList.toggle('open'));
+  </script>
 </body>
 </html>
