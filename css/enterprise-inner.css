@@ -89,14 +89,183 @@ html, body {
   border-color: rgba(255, 255, 255, 0.18) !important;
 }
 
-/* ---------- INNER-PAGE HERO (Matte Deep Navy Editorial Band) ---------- */
+/* ---------- INNER-PAGE HERO (Matte Deep Navy + Full-Bleed Editorial Photography) ---------- */
 .hero-section,
 .hero-section.brand-watermark-bg {
   background: linear-gradient(135deg, #060a12 0%, #0f172a 100%) !important;
   border-bottom: 3px solid #0284c7 !important;
   color: #ffffff !important;
-  padding-top: 120px !important;
-  padding-bottom: 72px !important;
+  padding-top: 124px !important;
+  padding-bottom: 84px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section.hero-photo {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section.hero-photo .container {
+  text-align: left !important;
+}
+
+.hero-section.hero-photo .h1-hero,
+.hero-section.hero-photo .subhead {
+  max-width: 650px;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.hero-section.hero-photo .btn-group {
+  justify-content: flex-start !important;
+}
+
+.hero-section.hero-soc {
+  background:
+    linear-gradient(90deg, rgba(6, 10, 18, 0.96) 0%, rgba(6, 10, 18, 0.88) 46%, rgba(6, 10, 18, 0.34) 78%, rgba(6, 10, 18, 0.25) 100%),
+    url('../images/hero-soc-editorial.jpg') center right / cover no-repeat !important;
+}
+
+.hero-section.hero-datacenter {
+  background:
+    linear-gradient(90deg, rgba(6, 10, 18, 0.96) 0%, rgba(6, 10, 18, 0.88) 46%, rgba(6, 10, 18, 0.32) 78%, rgba(6, 10, 18, 0.24) 100%),
+    url('../images/hero-datacenter.jpg') center right / cover no-repeat !important;
+}
+
+.hero-section.hero-managed-it {
+  background:
+    linear-gradient(90deg, rgba(6, 10, 18, 0.96) 0%, rgba(6, 10, 18, 0.88) 46%, rgba(6, 10, 18, 0.30) 78%, rgba(6, 10, 18, 0.22) 100%),
+    url('../images/hero-managed-it.jpg') center right / cover no-repeat !important;
+}
+
+.hero-section.hero-boardroom {
+  background:
+    linear-gradient(90deg, rgba(6, 10, 18, 0.96) 0%, rgba(6, 10, 18, 0.86) 46%, rgba(6, 10, 18, 0.32) 78%, rgba(6, 10, 18, 0.24) 100%),
+    url('../images/hero-boardroom.jpg') center right / cover no-repeat !important;
+}
+
+.hero-section.hero-consultation {
+  background:
+    linear-gradient(90deg, rgba(6, 10, 18, 0.96) 0%, rgba(6, 10, 18, 0.87) 46%, rgba(6, 10, 18, 0.30) 78%, rgba(6, 10, 18, 0.22) 100%),
+    url('../images/hero-consultation.jpg') center right / cover no-repeat !important;
+}
+
+@media (max-width: 900px) {
+  .hero-section.hero-photo {
+    background-position: center center !important;
+  }
+  .hero-section.hero-soc {
+    background: linear-gradient(180deg, rgba(6,10,18,0.92), rgba(6,10,18,0.86)), url('../images/hero-soc-editorial.jpg') center / cover no-repeat !important;
+  }
+  .hero-section.hero-datacenter {
+    background: linear-gradient(180deg, rgba(6,10,18,0.92), rgba(6,10,18,0.86)), url('../images/hero-datacenter.jpg') center / cover no-repeat !important;
+  }
+  .hero-section.hero-managed-it {
+    background: linear-gradient(180deg, rgba(6,10,18,0.92), rgba(6,10,18,0.86)), url('../images/hero-managed-it.jpg') center / cover no-repeat !important;
+  }
+  .hero-section.hero-boardroom {
+    background: linear-gradient(180deg, rgba(6,10,18,0.92), rgba(6,10,18,0.86)), url('../images/hero-boardroom.jpg') center / cover no-repeat !important;
+  }
+  .hero-section.hero-consultation {
+    background: linear-gradient(180deg, rgba(6,10,18,0.92), rgba(6,10,18,0.86)), url('../images/hero-consultation.jpg') center / cover no-repeat !important;
+  }
+}
+
+/* Enterprise Tech Stack Strip & Editorial Photo Split for Inner Pages */
+.eb-inner-stack {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 22px 0;
+}
+
+.eb-inner-stack-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.eb-inner-stack-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.eb-inner-stack-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.eb-inner-stack-items span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.eb-inner-stack-items i {
+  color: #0284c7;
+}
+
+.eb-editorial-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  margin-bottom: 48px;
+}
+
+.eb-editorial-split img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.eb-editorial-split-body {
+  padding: 36px 40px 36px 8px;
+}
+
+.eb-editorial-split-body h2,
+.eb-editorial-split-body h3 {
+  color: #0f172a !important;
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+
+.eb-editorial-split-body p {
+  color: #334155 !important;
+  font-size: 0.98rem;
+  line-height: 1.68;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 860px) {
+  .eb-editorial-split {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .eb-editorial-split-body {
+    padding: 28px 24px;
+  }
 }
 
 .hero-section::before,
